@@ -18,6 +18,7 @@ GTAGS
 *.swp
 tags
 *~
+*#
 build/
 .build/
 *.bak

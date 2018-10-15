@@ -1,5 +1,5 @@
-#ifndef SX60_H
-#define SX60_H
+#ifndef ASCEENSION_H
+#define ASCEENSION_H
 
 #include "quantum.h"
 #include <stdint.h>
