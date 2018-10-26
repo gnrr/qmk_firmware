@@ -16,20 +16,20 @@ uint8_t init_mcp23018(void) {
         _delay_ms(1000);
     }
 
-    /* B Pins are Row, A pins are Columns 
-       Set them to output */
+    /* MCP2318 PORT A/B Pins are set all input /w pullup as Col */
+#if 0 // power-on-reset set all input
     mcp23018_status = i2c_start(I2C_ADDR_WRITE);    if (mcp23018_status) goto out;
     mcp23018_status = i2c_write(IODIRA);            if (mcp23018_status) goto out;
     mcp23018_status = i2c_write(0b11111111);        if (mcp23018_status) goto out;
     /* Now write to IODIRB */
-    mcp23018_status = i2c_write(0b00000000);        if (mcp23018_status) goto out;
+    mcp23018_status = i2c_write(0b11111111);        if (mcp23018_status) goto out;
     i2c_stop();
-
+#endif
     mcp23018_status = i2c_start(I2C_ADDR_WRITE);    if (mcp23018_status) goto out;
     mcp23018_status = i2c_write(GPPUA);             if (mcp23018_status) goto out;
     mcp23018_status = i2c_write(0b11111111);        if (mcp23018_status) goto out;
     /* Now write to GPPUB */
-    mcp23018_status = i2c_write(0b00000000);        if (mcp23018_status) goto out;
+    mcp23018_status = i2c_write(0b11111111);        if (mcp23018_status) goto out;
 
 out:
     i2c_stop();
