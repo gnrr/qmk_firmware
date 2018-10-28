@@ -4,12 +4,12 @@
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED
-#define PRODUCT_ID      0x6060
+#define VENDOR_ID       0x1209
+#define PRODUCT_ID      0x5501
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    qmkbuilder
-#define PRODUCT         keyboard
-#define DESCRIPTION     Keyboard
+#define MANUFACTURER    scum noodle society
+#define PRODUCT         asceension
+#define DESCRIPTION     Keyboard /w joypads
 
 /* key matrix size */
 #define MATRIX_ROWS 7
@@ -18,7 +18,7 @@
 
 /* key matrix pins */
 #define MATRIX_ROW_PINS { B1, B2, B3, B4, B5, B6, B7 }
-#define MATRIX_COL_PINS { F6, B5, B4, D7, D6, D5, D3, D2 }
+#define MATRIX_COL_PINS {}
 #define UNUSED_PINS
 
 
@@ -27,7 +27,7 @@
 #define DIODE_DIRECTION COL2ROW
 
 /* number of backlight levels */
-#define BACKLIGHT_PIN B7
+// #define BACKLIGHT_PIN B7
 #ifdef BACKLIGHT_PIN
 #define BACKLIGHT_LEVELS 3
 #endif
@@ -36,10 +36,10 @@
 #define DEBOUNCING_DELAY 5
 
 /* Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap */
-#define LOCKING_SUPPORT_ENABLE
+// #define LOCKING_SUPPORT_ENABLE
 
 /* Locking resynchronize hack */
-#define LOCKING_RESYNC_ENABLE
+// #define LOCKING_RESYNC_ENABLE
 
 /* key combination for command */
 #define IS_COMMAND() ( \

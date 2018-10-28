@@ -12,13 +12,11 @@
 
 /* I2C aliases and register addresses (see "mcp23018.md") */
 #define I2C_ADDR        0b0100000
-#define I2C_ADDR_WRITE  ( (I2C_ADDR<<1) | I2C_WRITE )
-#define I2C_ADDR_READ   ( (I2C_ADDR<<1) | I2C_READ  )
-#define IODIRA          0x00            /* i/o direction register */
+#define IODIRA          0x00            /* i/o direction register (BANK0) */
 #define IODIRB          0x01
-#define GPPUA           0x0C            /* GPIO pull-up resistor register */
+#define GPPUA           0x0C            /* GPIO pull-up resistor register (BANK0) */
 #define GPPUB           0x0D
-#define GPIOA           0x12            /* general purpose i/o port register (write modifies OLAT) */
+#define GPIOA           0x12            /* general purpose i/o port register (write modifies OLAT) (BANK0) */
 #define GPIOB           0x13
 #define OLATA           0x14            /* output latch register */
 #define OLATB           0x15
@@ -27,6 +25,7 @@ extern uint8_t mcp23018_status;
 
 uint8_t init_mcp23018(void);
 
+#if 0
 #define LAYOUT( \
 	      K00, K01, K02, K03, K04, K05, K06,    K07, K08, K09, K10, K11, K12, K13, K14, \
 	K15,  K16,    K17, K18, K19, K20, K21,    K22, K23, K24, K25, K26, K27, K28,  K29, \
@@ -82,5 +81,6 @@ uint8_t init_mcp23018(void);
 	{ K43, K44, KC_NO, K45, K46, K47, K48,   K49,   K50, K51, K52, K53, K54, K55, K56,   K56   }, \
 	{ K57, K58, K59,   K60, K61, K62, KC_NO, KC_NO, K63, K64, K65, K66, K67, K68, KC_NO, KC_NO }  \
 }
+#endif
 
 #endif

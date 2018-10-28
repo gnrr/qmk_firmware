@@ -1,6 +1,7 @@
 GPATH
 GRTAGS
 GTAGS
+*.zip
 .dep
 *.o
 *.bin
