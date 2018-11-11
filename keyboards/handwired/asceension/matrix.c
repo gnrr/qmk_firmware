@@ -27,6 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "timer.h"
 #include "asceension.h"
 
+#include "dbg.h"
 
 /* Set 0 if debouncing isn't needed */
 
@@ -141,13 +142,14 @@ uint8_t matrix_scan(void)
         if (++mcp23018_reset_loop == 0) {
             /* since mcp23018_reset_loop is 8 bit - we'll try to reset once in 255 matrix scans
                this will be approx bit more frequent than once per second */
-            print("trying to reset mcp23018\n");
+            print("trying to init mcp23018: ");
             mcp23018_status = init_mcp23018();
 
             if (mcp23018_status) {
                 print("MCP23018 not responding\n");
+                return 1;
             } else {
-                print("MCP23018 attached\n");
+                print("MCP23018 initialized\n");
             }
         }
     }
@@ -245,8 +247,7 @@ static bool read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     /* Store last value of row prior to reading */
     matrix_row_t last_row_value = current_matrix[current_row];
 
-    /* Clear data in matrix row */
-    current_matrix[current_row] = 0;
+    cols.word = 0;
 
     /* Select row and wait for row selecton to stabilize */
     select_row(current_row);
@@ -255,16 +256,20 @@ static bool read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
     /* read all cols from MCP23018 */
     mcp23018_status = i2c_start(I2C_ADDR, I2C_WRITE);    if(mcp23018_status) goto out;
     mcp23018_status = i2c_write(GPIOA);                  if(mcp23018_status) goto out;
-    mcp23018_status = i2c_rep_start(I2C_ADDR, I2C_READ); if(mcp23018_status) goto out;
+    mcp23018_status = i2c_start(I2C_ADDR, I2C_READ);     if(mcp23018_status) goto out;
     mcp23018_status = i2c_read_ack(&cols.byte.lo);       if(mcp23018_status) goto out;
     /* Now read to IODIRB */
     mcp23018_status = i2c_read_nak(&cols.byte.hi);       if(mcp23018_status) goto out;
 
+    current_matrix[current_row] = ~(cols.word);       // update row
+
 out:
     i2c_stop();
 
-    current_matrix[current_row] = cols.word;
-    
+#if 0    // dbg
+    DBG_ROW(6);
+#endif
+ 
     /* Unselect row */
     unselect_rows();
 

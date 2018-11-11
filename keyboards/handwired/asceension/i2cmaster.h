@@ -119,7 +119,7 @@ extern void i2c_stop(void);
  */
 extern uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag);
 
-
+#if 0
 /**
  @brief Issues a start condition and sends address and transfer direction 
 
@@ -128,7 +128,7 @@ extern uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag);
  @retval  1 failed to access device
  */
 extern uint8_t i2c_rep_start(uint8_t device_addr, uint8_t rw_flag);
-
+#endif
 
 /**
  @brief Issues a repeated start condition and sends address and transfer direction 
