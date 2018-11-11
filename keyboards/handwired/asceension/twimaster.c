@@ -11,6 +11,8 @@
 
 #include <i2cmaster.h>
 
+#include "dbg.h"
+
 /* define CPU frequency in Hz here if not defined in Makefile */
 #ifndef F_CPU
 #define F_CPU 16000000UL
@@ -18,7 +20,6 @@
 
 /* I2C clock in Hz */
 #define SCL_CLOCK  400000L
-
 
 /*************************************************************************
  Initialization of the I2C bus interface. Need to be called only once
@@ -50,7 +51,7 @@ void i2c_init(void)
 uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag)
 {
   uint8_t   twst;
-
+  
   /* send START condition */
   TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTA);
  
@@ -58,8 +59,11 @@ uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag)
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */
-  twst = TW_STATUS & 0xF8;
-  if(twst != TW_START) return 1;
+  twst = TWSR & 0xF8;
+  if((twst != TW_START) && (twst != TW_REP_START)) {
+      DBG_HEX("i2c err: start condition: status=", twst);
+      return 1;
+  }
 
   /* send device address */
   TWDR = (device_addr << 1) | rw_flag;         // bit7..1: device address, bit0: rw_flag
@@ -69,50 +73,14 @@ uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag)
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */
-  twst = TW_STATUS & 0xF8;
-  if((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) return 1;
+  twst = TWSR & 0xF8;
+  if((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
+      DBG_HEX("i2c err: device address: status=", twst);
+      return 1;
+  }
 
   return 0;
-
 }/* i2c_start */
-
-
-/*************************************************************************
-  Issues a repeated start condition and sends address and transfer direction
-
-  param device_addr: 7bits
-        rw_flag: 0=write, 1=read
-  return:  0 device accessible
-           1 failed to access device
-*************************************************************************/
-uint8_t i2c_rep_start(uint8_t device_addr, uint8_t rw_flag)
-{
-  uint8_t   twst;
-
-  /* send START condition */
-  TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTA);
- 
-  /* wait until transmission completed */
-  while(!(TWCR & (1<<TWINT)));
-
-  /* check value of TWI Status Register. Mask prescaler bits. */
-  twst = TW_STATUS & 0xF8;
-  if(twst != TW_REP_START) return 1;
-
-  /* send device address */
-  TWDR = (device_addr << 1) | rw_flag;         // bit7..1: device address, bit0: w=0 r=1
-  TWCR = (1<<TWINT) | (1<<TWEN);
-
-  /* wail until transmission completed and ACK/NACK has been received */
-  while(!(TWCR & (1<<TWINT)));
-
-  /* check value of TWI Status Register. Mask prescaler bits. */
-  twst = TW_STATUS & 0xF8;
-  if((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) return 1;
-
-  return 0;
-}/* i2c_rep_start */
-
 
 /*************************************************************************
  Terminates the data transfer and releases the I2C bus
@@ -147,18 +115,22 @@ uint8_t i2c_write(uint8_t data)
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits */
-  twst = TW_STATUS & 0xF8;
-  if( twst != TW_MT_DATA_ACK) return 1;
-
+  twst = TWSR & 0xF8;
+  if( twst != TW_MT_DATA_ACK) {
+      DBG_HEX("i2c err: write: status=", twst);
+      return 1;
+  }
+  
   return 0;
-
 }/* i2c_write */
 
 
 /*************************************************************************
  Read one byte from the I2C device, request more data from device
 
- Return:  byte read from I2C device
+  Input:    *data read from I2C device
+  Return:   0 read successful
+            1 read failed
 *************************************************************************/
 uint8_t i2c_read_ack(uint8_t *data)
 {
@@ -168,8 +140,11 @@ uint8_t i2c_read_ack(uint8_t *data)
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits */
-  twst = TW_STATUS & 0xF8;
-  if( twst != TW_MR_DATA_ACK) return 1;
+  twst = TWSR & 0xF8;
+  if( twst != TW_MR_DATA_ACK) {
+      DBG_HEX("i2c err: read_ack: status=", twst);
+      return 1; // failed
+  }
 
   *data = TWDR;
   return 0;
@@ -179,7 +154,9 @@ uint8_t i2c_read_ack(uint8_t *data)
 /*************************************************************************
  Read one byte from the I2C device, read is followed by a stop condition
 
- Return:  byte read from I2C device
+  Input:    *data read from I2C device
+  Return:   0 read successful
+            1 read failed
 *************************************************************************/
 uint8_t i2c_read_nak(uint8_t *data)
 {
