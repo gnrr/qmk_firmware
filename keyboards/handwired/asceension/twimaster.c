@@ -11,7 +11,7 @@
 
 #include <i2cmaster.h>
 
-#include "dbg.h"
+// #include "debug.h"
 
 /* define CPU frequency in Hz here if not defined in Makefile */
 #ifndef F_CPU
@@ -61,7 +61,7 @@ uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag)
   /* check value of TWI Status Register. Mask prescaler bits. */
   twst = TWSR & 0xF8;
   if((twst != TW_START) && (twst != TW_REP_START)) {
-      DBG_HEX("i2c err: start condition: status=", twst);
+      // dprintf("i2c err: start condition: status=0x%X", twst);
       return 1;
   }
 
@@ -75,7 +75,7 @@ uint8_t i2c_start(uint8_t device_addr, uint8_t rw_flag)
   /* check value of TWI Status Register. Mask prescaler bits. */
   twst = TWSR & 0xF8;
   if((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
-      DBG_HEX("i2c err: device address: status=", twst);
+      // dprintf("i2c err: device address: status=0x%X", twst);
       return 1;
   }
 
@@ -117,7 +117,7 @@ uint8_t i2c_write(uint8_t data)
   /* check value of TWI Status Register. Mask prescaler bits */
   twst = TWSR & 0xF8;
   if( twst != TW_MT_DATA_ACK) {
-      DBG_HEX("i2c err: write: status=", twst);
+      // dprintf("i2c err: write: status=0x%X", twst);
       return 1;
   }
   
@@ -142,7 +142,7 @@ uint8_t i2c_read_ack(uint8_t *data)
   /* check value of TWI Status Register. Mask prescaler bits */
   twst = TWSR & 0xF8;
   if( twst != TW_MR_DATA_ACK) {
-      DBG_HEX("i2c err: read_ack: status=", twst);
+      // dprintf("i2c err: read_ack: status=0x%X", twst);
       return 1; // failed
   }
 

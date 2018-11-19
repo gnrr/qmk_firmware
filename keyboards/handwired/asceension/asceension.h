@@ -1,16 +1,15 @@
-#ifndef ASCEENSION_H
-#define ASCEENSION_H
+#pragma once
 
+// #include <stdint.h>
+// #include <stdbool.h>
+// #include <util/delay.h>
 #include "quantum.h"
-#include <stdint.h>
-#include <stdbool.h>
 #include "i2cmaster.h"
-#include <util/delay.h>
 
 #define CPU_PRESCALE(n) (CLKPR = 0x80, CLKPR = (n))
 #define CPU_16MHz       0x00
 
-/* I2C aliases and register addresses (see "mcp23018.md") */
+/* MCP23018 register addresses (see "mcp23018.md") */
 #define I2C_ADDR        0b0100000
 #define IODIRA          0x00            /* i/o direction register (BANK0) */
 #define IODIRB          0x01
@@ -81,6 +80,4 @@ uint8_t init_mcp23018(void);
 	{ K43, K44, KC_NO, K45, K46, K47, K48,   K49,   K50, K51, K52, K53, K54, K55, K56,   K56   }, \
 	{ K57, K58, K59,   K60, K61, K62, KC_NO, KC_NO, K63, K64, K65, K66, K67, K68, KC_NO, KC_NO }  \
 }
-#endif
-
 #endif
