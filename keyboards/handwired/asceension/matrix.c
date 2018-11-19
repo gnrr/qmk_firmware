@@ -27,7 +27,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "timer.h"
 #include "asceension.h"
 
-#include "dbg.h"
+#include "debug.h"
 
 /* Set 0 if debouncing isn't needed */
 
@@ -267,7 +267,7 @@ out:
     i2c_stop();
 
 #if 0    // dbg
-    DBG_ROW(6);
+    if(current_row == 6) dprintf("cols.word:0x%X", cols.word);
 #endif
  
     /* Unselect row */

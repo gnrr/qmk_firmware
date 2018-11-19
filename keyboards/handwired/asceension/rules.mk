@@ -1,6 +1,5 @@
 # # project specific files
-SRC =  twimaster.c \
-  matrix.c
+SRC =  twimaster.c matrix.c
 
 # MCU name
 MCU = atmega32u4
@@ -59,3 +58,7 @@ BACKLIGHT_ENABLE ?= no  # Enable keyboard backlight functionality
 AUDIO_ENABLE ?= no
 RGBLIGHT_ENABLE ?= no
 CUSTOM_MATRIX ?= yes
+POINTING_DEVICE_ENABLE ?= yes
+
+SRC += analog.c
+SRC += analog_joypad.c
