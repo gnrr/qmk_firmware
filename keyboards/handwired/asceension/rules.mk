@@ -61,4 +61,4 @@ CUSTOM_MATRIX ?= yes
 POINTING_DEVICE_ENABLE ?= yes
 
 SRC += analog.c
-SRC += analog_joypad.c
+SRC += analogpad.c

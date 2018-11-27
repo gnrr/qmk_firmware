@@ -1,53 +1,49 @@
 #include "i2cmaster.h"
 #include "quantum/pointing_device.h"
-#include "analog_joypad.h"
+#include "analogpad.h"
 #include "asceension.h"
 
-#include "debug.h"
+#include "debug.h" // dprintf
 
 bool i2c_initialized = false;
 uint8_t mcp23018_status = 0x20;
 
 // ADC mux for analog joypad (ATMEGA32U4)
-#define ADC_MUX_JOY_LY 0x07             // PF7/ADC7
-#define ADC_MUX_JOY_LX 0x06             // PF6/ADC6
-#define ADC_MUX_JOY_RY 0x05             // PF5/ADC5
-#define ADC_MUX_JOY_RX 0x04             // PF4/ADC4
+#define ADC_MUX_PAD_LY 0x07             // PF7/ADC7
+#define ADC_MUX_PAD_LX 0x06             // PF6/ADC6
+#define ADC_MUX_PAD_RY 0x05             // PF5/ADC5
+#define ADC_MUX_PAD_RX 0x04             // PF4/ADC4
 
 #define MAP(x, in_min, in_max, out_min, out_max) \
     ((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
 
-joypad_t jpad_l, jpad_r;
+analogpad_pointer_t pad_r;
+analogpad_scroll_t  pad_l;
         
 void pointing_device_init(void)
 {
     //initialize device, if that needs to be done.
     debug_enable = true;
 
-    init_joypad(&jpad_l, ADC_MUX_JOY_LX, ADC_MUX_JOY_LY);
-    init_joypad(&jpad_r, ADC_MUX_JOY_RX, ADC_MUX_JOY_RY);
+    init_analogpad_pointer(&pad_r, ADC_MUX_PAD_RX, ADC_MUX_PAD_RY);
+    init_analogpad_scroll(&pad_l, ADC_MUX_PAD_LX, ADC_MUX_PAD_LY);
 }
 
 void pointing_device_task(void) {
-    static uint8_t cnt = 0;
-
-    if(cnt == 0)
-        read_joypad(&jpad_l, 1);
-    cnt = (cnt + 1) % 100;
-
-    read_joypad(&jpad_r, 9);
-
 	report_mouse_t currentReport = {};
+
+    read_analogpad_pointer(&pad_r, 6);
+    read_analogpad_scroll(&pad_l, 1);
+
+    if(pad_l.x || pad_l.y)
+        dprintf("h,v: %d, %d\n", pad_l.x, pad_l.y);
+
     currentReport = pointing_device_get_report();
 
-#if 0 // dbg
-    // dprintf("LX,LY:%5d, %5d     RX,RY:%5d, %5d\n", jpad_l.x, jpad_l.y, jpad_r.x, jpad_r.y);
-#else
-    currentReport.x = jpad_r.x;           // 127 max -127 min
-    currentReport.y = jpad_r.y;           // 127 max -127 min
-    currentReport.h = jpad_l.x;           // 127 max -127 min (scroll horizontal)
-    currentReport.v = jpad_l.y;           // 127 max -127 min (scroll vertical)
-#endif
+    currentReport.x = pad_r.x;           // pointer -127 .. 127
+    currentReport.y = pad_r.y;           // pointer -127 .. 127
+    currentReport.h = pad_l.x;           // scroll  -127 .. 127
+    currentReport.v = pad_l.y;           // scroll  -127 .. 127
  
     pointing_device_set_report(currentReport);
 

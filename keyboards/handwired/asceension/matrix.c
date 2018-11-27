@@ -136,20 +136,20 @@ void matrix_init(void) {
 
 uint8_t matrix_scan(void)
 {
-    // init MCP23018
+    // init MCP2301 8
     if (mcp23018_status) { 
         /* if there was an error */
         if (++mcp23018_reset_loop == 0) {
             /* since mcp23018_reset_loop is 8 bit - we'll try to reset once in 255 matrix scans
                this will be approx bit more frequent than once per second */
-            print("trying to init mcp23018: ");
+            print("trying to initalize MCP23017...");
             mcp23018_status = init_mcp23018();
 
             if (mcp23018_status) {
-                print("MCP23018 not responding\n");
+                print("failed. NOT responding\n");
                 return 1;
             } else {
-                print("MCP23018 initialized\n");
+                print("done.\n");
             }
         }
     }
