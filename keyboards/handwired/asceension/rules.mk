@@ -62,3 +62,4 @@ POINTING_DEVICE_ENABLE ?= yes
 
 SRC += analog.c
 SRC += analogpad.c
+SRC += dipsw.c
