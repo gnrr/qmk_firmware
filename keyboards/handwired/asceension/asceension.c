@@ -1,6 +1,7 @@
 #include "i2cmaster.h"
 #include "quantum/pointing_device.h"
 #include "analogpad.h"
+#include "dipsw.h"
 #include "asceension.h"
 
 #include "debug.h" // dprintf
@@ -14,6 +15,15 @@ uint8_t mcp23018_status = 0x20;
 #define ADC_MUX_PAD_RY 0x05             // PF5/ADC5
 #define ADC_MUX_PAD_RX 0x04             // PF4/ADC4
 
+// dipsw
+#define PIN_DIPSW_1 D4 // for _BV()
+#define PIN_DIPSW_2 D6
+#define PIN_DIPSW_3 D7
+#define PIN_DIPSW_4 E6
+
+dsw_t DipSw; // dip switch
+
+
 #define MAP(x, in_min, in_max, out_min, out_max) \
     ((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
 
@@ -25,6 +35,8 @@ void pointing_device_init(void)
     //initialize device, if that needs to be done.
     debug_enable = true;
 
+    read_dipsw(&DipSw);
+    
     init_analogpad_pointer(&pad_r, ADC_MUX_PAD_RX, ADC_MUX_PAD_RY);
     init_analogpad_scroll(&pad_l, ADC_MUX_PAD_LX, ADC_MUX_PAD_LY);
 }
