@@ -1,0 +1,802 @@
+Info: Reading netlist file "/Users/g/Dropbox/test/kicad/asceension/asceension.net".
+
+Info: Using references to match components and footprints.
+
+* Warning: component 'SW55': board footprint 'keyboard:CHERRY_PLATE_225H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW94': board footprint 'keyboard:CHERRY_PLATE_150H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW93': board footprint 'keyboard:CHERRY_PLATE_200H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW88': board footprint 'keyboard:CHERRY_PLATE_225H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW4': board footprint 'keyboard:CHERRY_PLATE_175H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW3': board footprint 'keyboard:CHERRY_PLATE_150H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+* Warning: component 'SW34': board footprint 'keyboard:CHERRY_PLATE_125H', netlist footprint 'keyboard:CHERRY_PLATE_100H'
+
+Info: Checking netlist component footprint "C1:/5BA78012:Capacitors_THT:C_Rect_L4.6mm_W3.0mm_P2.50mm_MKS02_FKP02".
+
+Adding new component "C1:/5BA78012" footprint "Capacitors_THT:C_Rect_L4.6mm_W3.0mm_P2.50mm_MKS02_FKP02".
+
+Info: Checking netlist component footprint "D2:/5B9691F2/5B9BBB0C:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D2:/5B9691F2/5B9BBB0C" pin "1" net name from "Net-(D2-Pad1)" to "COL0".
+
+Info: Checking netlist component footprint "D3:/5B9691F2/5BA2B22A:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D3:/5B9691F2/5BA2B22A" pin "1" net name from "Net-(D2-Pad1)" to "COL0".
+
+Info: Checking netlist component footprint "D4:/5B9691F2/5BA2B22D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D4:/5B9691F2/5BA2B22D" pin "1" net name from "Net-(D2-Pad1)" to "COL0".
+
+Info: Checking netlist component footprint "D5:/5B9691F2/5BA2B230:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D5:/5B9691F2/5BA2B230" pin "1" net name from "Net-(D2-Pad1)" to "COL0".
+
+Info: Checking netlist component footprint "D8:/5B9691F2/5B9C1213:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D8:/5B9691F2/5B9C1213" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D9:/5B9691F2/5BA2B237:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D9:/5B9691F2/5BA2B237" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D10:/5B9691F2/5BA2B239:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D10:/5B9691F2/5BA2B239" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D11:/5B9691F2/5BA2B23B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D11:/5B9691F2/5BA2B23B" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D12:/5B9691F2/5BA2B23D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D12:/5B9691F2/5BA2B23D" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D13:/5B9691F2/5BA2B23F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D13:/5B9691F2/5BA2B23F" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D14:/5B9691F2/5BA322AF:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D14:/5B9691F2/5BA322AF" pin "1" net name from "Net-(D10-Pad1)" to "COL1".
+
+Info: Checking netlist component footprint "D15:/5B9691F2/5BA2B241:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D15:/5B9691F2/5BA2B241" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D16:/5B9691F2/5B9C16D4:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D16:/5B9691F2/5B9C16D4" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D17:/5B9691F2/5B9C16E0:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D17:/5B9691F2/5B9C16E0" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D18:/5B9691F2/5B9C16EC:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D18:/5B9691F2/5B9C16EC" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D19:/5B9691F2/5BA2B249:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D19:/5B9691F2/5BA2B249" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D20:/5B9691F2/5BA2B24B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D20:/5B9691F2/5BA2B24B" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D21:/5B9691F2/5BA322BB:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D21:/5B9691F2/5BA322BB" pin "1" net name from "Net-(D15-Pad1)" to "COL2".
+
+Info: Checking netlist component footprint "D22:/5B9691F2/5BA2B24D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D22:/5B9691F2/5BA2B24D" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D23:/5B9691F2/5BA2B24F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D23:/5B9691F2/5BA2B24F" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D24:/5B9691F2/5BA2B251:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D24:/5B9691F2/5BA2B251" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D25:/5B9691F2/5BA2B253:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D25:/5B9691F2/5BA2B253" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D26:/5B9691F2/5B9C1769:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D26:/5B9691F2/5B9C1769" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D27:/5B9691F2/5BA2B257:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D27:/5B9691F2/5BA2B257" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D28:/5B9691F2/5BA322C7:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D28:/5B9691F2/5BA322C7" pin "1" net name from "Net-(D22-Pad1)" to "COL3".
+
+Info: Checking netlist component footprint "D29:/5B9691F2/5B9C1D5C:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D29:/5B9691F2/5B9C1D5C" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D30:/5B9691F2/5B9C1D68:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D30:/5B9691F2/5B9C1D68" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D31:/5B9691F2/5B9C1D74:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D31:/5B9691F2/5B9C1D74" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D32:/5B9691F2/5BA2B25F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D32:/5B9691F2/5BA2B25F" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D33:/5B9691F2/5BA2B261:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D33:/5B9691F2/5BA2B261" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D34:/5B9691F2/5BA2B263:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D34:/5B9691F2/5BA2B263" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D35:/5B9691F2/5BA322D3:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D35:/5B9691F2/5BA322D3" pin "1" net name from "Net-(D29-Pad1)" to "COL4".
+
+Info: Checking netlist component footprint "D36:/5B9691F2/5BA2B265:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D36:/5B9691F2/5BA2B265" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D37:/5B9691F2/5BA2B267:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D37:/5B9691F2/5BA2B267" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D38:/5B9691F2/5BA2B269:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D38:/5B9691F2/5BA2B269" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D39:/5B9691F2/5BA2B26B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D39:/5B9691F2/5BA2B26B" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D40:/5B9691F2/5BA2B26D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D40:/5B9691F2/5BA2B26D" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D41:/5B9691F2/5B9C1E09:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D41:/5B9691F2/5B9C1E09" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D42:/5B9691F2/5BA322DF:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D42:/5B9691F2/5BA322DF" pin "1" net name from "Net-(D36-Pad1)" to "COL5".
+
+Info: Checking netlist component footprint "D43:/5B9691F2/5BA4A71D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D43:/5B9691F2/5BA4A71D" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D44:/5B9691F2/5BA3DD59:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D44:/5B9691F2/5BA3DD59" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D45:/5B9691F2/5BA3DC4B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D45:/5B9691F2/5BA3DC4B" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D46:/5B9691F2/5BA5E1E0:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D46:/5B9691F2/5BA5E1E0" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D47:/5B9691F2/5B9C1E6E:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D47:/5B9691F2/5B9C1E6E" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D48:/5B9691F2/5BA3D62D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D48:/5B9691F2/5BA3D62D" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D49:/5B9691F2/5BA3D745:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D49:/5B9691F2/5BA3D745" pin "1" net name from "Net-(D43-Pad1)" to "COL6".
+
+Info: Checking netlist component footprint "D50:/5B9BF448/5BA2B223:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D50:/5B9BF448/5BA2B223" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D51:/5B9BF448/5BA2B227:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D51:/5B9BF448/5BA2B227" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D52:/5B9BF448/5B9BBC38:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D52:/5B9BF448/5B9BBC38" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D53:/5B9BF448/5B9BBD62:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D53:/5B9BF448/5B9BBD62" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D54:/5B9BF448/5B9BBDE2:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D54:/5B9BF448/5B9BBDE2" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D55:/5B9BF448/5BA2B233:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D55:/5B9BF448/5BA2B233" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D56:/5B9BF448/5BA35569:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D56:/5B9BF448/5BA35569" pin "1" net name from "Net-(D50-Pad1)" to "COL7".
+
+Info: Checking netlist component footprint "D57:/5B9BF448/5BA2B235:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D57:/5B9BF448/5BA2B235" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D58:/5B9BF448/5B9C121F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D58:/5B9BF448/5B9C121F" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D59:/5B9BF448/5B9C122B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D59:/5B9BF448/5B9C122B" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D60:/5B9BF448/5B9C1237:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D60:/5B9BF448/5B9C1237" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D61:/5B9BF448/5B9C1243:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D61:/5B9BF448/5B9C1243" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D62:/5B9BF448/5B9C124F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D62:/5B9BF448/5B9C124F" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D63:/5B9BF448/5BA35575:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D63:/5B9BF448/5BA35575" pin "1" net name from "Net-(D57-Pad1)" to "COL8".
+
+Info: Checking netlist component footprint "D64:/5B9BF448/5B9C16C8:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D64:/5B9BF448/5B9C16C8" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D65:/5B9BF448/5BA2B243:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D65:/5B9BF448/5BA2B243" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D66:/5B9BF448/5BA2B245:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D66:/5B9BF448/5BA2B245" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D67:/5B9BF448/5BA2B247:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D67:/5B9BF448/5BA2B247" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D68:/5B9BF448/5B9C16F8:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D68:/5B9BF448/5B9C16F8" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D69:/5B9BF448/5B9C1704:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D69:/5B9BF448/5B9C1704" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D70:/5B9BF448/5BA35581:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D70:/5B9BF448/5BA35581" pin "1" net name from "Net-(D64-Pad1)" to "COL9".
+
+Info: Checking netlist component footprint "D71:/5B9BF448/5B9C1739:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D71:/5B9BF448/5B9C1739" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D72:/5B9BF448/5B9C1745:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D72:/5B9BF448/5B9C1745" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D73:/5B9BF448/5B9C1751:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D73:/5B9BF448/5B9C1751" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D74:/5B9BF448/5B9C175D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D74:/5B9BF448/5B9C175D" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D75:/5B9BF448/5BA2B255:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D75:/5B9BF448/5BA2B255" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D76:/5B9BF448/5B9C1775:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D76:/5B9BF448/5B9C1775" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D77:/5B9BF448/5BA3558D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D77:/5B9BF448/5BA3558D" pin "1" net name from "Net-(D71-Pad1)" to "COL10".
+
+Info: Checking netlist component footprint "D78:/5B9BF448/5BA2B259:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D78:/5B9BF448/5BA2B259" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D79:/5B9BF448/5BA2B25B:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D79:/5B9BF448/5BA2B25B" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D80:/5B9BF448/5BA2B25D:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D80:/5B9BF448/5BA2B25D" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D81:/5B9BF448/5B9C1D80:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D81:/5B9BF448/5B9C1D80" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D82:/5B9BF448/5B9C1D8C:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D82:/5B9BF448/5B9C1D8C" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D83:/5B9BF448/5B9C1D98:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D83:/5B9BF448/5B9C1D98" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D84:/5B9BF448/5BA35599:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D84:/5B9BF448/5BA35599" pin "1" net name from "Net-(D78-Pad1)" to "COL11".
+
+Info: Checking netlist component footprint "D85:/5B9BF448/5B9C1DCD:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D85:/5B9BF448/5B9C1DCD" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D86:/5B9BF448/5B9C1DD9:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D86:/5B9BF448/5B9C1DD9" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D87:/5B9BF448/5B9C1DE5:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D87:/5B9BF448/5B9C1DE5" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D88:/5B9BF448/5B9C1DF1:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D88:/5B9BF448/5B9C1DF1" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D89:/5B9BF448/5B9C1DFD:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D89:/5B9BF448/5B9C1DFD" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D90:/5B9BF448/5BA2B26F:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D90:/5B9BF448/5BA2B26F" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D91:/5B9BF448/5BA355A5:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D91:/5B9BF448/5BA355A5" pin "1" net name from "Net-(D85-Pad1)" to "COL12".
+
+Info: Checking netlist component footprint "D92:/5B9BF448/5BA2B271:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D92:/5B9BF448/5BA2B271" pin "1" net name from "Net-(D92-Pad1)" to "COL13".
+
+Info: Checking netlist component footprint "D93:/5B9BF448/5BA2B273:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D93:/5B9BF448/5BA2B273" pin "1" net name from "Net-(D92-Pad1)" to "COL13".
+
+Info: Checking netlist component footprint "D94:/5B9BF448/5B9C1E56:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D94:/5B9BF448/5B9C1E56" pin "1" net name from "Net-(D92-Pad1)" to "COL13".
+
+Info: Checking netlist component footprint "D96:/5B9BF448/5BA2B279:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D96:/5B9BF448/5BA2B279" pin "1" net name from "Net-(D92-Pad1)" to "COL13".
+
+Info: Checking netlist component footprint "D98:/5B9BF448/5BA355B1:Diodes_THT:D_T-1_P5.08mm_Horizontal".
+
+Changing component "D98:/5B9BF448/5BA355B1" pin "1" net name from "Net-(D92-Pad1)" to "COL13".
+
+Info: Checking netlist component footprint "DSW1:/5BA5F7FC:Housings_DIP:DIP-8_W7.62mm".
+
+Info: Checking netlist component footprint "JPAD1:/5B9A8BE8:myFoot:adafruit#2765".
+
+Info: Checking netlist component footprint "JPAD2:/5B9A94BC:myFoot:adafruit#2765".
+
+Info: Checking netlist component footprint "R1:/5BA1218D:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Info: Checking netlist component footprint "R2:/5BA11F66:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Info: Checking netlist component footprint "R3:/5BA1215D:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Info: Checking netlist component footprint "R4:/5BA11E72:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Info: Checking netlist component footprint "R5:/5B9833FC:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Changing component "R5:/5B9833FC" pin "2" net name from "/SDA" to "Net-(R5-Pad2)".
+
+Info: Checking netlist component footprint "R6:/5B98345C:Resistors_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal".
+
+Changing component "R6:/5B98345C" pin "2" net name from "/SCL" to "Net-(R6-Pad2)".
+
+Info: Checking netlist component footprint "SW2:/5B9691F2/5BA2B228:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW2:/5B9691F2/5BA2B228" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW3:/5B9691F2/5BA2B22B:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW3:/5B9691F2/5BA2B22B" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW4:/5B9691F2/5BA2B22E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW4:/5B9691F2/5BA2B22E" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW5:/5B9691F2/5B9BBDE8:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW5:/5B9691F2/5B9BBDE8" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW8:/5B9691F2/5B9C1219:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW8:/5B9691F2/5B9C1219" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW9:/5B9691F2/5BA2B238:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW9:/5B9691F2/5BA2B238" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW10:/5B9691F2/5BA2B23A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW10:/5B9691F2/5BA2B23A" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW11:/5B9691F2/5BA2B23C:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW11:/5B9691F2/5BA2B23C" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW12:/5B9691F2/5B9C1249:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW12:/5B9691F2/5B9C1249" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW13:/5B9691F2/5BA2B240:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW13:/5B9691F2/5BA2B240" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW14:/5B9691F2/5BA322B5:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW14:/5B9691F2/5BA322B5" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW15:/5B9691F2/5B9C16CE:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW15:/5B9691F2/5B9C16CE" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW16:/5B9691F2/5B9C16DA:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW16:/5B9691F2/5B9C16DA" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW17:/5B9691F2/5B9C16E6:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW17:/5B9691F2/5B9C16E6" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW18:/5B9691F2/5B9C16F2:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW18:/5B9691F2/5B9C16F2" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW19:/5B9691F2/5BA2B24A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW19:/5B9691F2/5BA2B24A" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW20:/5B9691F2/5B9C170A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW20:/5B9691F2/5B9C170A" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW21:/5B9691F2/5BA322C1:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW21:/5B9691F2/5BA322C1" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW22:/5B9691F2/5BA2B24E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW22:/5B9691F2/5BA2B24E" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW23:/5B9691F2/5BA2B250:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW23:/5B9691F2/5BA2B250" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW24:/5B9691F2/5BA2B252:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW24:/5B9691F2/5BA2B252" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW25:/5B9691F2/5B9C1763:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW25:/5B9691F2/5B9C1763" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW26:/5B9691F2/5B9C176F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW26:/5B9691F2/5B9C176F" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW27:/5B9691F2/5B9C177B:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW27:/5B9691F2/5B9C177B" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW28:/5B9691F2/5BA322CD:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW28:/5B9691F2/5BA322CD" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW29:/5B9691F2/5B9C1D62:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW29:/5B9691F2/5B9C1D62" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW30:/5B9691F2/5B9C1D6E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW30:/5B9691F2/5B9C1D6E" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW31:/5B9691F2/5B9C1D7A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW31:/5B9691F2/5B9C1D7A" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW32:/5B9691F2/5BA2B260:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW32:/5B9691F2/5BA2B260" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW33:/5B9691F2/5BA2B262:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW33:/5B9691F2/5BA2B262" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW34:/5B9691F2/5BA2B264:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW34:/5B9691F2/5BA2B264" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW35:/5B9691F2/5BA322D9:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW35:/5B9691F2/5BA322D9" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW36:/5B9691F2/5BA2B266:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW36:/5B9691F2/5BA2B266" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW37:/5B9691F2/5BA2B268:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW37:/5B9691F2/5BA2B268" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW38:/5B9691F2/5B9C1DEB:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW38:/5B9691F2/5B9C1DEB" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW39:/5B9691F2/5BA2B26C:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW39:/5B9691F2/5BA2B26C" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW40:/5B9691F2/5B9C1E03:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW40:/5B9691F2/5B9C1E03" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW41:/5B9691F2/5B9C1E0F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW41:/5B9691F2/5B9C1E0F" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW42:/5B9691F2/5BA322E5:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW42:/5B9691F2/5BA322E5" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW43:/5B9691F2/5BA4A723:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW43:/5B9691F2/5BA4A723" pin "1" net name from "Net-(R7-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW44:/5B9691F2/5BA3DD5F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW44:/5B9691F2/5BA3DD5F" pin "1" net name from "Net-(R8-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW45:/5B9691F2/5BA3DC51:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW45:/5B9691F2/5BA3DC51" pin "1" net name from "Net-(R9-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW46:/5B9691F2/5BA5E1E6:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW46:/5B9691F2/5BA5E1E6" pin "1" net name from "Net-(R10-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW47:/5B9691F2/5B9C1E74:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW47:/5B9691F2/5B9C1E74" pin "1" net name from "Net-(R11-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW48:/5B9691F2/5BA3D633:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW48:/5B9691F2/5BA3D633" pin "1" net name from "Net-(R12-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW49:/5B9691F2/5BA3D74B:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW49:/5B9691F2/5BA3D74B" pin "1" net name from "Net-(R13-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW50:/5B9BF448/5BA2B224:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW50:/5B9BF448/5BA2B224" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW51:/5B9BF448/5B9BBB12:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW51:/5B9BF448/5B9BBB12" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW52:/5B9BF448/5B9BBC3E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW52:/5B9BF448/5B9BBC3E" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW53:/5B9BF448/5B9BBD68:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW53:/5B9BF448/5B9BBD68" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW54:/5B9BF448/5BA2B231:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW54:/5B9BF448/5BA2B231" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW55:/5B9BF448/5BA2B234:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW55:/5B9BF448/5BA2B234" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW56:/5B9BF448/5BA3556F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW56:/5B9BF448/5BA3556F" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW57:/5B9BF448/5BA2B236:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW57:/5B9BF448/5BA2B236" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW58:/5B9BF448/5B9C1225:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW58:/5B9BF448/5B9C1225" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW59:/5B9BF448/5B9C1231:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW59:/5B9BF448/5B9C1231" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW60:/5B9BF448/5B9C123D:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW60:/5B9BF448/5B9C123D" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW61:/5B9BF448/5BA2B23E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW61:/5B9BF448/5BA2B23E" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW62:/5B9BF448/5B9C1255:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW62:/5B9BF448/5B9C1255" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW63:/5B9BF448/5BA3557B:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW63:/5B9BF448/5BA3557B" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW64:/5B9BF448/5BA2B242:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW64:/5B9BF448/5BA2B242" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW65:/5B9BF448/5BA2B244:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW65:/5B9BF448/5BA2B244" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW66:/5B9BF448/5BA2B246:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW66:/5B9BF448/5BA2B246" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW67:/5B9BF448/5BA2B248:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW67:/5B9BF448/5BA2B248" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW68:/5B9BF448/5B9C16FE:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW68:/5B9BF448/5B9C16FE" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW69:/5B9BF448/5BA2B24C:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW69:/5B9BF448/5BA2B24C" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW70:/5B9BF448/5BA35587:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW70:/5B9BF448/5BA35587" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW71:/5B9BF448/5B9C173F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW71:/5B9BF448/5B9C173F" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW72:/5B9BF448/5B9C174B:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW72:/5B9BF448/5B9C174B" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW73:/5B9BF448/5B9C1757:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW73:/5B9BF448/5B9C1757" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW74:/5B9BF448/5BA2B254:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW74:/5B9BF448/5BA2B254" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW75:/5B9BF448/5BA2B256:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW75:/5B9BF448/5BA2B256" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW76:/5B9BF448/5BA2B258:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW76:/5B9BF448/5BA2B258" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW77:/5B9BF448/5BA35593:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW77:/5B9BF448/5BA35593" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW78:/5B9BF448/5BA2B25A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW78:/5B9BF448/5BA2B25A" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW79:/5B9BF448/5BA2B25C:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW79:/5B9BF448/5BA2B25C" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW80:/5B9BF448/5BA2B25E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW80:/5B9BF448/5BA2B25E" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW81:/5B9BF448/5B9C1D86:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW81:/5B9BF448/5B9C1D86" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW82:/5B9BF448/5B9C1D92:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW82:/5B9BF448/5B9C1D92" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW83:/5B9BF448/5B9C1D9E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW83:/5B9BF448/5B9C1D9E" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW84:/5B9BF448/5BA3559F:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW84:/5B9BF448/5BA3559F" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW85:/5B9BF448/5B9C1DD3:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW85:/5B9BF448/5B9C1DD3" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW86:/5B9BF448/5B9C1DDF:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW86:/5B9BF448/5B9C1DDF" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW87:/5B9BF448/5BA2B26A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW87:/5B9BF448/5BA2B26A" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW88:/5B9BF448/5B9C1DF7:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW88:/5B9BF448/5B9C1DF7" pin "1" net name from "Net-(R24-Pad1)" to "ROW3".
+
+Info: Checking netlist component footprint "SW89:/5B9BF448/5BA2B26E:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW89:/5B9BF448/5BA2B26E" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW90:/5B9BF448/5BA2B270:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW90:/5B9BF448/5BA2B270" pin "1" net name from "Net-(R26-Pad1)" to "ROW5".
+
+Info: Checking netlist component footprint "SW91:/5B9BF448/5BA355AB:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW91:/5B9BF448/5BA355AB" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "SW92:/5B9BF448/5BA2B272:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW92:/5B9BF448/5BA2B272" pin "1" net name from "Net-(R21-Pad1)" to "ROW0".
+
+Info: Checking netlist component footprint "SW93:/5B9BF448/5B9C1E50:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW93:/5B9BF448/5B9C1E50" pin "1" net name from "Net-(R22-Pad1)" to "ROW1".
+
+Info: Checking netlist component footprint "SW94:/5B9BF448/5B9C1E5C:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW94:/5B9BF448/5B9C1E5C" pin "1" net name from "Net-(R23-Pad1)" to "ROW2".
+
+Info: Checking netlist component footprint "SW96:/5B9BF448/5BA2B27A:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW96:/5B9BF448/5BA2B27A" pin "1" net name from "Net-(R25-Pad1)" to "ROW4".
+
+Info: Checking netlist component footprint "SW98:/5B9BF448/5BA355B7:keyboard:CHERRY_PLATE_100H".
+
+Changing component "SW98:/5B9BF448/5BA355B7" pin "1" net name from "Net-(R27-Pad1)" to "ROW6".
+
+Info: Checking netlist component footprint "U1:/5B956666:myFoot:ItsyBitsy32u4".
+
+Changing component "U1:/5B956666" pin "1" net name from "GND" to "Net-(U1-Pad1)".
+
+Changing component "U1:/5B956666" pin "22" net name from "/SDA" to "Net-(R5-Pad2)".
+
+Changing component "U1:/5B956666" pin "23" net name from "/SCL" to "Net-(R6-Pad2)".
+
+Info: Checking netlist component footprint "U2:/5B956711:Housings_DIP:DIP-28_W7.62mm".
+
+Changing component "U2:/5B956711" pin "12" net name from "/SCL" to "Net-(R6-Pad2)".
+
+Changing component "U2:/5B956711" pin "13" net name from "/SDA" to "Net-(R5-Pad2)".
+

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name asceension-rescue)(type Legacy)(uri ${KIPRJMOD}/asceension-rescue.lib)(options "")(descr ""))
+  (lib (name mylib)(type Legacy)(uri /Users/g/Dropbox/test/kicad/lib/mylib/mylib.lib)(options "")(descr ""))
+)
