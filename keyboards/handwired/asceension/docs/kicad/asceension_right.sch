@@ -1,0 +1,1753 @@
+EESchema Schematic File Version 4
+LIBS:asceension-cache
+EELAYER 26 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 3 3
+Title "asceension"
+Date "2018-11-28"
+Rev "002"
+Comp "scum noodle society"
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L mylib:1SS178 D50
+U 1 1 5BA2B223
+P 3200 1400
+F 0 "D50" H 3200 1500 50  0000 C CNN
+F 1 "1SS178" H 3200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 1225 50  0001 C CNN
+F 3 "" H 3200 1400 50  0001 C CNN
+	1    3200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW50
+U 1 1 5BA2B224
+P 3200 1150
+F 0 "SW50" H 3250 1250 50  0000 L CNN
+F 1 "SW_Push" H 3200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 1350 50  0001 C CNN
+F 3 "" H 3200 1350 50  0001 C CNN
+	1    3200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D51
+U 1 1 5BA2B227
+P 3200 2150
+F 0 "D51" H 3200 2250 50  0000 C CNN
+F 1 "1SS178" H 3200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 1975 50  0001 C CNN
+F 3 "" H 3200 2150 50  0001 C CNN
+	1    3200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW51
+U 1 1 5B9BBB12
+P 3200 1900
+F 0 "SW51" H 3250 2000 50  0000 L CNN
+F 1 "SW_Push" H 3200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 2100 50  0001 C CNN
+F 3 "" H 3200 2100 50  0001 C CNN
+	1    3200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D52
+U 1 1 5B9BBC38
+P 3200 2900
+F 0 "D52" H 3200 3000 50  0000 C CNN
+F 1 "1SS178" H 3200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 2725 50  0001 C CNN
+F 3 "" H 3200 2900 50  0001 C CNN
+	1    3200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW52
+U 1 1 5B9BBC3E
+P 3200 2650
+F 0 "SW52" H 3250 2750 50  0000 L CNN
+F 1 "SW_Push" H 3200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 2850 50  0001 C CNN
+F 3 "" H 3200 2850 50  0001 C CNN
+	1    3200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D53
+U 1 1 5B9BBD62
+P 3200 3650
+F 0 "D53" H 3200 3750 50  0000 C CNN
+F 1 "1SS178" H 3200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 3475 50  0001 C CNN
+F 3 "" H 3200 3650 50  0001 C CNN
+	1    3200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW53
+U 1 1 5B9BBD68
+P 3200 3400
+F 0 "SW53" H 3250 3500 50  0000 L CNN
+F 1 "SW_Push" H 3200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 3600 50  0001 C CNN
+F 3 "" H 3200 3600 50  0001 C CNN
+	1    3200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D54
+U 1 1 5B9BBDE2
+P 3200 4400
+F 0 "D54" H 3200 4500 50  0000 C CNN
+F 1 "1SS178" H 3200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 4225 50  0001 C CNN
+F 3 "" H 3200 4400 50  0001 C CNN
+	1    3200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW54
+U 1 1 5BA2B231
+P 3200 4150
+F 0 "SW54" H 3250 4250 50  0000 L CNN
+F 1 "SW_Push" H 3200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 4350 50  0001 C CNN
+F 3 "" H 3200 4350 50  0001 C CNN
+	1    3200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D55
+U 1 1 5BA2B233
+P 3200 5150
+F 0 "D55" H 3200 5250 50  0000 C CNN
+F 1 "1SS178" H 3200 5050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 4975 50  0001 C CNN
+F 3 "" H 3200 5150 50  0001 C CNN
+	1    3200 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW55
+U 1 1 5BA2B234
+P 3200 4900
+F 0 "SW55" H 3250 5000 50  0000 L CNN
+F 1 "SW_Push" H 3200 4840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 5100 50  0001 C CNN
+F 3 "" H 3200 5100 50  0001 C CNN
+	1    3200 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D57
+U 1 1 5BA2B235
+P 4200 1400
+F 0 "D57" H 4200 1500 50  0000 C CNN
+F 1 "1SS178" H 4200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 1225 50  0001 C CNN
+F 3 "" H 4200 1400 50  0001 C CNN
+	1    4200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW57
+U 1 1 5BA2B236
+P 4200 1150
+F 0 "SW57" H 4250 1250 50  0000 L CNN
+F 1 "SW_Push" H 4200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 1350 50  0001 C CNN
+F 3 "" H 4200 1350 50  0001 C CNN
+	1    4200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D58
+U 1 1 5B9C121F
+P 4200 2150
+F 0 "D58" H 4200 2250 50  0000 C CNN
+F 1 "1SS178" H 4200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 1975 50  0001 C CNN
+F 3 "" H 4200 2150 50  0001 C CNN
+	1    4200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW58
+U 1 1 5B9C1225
+P 4200 1900
+F 0 "SW58" H 4250 2000 50  0000 L CNN
+F 1 "SW_Push" H 4200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 2100 50  0001 C CNN
+F 3 "" H 4200 2100 50  0001 C CNN
+	1    4200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D59
+U 1 1 5B9C122B
+P 4200 2900
+F 0 "D59" H 4200 3000 50  0000 C CNN
+F 1 "1SS178" H 4200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 2725 50  0001 C CNN
+F 3 "" H 4200 2900 50  0001 C CNN
+	1    4200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW59
+U 1 1 5B9C1231
+P 4200 2650
+F 0 "SW59" H 4250 2750 50  0000 L CNN
+F 1 "SW_Push" H 4200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 2850 50  0001 C CNN
+F 3 "" H 4200 2850 50  0001 C CNN
+	1    4200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D60
+U 1 1 5B9C1237
+P 4200 3650
+F 0 "D60" H 4200 3750 50  0000 C CNN
+F 1 "1SS178" H 4200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 3475 50  0001 C CNN
+F 3 "" H 4200 3650 50  0001 C CNN
+	1    4200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW60
+U 1 1 5B9C123D
+P 4200 3400
+F 0 "SW60" H 4250 3500 50  0000 L CNN
+F 1 "SW_Push" H 4200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 3600 50  0001 C CNN
+F 3 "" H 4200 3600 50  0001 C CNN
+	1    4200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D61
+U 1 1 5B9C1243
+P 4200 4400
+F 0 "D61" H 4200 4500 50  0000 C CNN
+F 1 "1SS178" H 4200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 4225 50  0001 C CNN
+F 3 "" H 4200 4400 50  0001 C CNN
+	1    4200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW61
+U 1 1 5BA2B23E
+P 4200 4150
+F 0 "SW61" H 4250 4250 50  0000 L CNN
+F 1 "SW_Push" H 4200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 4350 50  0001 C CNN
+F 3 "" H 4200 4350 50  0001 C CNN
+	1    4200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D62
+U 1 1 5B9C124F
+P 4200 5150
+F 0 "D62" H 4200 5250 50  0000 C CNN
+F 1 "1SS178" H 4200 5050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 4975 50  0001 C CNN
+F 3 "" H 4200 5150 50  0001 C CNN
+	1    4200 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW62
+U 1 1 5B9C1255
+P 4200 4900
+F 0 "SW62" H 4250 5000 50  0000 L CNN
+F 1 "SW_Push" H 4200 4840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 5100 50  0001 C CNN
+F 3 "" H 4200 5100 50  0001 C CNN
+	1    4200 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D64
+U 1 1 5B9C16C8
+P 5200 1400
+F 0 "D64" H 5200 1500 50  0000 C CNN
+F 1 "1SS178" H 5200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 1225 50  0001 C CNN
+F 3 "" H 5200 1400 50  0001 C CNN
+	1    5200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW64
+U 1 1 5BA2B242
+P 5200 1150
+F 0 "SW64" H 5250 1250 50  0000 L CNN
+F 1 "SW_Push" H 5200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 1350 50  0001 C CNN
+F 3 "" H 5200 1350 50  0001 C CNN
+	1    5200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D65
+U 1 1 5BA2B243
+P 5200 2150
+F 0 "D65" H 5200 2250 50  0000 C CNN
+F 1 "1SS178" H 5200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 1975 50  0001 C CNN
+F 3 "" H 5200 2150 50  0001 C CNN
+	1    5200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW65
+U 1 1 5BA2B244
+P 5200 1900
+F 0 "SW65" H 5250 2000 50  0000 L CNN
+F 1 "SW_Push" H 5200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 2100 50  0001 C CNN
+F 3 "" H 5200 2100 50  0001 C CNN
+	1    5200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D66
+U 1 1 5BA2B245
+P 5200 2900
+F 0 "D66" H 5200 3000 50  0000 C CNN
+F 1 "1SS178" H 5200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 2725 50  0001 C CNN
+F 3 "" H 5200 2900 50  0001 C CNN
+	1    5200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW66
+U 1 1 5BA2B246
+P 5200 2650
+F 0 "SW66" H 5250 2750 50  0000 L CNN
+F 1 "SW_Push" H 5200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 2850 50  0001 C CNN
+F 3 "" H 5200 2850 50  0001 C CNN
+	1    5200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D67
+U 1 1 5BA2B247
+P 5200 3650
+F 0 "D67" H 5200 3750 50  0000 C CNN
+F 1 "1SS178" H 5200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 3475 50  0001 C CNN
+F 3 "" H 5200 3650 50  0001 C CNN
+	1    5200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW67
+U 1 1 5BA2B248
+P 5200 3400
+F 0 "SW67" H 5250 3500 50  0000 L CNN
+F 1 "SW_Push" H 5200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 3600 50  0001 C CNN
+F 3 "" H 5200 3600 50  0001 C CNN
+	1    5200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D68
+U 1 1 5B9C16F8
+P 5200 4400
+F 0 "D68" H 5200 4500 50  0000 C CNN
+F 1 "1SS178" H 5200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 4225 50  0001 C CNN
+F 3 "" H 5200 4400 50  0001 C CNN
+	1    5200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW68
+U 1 1 5B9C16FE
+P 5200 4150
+F 0 "SW68" H 5250 4250 50  0000 L CNN
+F 1 "SW_Push" H 5200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 4350 50  0001 C CNN
+F 3 "" H 5200 4350 50  0001 C CNN
+	1    5200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D69
+U 1 1 5B9C1704
+P 5200 5150
+F 0 "D69" H 5200 5250 50  0000 C CNN
+F 1 "1SS178" H 5200 5050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 5200 4975 50  0001 C CNN
+F 3 "" H 5200 5150 50  0001 C CNN
+	1    5200 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW69
+U 1 1 5BA2B24C
+P 5200 4900
+F 0 "SW69" H 5250 5000 50  0000 L CNN
+F 1 "SW_Push" H 5200 4840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 5200 5100 50  0001 C CNN
+F 3 "" H 5200 5100 50  0001 C CNN
+	1    5200 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D71
+U 1 1 5B9C1739
+P 6200 1400
+F 0 "D71" H 6200 1500 50  0000 C CNN
+F 1 "1SS178" H 6200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 1225 50  0001 C CNN
+F 3 "" H 6200 1400 50  0001 C CNN
+	1    6200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW71
+U 1 1 5B9C173F
+P 6200 1150
+F 0 "SW71" H 6250 1250 50  0000 L CNN
+F 1 "SW_Push" H 6200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 1350 50  0001 C CNN
+F 3 "" H 6200 1350 50  0001 C CNN
+	1    6200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D72
+U 1 1 5B9C1745
+P 6200 2150
+F 0 "D72" H 6200 2250 50  0000 C CNN
+F 1 "1SS178" H 6200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 1975 50  0001 C CNN
+F 3 "" H 6200 2150 50  0001 C CNN
+	1    6200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW72
+U 1 1 5B9C174B
+P 6200 1900
+F 0 "SW72" H 6250 2000 50  0000 L CNN
+F 1 "SW_Push" H 6200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 2100 50  0001 C CNN
+F 3 "" H 6200 2100 50  0001 C CNN
+	1    6200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D73
+U 1 1 5B9C1751
+P 6200 2900
+F 0 "D73" H 6200 3000 50  0000 C CNN
+F 1 "1SS178" H 6200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 2725 50  0001 C CNN
+F 3 "" H 6200 2900 50  0001 C CNN
+	1    6200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW73
+U 1 1 5B9C1757
+P 6200 2650
+F 0 "SW73" H 6250 2750 50  0000 L CNN
+F 1 "SW_Push" H 6200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 2850 50  0001 C CNN
+F 3 "" H 6200 2850 50  0001 C CNN
+	1    6200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D74
+U 1 1 5B9C175D
+P 6200 3650
+F 0 "D74" H 6200 3750 50  0000 C CNN
+F 1 "1SS178" H 6200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 3475 50  0001 C CNN
+F 3 "" H 6200 3650 50  0001 C CNN
+	1    6200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW74
+U 1 1 5BA2B254
+P 6200 3400
+F 0 "SW74" H 6250 3500 50  0000 L CNN
+F 1 "SW_Push" H 6200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 3600 50  0001 C CNN
+F 3 "" H 6200 3600 50  0001 C CNN
+	1    6200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D75
+U 1 1 5BA2B255
+P 6200 4400
+F 0 "D75" H 6200 4500 50  0000 C CNN
+F 1 "1SS178" H 6200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 4225 50  0001 C CNN
+F 3 "" H 6200 4400 50  0001 C CNN
+	1    6200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW75
+U 1 1 5BA2B256
+P 6200 4150
+F 0 "SW75" H 6250 4250 50  0000 L CNN
+F 1 "SW_Push" H 6200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 4350 50  0001 C CNN
+F 3 "" H 6200 4350 50  0001 C CNN
+	1    6200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D76
+U 1 1 5B9C1775
+P 6200 5150
+F 0 "D76" H 6200 5250 50  0000 C CNN
+F 1 "1SS178" H 6200 5050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 6200 4975 50  0001 C CNN
+F 3 "" H 6200 5150 50  0001 C CNN
+	1    6200 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW76
+U 1 1 5BA2B258
+P 6200 4900
+F 0 "SW76" H 6250 5000 50  0000 L CNN
+F 1 "SW_Push" H 6200 4840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 6200 5100 50  0001 C CNN
+F 3 "" H 6200 5100 50  0001 C CNN
+	1    6200 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D78
+U 1 1 5BA2B259
+P 7200 1400
+F 0 "D78" H 7200 1500 50  0000 C CNN
+F 1 "1SS178" H 7200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 1225 50  0001 C CNN
+F 3 "" H 7200 1400 50  0001 C CNN
+	1    7200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW78
+U 1 1 5BA2B25A
+P 7200 1150
+F 0 "SW78" H 7250 1250 50  0000 L CNN
+F 1 "SW_Push" H 7200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 1350 50  0001 C CNN
+F 3 "" H 7200 1350 50  0001 C CNN
+	1    7200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D79
+U 1 1 5BA2B25B
+P 7200 2150
+F 0 "D79" H 7200 2250 50  0000 C CNN
+F 1 "1SS178" H 7200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 1975 50  0001 C CNN
+F 3 "" H 7200 2150 50  0001 C CNN
+	1    7200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW79
+U 1 1 5BA2B25C
+P 7200 1900
+F 0 "SW79" H 7250 2000 50  0000 L CNN
+F 1 "SW_Push" H 7200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 2100 50  0001 C CNN
+F 3 "" H 7200 2100 50  0001 C CNN
+	1    7200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D80
+U 1 1 5BA2B25D
+P 7200 2900
+F 0 "D80" H 7200 3000 50  0000 C CNN
+F 1 "1SS178" H 7200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 2725 50  0001 C CNN
+F 3 "" H 7200 2900 50  0001 C CNN
+	1    7200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW80
+U 1 1 5BA2B25E
+P 7200 2650
+F 0 "SW80" H 7250 2750 50  0000 L CNN
+F 1 "SW_Push" H 7200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 2850 50  0001 C CNN
+F 3 "" H 7200 2850 50  0001 C CNN
+	1    7200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D81
+U 1 1 5B9C1D80
+P 7200 3650
+F 0 "D81" H 7200 3750 50  0000 C CNN
+F 1 "1SS178" H 7200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 3475 50  0001 C CNN
+F 3 "" H 7200 3650 50  0001 C CNN
+	1    7200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW81
+U 1 1 5B9C1D86
+P 7200 3400
+F 0 "SW81" H 7250 3500 50  0000 L CNN
+F 1 "SW_Push" H 7200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 3600 50  0001 C CNN
+F 3 "" H 7200 3600 50  0001 C CNN
+	1    7200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D82
+U 1 1 5B9C1D8C
+P 7200 4400
+F 0 "D82" H 7200 4500 50  0000 C CNN
+F 1 "1SS178" H 7200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 4225 50  0001 C CNN
+F 3 "" H 7200 4400 50  0001 C CNN
+	1    7200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW82
+U 1 1 5B9C1D92
+P 7200 4150
+F 0 "SW82" H 7250 4250 50  0000 L CNN
+F 1 "SW_Push" H 7200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 4350 50  0001 C CNN
+F 3 "" H 7200 4350 50  0001 C CNN
+	1    7200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D83
+U 1 1 5B9C1D98
+P 7200 5150
+F 0 "D83" H 7200 5250 50  0000 C CNN
+F 1 "1SS178" H 7200 5050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 7200 4975 50  0001 C CNN
+F 3 "" H 7200 5150 50  0001 C CNN
+	1    7200 5150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW83
+U 1 1 5B9C1D9E
+P 7200 4900
+F 0 "SW83" H 7250 5000 50  0000 L CNN
+F 1 "SW_Push" H 7200 4840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 7200 5100 50  0001 C CNN
+F 3 "" H 7200 5100 50  0001 C CNN
+	1    7200 4900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D85
+U 1 1 5B9C1DCD
+P 8200 1400
+F 0 "D85" H 8200 1500 50  0000 C CNN
+F 1 "1SS178" H 8200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 8200 1225 50  0001 C CNN
+F 3 "" H 8200 1400 50  0001 C CNN
+	1    8200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW85
+U 1 1 5B9C1DD3
+P 8200 1150
+F 0 "SW85" H 8250 1250 50  0000 L CNN
+F 1 "SW_Push" H 8200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 8200 1350 50  0001 C CNN
+F 3 "" H 8200 1350 50  0001 C CNN
+	1    8200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D86
+U 1 1 5B9C1DD9
+P 8200 2150
+F 0 "D86" H 8200 2250 50  0000 C CNN
+F 1 "1SS178" H 8200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 8200 1975 50  0001 C CNN
+F 3 "" H 8200 2150 50  0001 C CNN
+	1    8200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW86
+U 1 1 5B9C1DDF
+P 8200 1900
+F 0 "SW86" H 8250 2000 50  0000 L CNN
+F 1 "SW_Push" H 8200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 8200 2100 50  0001 C CNN
+F 3 "" H 8200 2100 50  0001 C CNN
+	1    8200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D87
+U 1 1 5B9C1DE5
+P 8200 2900
+F 0 "D87" H 8200 3000 50  0000 C CNN
+F 1 "1SS178" H 8200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 8200 2725 50  0001 C CNN
+F 3 "" H 8200 2900 50  0001 C CNN
+	1    8200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW87
+U 1 1 5BA2B26A
+P 8200 2650
+F 0 "SW87" H 8250 2750 50  0000 L CNN
+F 1 "SW_Push" H 8200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 8200 2850 50  0001 C CNN
+F 3 "" H 8200 2850 50  0001 C CNN
+	1    8200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D88
+U 1 1 5B9C1DF1
+P 8200 3650
+F 0 "D88" H 8200 3750 50  0000 C CNN
+F 1 "1SS178" H 8200 3550 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 8200 3475 50  0001 C CNN
+F 3 "" H 8200 3650 50  0001 C CNN
+	1    8200 3650
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW88
+U 1 1 5B9C1DF7
+P 8200 3400
+F 0 "SW88" H 8250 3500 50  0000 L CNN
+F 1 "SW_Push" H 8200 3340 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 8200 3600 50  0001 C CNN
+F 3 "" H 8200 3600 50  0001 C CNN
+	1    8200 3400
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D89
+U 1 1 5B9C1DFD
+P 8200 4400
+F 0 "D89" H 8200 4500 50  0000 C CNN
+F 1 "1SS178" H 8200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 8200 4225 50  0001 C CNN
+F 3 "" H 8200 4400 50  0001 C CNN
+	1    8200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW89
+U 1 1 5BA2B26E
+P 8200 4150
+F 0 "SW89" H 8250 4250 50  0000 L CNN
+F 1 "SW_Push" H 8200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 8200 4350 50  0001 C CNN
+F 3 "" H 8200 4350 50  0001 C CNN
+	1    8200 4150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D92
+U 1 1 5BA2B271
+P 9200 1400
+F 0 "D92" H 9200 1500 50  0000 C CNN
+F 1 "1SS178" H 9200 1300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 9200 1225 50  0001 C CNN
+F 3 "" H 9200 1400 50  0001 C CNN
+	1    9200 1400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW92
+U 1 1 5BA2B272
+P 9200 1150
+F 0 "SW92" H 9250 1250 50  0000 L CNN
+F 1 "SW_Push" H 9200 1090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 9200 1350 50  0001 C CNN
+F 3 "" H 9200 1350 50  0001 C CNN
+	1    9200 1150
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D93
+U 1 1 5BA2B273
+P 9200 2150
+F 0 "D93" H 9200 2250 50  0000 C CNN
+F 1 "1SS178" H 9200 2050 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 9200 1975 50  0001 C CNN
+F 3 "" H 9200 2150 50  0001 C CNN
+	1    9200 2150
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW93
+U 1 1 5B9C1E50
+P 9200 1900
+F 0 "SW93" H 9250 2000 50  0000 L CNN
+F 1 "SW_Push" H 9200 1840 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 9200 2100 50  0001 C CNN
+F 3 "" H 9200 2100 50  0001 C CNN
+	1    9200 1900
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D94
+U 1 1 5B9C1E56
+P 9200 2900
+F 0 "D94" H 9200 3000 50  0000 C CNN
+F 1 "1SS178" H 9200 2800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 9200 2725 50  0001 C CNN
+F 3 "" H 9200 2900 50  0001 C CNN
+	1    9200 2900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW94
+U 1 1 5B9C1E5C
+P 9200 2650
+F 0 "SW94" H 9250 2750 50  0000 L CNN
+F 1 "SW_Push" H 9200 2590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 9200 2850 50  0001 C CNN
+F 3 "" H 9200 2850 50  0001 C CNN
+	1    9200 2650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D96
+U 1 1 5BA2B279
+P 9200 4400
+F 0 "D96" H 9200 4500 50  0000 C CNN
+F 1 "1SS178" H 9200 4300 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 9200 4225 50  0001 C CNN
+F 3 "" H 9200 4400 50  0001 C CNN
+	1    9200 4400
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW96
+U 1 1 5BA2B27A
+P 9200 4150
+F 0 "SW96" H 9250 4250 50  0000 L CNN
+F 1 "SW_Push" H 9200 4090 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 9200 4350 50  0001 C CNN
+F 3 "" H 9200 4350 50  0001 C CNN
+	1    9200 4150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3000 1150 2900 1150
+Wire Wire Line
+	3400 1150 3450 1150
+Wire Wire Line
+	3450 1150 3450 1400
+Wire Wire Line
+	3450 1400 3350 1400
+Wire Wire Line
+	3050 1400 2800 1400
+Wire Wire Line
+	3400 1900 3450 1900
+Wire Wire Line
+	3450 1900 3450 2150
+Wire Wire Line
+	3450 2150 3350 2150
+Wire Wire Line
+	3400 2650 3450 2650
+Wire Wire Line
+	3450 2650 3450 2900
+Wire Wire Line
+	3450 2900 3350 2900
+Wire Wire Line
+	3400 3400 3450 3400
+Wire Wire Line
+	3450 3400 3450 3650
+Wire Wire Line
+	3450 3650 3350 3650
+Wire Wire Line
+	3400 4150 3450 4150
+Wire Wire Line
+	3450 4150 3450 4400
+Wire Wire Line
+	3450 4400 3350 4400
+Wire Wire Line
+	3400 4900 3450 4900
+Wire Wire Line
+	3450 4900 3450 5150
+Wire Wire Line
+	3450 5150 3350 5150
+Wire Wire Line
+	3000 3400 2900 3400
+Wire Wire Line
+	3000 4150 2900 4150
+Wire Wire Line
+	2800 2900 3050 2900
+Connection ~ 2800 2900
+Wire Wire Line
+	2800 3650 3050 3650
+Connection ~ 2800 3650
+Wire Wire Line
+	2800 4400 3050 4400
+Connection ~ 2800 4400
+Wire Wire Line
+	2800 5150 3050 5150
+Connection ~ 2800 5150
+Wire Wire Line
+	3000 2650 2900 2650
+Wire Wire Line
+	3000 1900 2900 1900
+Wire Wire Line
+	2800 2150 3050 2150
+Connection ~ 2800 2150
+Wire Wire Line
+	2900 4900 3000 4900
+Wire Wire Line
+	4000 1150 3900 1150
+Wire Wire Line
+	4400 1150 4450 1150
+Wire Wire Line
+	4450 1150 4450 1400
+Wire Wire Line
+	4450 1400 4350 1400
+Wire Wire Line
+	4050 1400 3800 1400
+Wire Wire Line
+	4400 1900 4450 1900
+Wire Wire Line
+	4450 1900 4450 2150
+Wire Wire Line
+	4450 2150 4350 2150
+Wire Wire Line
+	4400 2650 4450 2650
+Wire Wire Line
+	4450 2650 4450 2900
+Wire Wire Line
+	4450 2900 4350 2900
+Wire Wire Line
+	4400 3400 4450 3400
+Wire Wire Line
+	4450 3400 4450 3650
+Wire Wire Line
+	4450 3650 4350 3650
+Wire Wire Line
+	4400 4150 4450 4150
+Wire Wire Line
+	4450 4150 4450 4400
+Wire Wire Line
+	4450 4400 4350 4400
+Wire Wire Line
+	4400 4900 4450 4900
+Wire Wire Line
+	4450 4900 4450 5150
+Wire Wire Line
+	4450 5150 4350 5150
+Wire Wire Line
+	4000 3400 3900 3400
+Wire Wire Line
+	4000 4150 3900 4150
+Wire Wire Line
+	3800 2900 4050 2900
+Connection ~ 3800 2900
+Wire Wire Line
+	3800 3650 4050 3650
+Connection ~ 3800 3650
+Wire Wire Line
+	3800 4400 4050 4400
+Connection ~ 3800 4400
+Wire Wire Line
+	3800 5150 4050 5150
+Connection ~ 3800 5150
+Wire Wire Line
+	4000 2650 3900 2650
+Wire Wire Line
+	4000 1900 3900 1900
+Wire Wire Line
+	3800 2150 4050 2150
+Connection ~ 3800 2150
+Wire Wire Line
+	3900 4900 4000 4900
+Wire Wire Line
+	5000 1150 4900 1150
+Wire Wire Line
+	5400 1150 5450 1150
+Wire Wire Line
+	5450 1150 5450 1400
+Wire Wire Line
+	5450 1400 5350 1400
+Wire Wire Line
+	5050 1400 4800 1400
+Wire Wire Line
+	5400 1900 5450 1900
+Wire Wire Line
+	5450 1900 5450 2150
+Wire Wire Line
+	5450 2150 5350 2150
+Wire Wire Line
+	5400 2650 5450 2650
+Wire Wire Line
+	5450 2650 5450 2900
+Wire Wire Line
+	5450 2900 5350 2900
+Wire Wire Line
+	5400 3400 5450 3400
+Wire Wire Line
+	5450 3400 5450 3650
+Wire Wire Line
+	5450 3650 5350 3650
+Wire Wire Line
+	5400 4150 5450 4150
+Wire Wire Line
+	5450 4150 5450 4400
+Wire Wire Line
+	5450 4400 5350 4400
+Wire Wire Line
+	5400 4900 5450 4900
+Wire Wire Line
+	5450 4900 5450 5150
+Wire Wire Line
+	5450 5150 5350 5150
+Wire Wire Line
+	5000 3400 4900 3400
+Wire Wire Line
+	5000 4150 4900 4150
+Wire Wire Line
+	4800 2900 5050 2900
+Connection ~ 4800 2900
+Wire Wire Line
+	4800 3650 5050 3650
+Connection ~ 4800 3650
+Wire Wire Line
+	4800 4400 5050 4400
+Connection ~ 4800 4400
+Wire Wire Line
+	4800 5150 5050 5150
+Connection ~ 4800 5150
+Wire Wire Line
+	5000 2650 4900 2650
+Wire Wire Line
+	5000 1900 4900 1900
+Wire Wire Line
+	4800 2150 5050 2150
+Connection ~ 4800 2150
+Wire Wire Line
+	4900 4900 5000 4900
+Wire Wire Line
+	6000 1150 5900 1150
+Wire Wire Line
+	6400 1150 6450 1150
+Wire Wire Line
+	6450 1150 6450 1400
+Wire Wire Line
+	6450 1400 6350 1400
+Wire Wire Line
+	6050 1400 5800 1400
+Wire Wire Line
+	6400 1900 6450 1900
+Wire Wire Line
+	6450 1900 6450 2150
+Wire Wire Line
+	6450 2150 6350 2150
+Wire Wire Line
+	6400 2650 6450 2650
+Wire Wire Line
+	6450 2650 6450 2900
+Wire Wire Line
+	6450 2900 6350 2900
+Wire Wire Line
+	6400 3400 6450 3400
+Wire Wire Line
+	6450 3400 6450 3650
+Wire Wire Line
+	6450 3650 6350 3650
+Wire Wire Line
+	6400 4150 6450 4150
+Wire Wire Line
+	6450 4150 6450 4400
+Wire Wire Line
+	6450 4400 6350 4400
+Wire Wire Line
+	6400 4900 6450 4900
+Wire Wire Line
+	6450 4900 6450 5150
+Wire Wire Line
+	6450 5150 6350 5150
+Wire Wire Line
+	6000 3400 5900 3400
+Wire Wire Line
+	6000 4150 5900 4150
+Wire Wire Line
+	5800 2900 6050 2900
+Connection ~ 5800 2900
+Wire Wire Line
+	5800 3650 6050 3650
+Connection ~ 5800 3650
+Wire Wire Line
+	5800 4400 6050 4400
+Connection ~ 5800 4400
+Wire Wire Line
+	5800 5150 6050 5150
+Connection ~ 5800 5150
+Wire Wire Line
+	6000 2650 5900 2650
+Wire Wire Line
+	6000 1900 5900 1900
+Wire Wire Line
+	5800 2150 6050 2150
+Connection ~ 5800 2150
+Wire Wire Line
+	5900 4900 6000 4900
+Wire Wire Line
+	7000 1150 6900 1150
+Wire Wire Line
+	7400 1150 7450 1150
+Wire Wire Line
+	7450 1150 7450 1400
+Wire Wire Line
+	7450 1400 7350 1400
+Wire Wire Line
+	7050 1400 6800 1400
+Wire Wire Line
+	7400 1900 7450 1900
+Wire Wire Line
+	7450 1900 7450 2150
+Wire Wire Line
+	7450 2150 7350 2150
+Wire Wire Line
+	7400 2650 7450 2650
+Wire Wire Line
+	7450 2650 7450 2900
+Wire Wire Line
+	7450 2900 7350 2900
+Wire Wire Line
+	7400 3400 7450 3400
+Wire Wire Line
+	7450 3400 7450 3650
+Wire Wire Line
+	7450 3650 7350 3650
+Wire Wire Line
+	7400 4150 7450 4150
+Wire Wire Line
+	7450 4150 7450 4400
+Wire Wire Line
+	7450 4400 7350 4400
+Wire Wire Line
+	7400 4900 7450 4900
+Wire Wire Line
+	7450 4900 7450 5150
+Wire Wire Line
+	7450 5150 7350 5150
+Wire Wire Line
+	7000 3400 6900 3400
+Wire Wire Line
+	7000 4150 6900 4150
+Wire Wire Line
+	6800 2900 7050 2900
+Connection ~ 6800 2900
+Wire Wire Line
+	6800 3650 7050 3650
+Connection ~ 6800 3650
+Wire Wire Line
+	6800 4400 7050 4400
+Connection ~ 6800 4400
+Wire Wire Line
+	6800 5150 7050 5150
+Connection ~ 6800 5150
+Wire Wire Line
+	7000 2650 6900 2650
+Wire Wire Line
+	7000 1900 6900 1900
+Wire Wire Line
+	6800 2150 7050 2150
+Connection ~ 6800 2150
+Wire Wire Line
+	6900 4900 7000 4900
+Wire Wire Line
+	8000 1150 7900 1150
+Wire Wire Line
+	8400 1150 8450 1150
+Wire Wire Line
+	8450 1150 8450 1400
+Wire Wire Line
+	8450 1400 8350 1400
+Wire Wire Line
+	8050 1400 7800 1400
+Wire Wire Line
+	8400 1900 8450 1900
+Wire Wire Line
+	8450 1900 8450 2150
+Wire Wire Line
+	8450 2150 8350 2150
+Wire Wire Line
+	8400 2650 8450 2650
+Wire Wire Line
+	8450 2650 8450 2900
+Wire Wire Line
+	8450 2900 8350 2900
+Wire Wire Line
+	8400 3400 8450 3400
+Wire Wire Line
+	8450 3400 8450 3650
+Wire Wire Line
+	8450 3650 8350 3650
+Wire Wire Line
+	8400 4150 8450 4150
+Wire Wire Line
+	8450 4150 8450 4400
+Wire Wire Line
+	8450 4400 8350 4400
+Wire Wire Line
+	8000 3400 7900 3400
+Wire Wire Line
+	8000 4150 7900 4150
+Wire Wire Line
+	7800 2900 8050 2900
+Connection ~ 7800 2900
+Wire Wire Line
+	7800 3650 8050 3650
+Connection ~ 7800 3650
+Wire Wire Line
+	7800 4400 8050 4400
+Connection ~ 7800 4400
+Wire Wire Line
+	8000 2650 7900 2650
+Wire Wire Line
+	8000 1900 7900 1900
+Wire Wire Line
+	7800 2150 8050 2150
+Connection ~ 7800 2150
+Wire Wire Line
+	9000 1150 8900 1150
+Wire Wire Line
+	9400 1150 9450 1150
+Wire Wire Line
+	9450 1150 9450 1400
+Wire Wire Line
+	9450 1400 9350 1400
+Wire Wire Line
+	9050 1400 8800 1400
+Wire Wire Line
+	9400 1900 9450 1900
+Wire Wire Line
+	9450 2150 9350 2150
+Wire Wire Line
+	9400 2650 9450 2650
+Wire Wire Line
+	9450 2650 9450 2900
+Wire Wire Line
+	9450 2900 9350 2900
+Wire Wire Line
+	9400 4150 9450 4150
+Wire Wire Line
+	9450 4150 9450 4400
+Wire Wire Line
+	9450 4400 9350 4400
+Wire Wire Line
+	9000 4150 8900 4150
+Wire Wire Line
+	8800 2900 9050 2900
+Connection ~ 8800 2900
+Wire Wire Line
+	8800 4400 9050 4400
+Connection ~ 8800 4400
+Wire Wire Line
+	9000 2650 8900 2650
+Wire Wire Line
+	9000 1900 8900 1900
+Wire Wire Line
+	8800 2150 9050 2150
+Connection ~ 8800 2150
+Wire Wire Line
+	1900 950  2900 950 
+Wire Wire Line
+	8900 950  8900 1150
+Wire Wire Line
+	1900 1700 2900 1700
+Wire Wire Line
+	8900 1700 8900 1900
+Wire Wire Line
+	1900 2450 2900 2450
+Wire Wire Line
+	8900 2450 8900 2650
+Wire Wire Line
+	1900 3200 2900 3200
+Wire Wire Line
+	8900 4150 8900 3950
+Wire Wire Line
+	2900 1150 2900 950 
+Connection ~ 2900 950 
+Wire Wire Line
+	2900 1900 2900 1700
+Connection ~ 2900 1700
+Wire Wire Line
+	2900 2650 2900 2450
+Connection ~ 2900 2450
+Wire Wire Line
+	2900 3400 2900 3200
+Connection ~ 2900 3200
+Wire Wire Line
+	3900 3400 3900 3200
+Connection ~ 3900 3200
+Wire Wire Line
+	3900 2650 3900 2450
+Connection ~ 3900 2450
+Wire Wire Line
+	3900 1900 3900 1700
+Connection ~ 3900 1700
+Wire Wire Line
+	3900 1150 3900 950 
+Connection ~ 3900 950 
+Wire Wire Line
+	2900 4150 2900 3950
+Connection ~ 2900 3950
+Wire Wire Line
+	3900 4150 3900 3950
+Connection ~ 3900 3950
+Wire Wire Line
+	5900 3400 5900 3200
+Connection ~ 5900 3200
+Wire Wire Line
+	4900 3400 4900 3200
+Connection ~ 4900 3200
+Wire Wire Line
+	5900 4150 5900 3950
+Connection ~ 5900 3950
+Wire Wire Line
+	5900 4700 5900 4900
+Connection ~ 5900 4700
+Wire Wire Line
+	4900 4700 4900 4900
+Connection ~ 4900 4700
+Wire Wire Line
+	3900 4700 3900 4900
+Connection ~ 3900 4700
+Wire Wire Line
+	2900 4900 2900 4700
+Connection ~ 2900 4700
+Wire Wire Line
+	6900 3400 6900 3200
+Connection ~ 6900 3200
+Wire Wire Line
+	6900 2650 6900 2450
+Connection ~ 6900 2450
+Wire Wire Line
+	5900 2650 5900 2450
+Connection ~ 5900 2450
+Wire Wire Line
+	7900 2650 7900 2450
+Connection ~ 7900 2450
+Wire Wire Line
+	7900 3200 7900 3400
+Wire Wire Line
+	7900 4150 7900 3950
+Connection ~ 7900 3950
+Wire Wire Line
+	6900 4150 6900 3950
+Connection ~ 6900 3950
+Wire Wire Line
+	6900 4700 6900 4900
+Wire Wire Line
+	5900 1900 5900 1700
+Connection ~ 5900 1700
+Wire Wire Line
+	6900 1900 6900 1700
+Connection ~ 6900 1700
+Wire Wire Line
+	7900 1900 7900 1700
+Connection ~ 7900 1700
+Wire Wire Line
+	7900 1150 7900 950 
+Connection ~ 7900 950 
+Wire Wire Line
+	6900 1150 6900 950 
+Connection ~ 6900 950 
+Wire Wire Line
+	5900 1150 5900 950 
+Connection ~ 5900 950 
+Wire Wire Line
+	4900 1150 4900 950 
+Connection ~ 4900 950 
+Wire Wire Line
+	4900 1900 4900 1700
+Connection ~ 4900 1700
+Wire Wire Line
+	4900 2650 4900 2450
+Connection ~ 4900 2450
+Wire Wire Line
+	8900 3950 7900 3950
+Wire Wire Line
+	4900 4150 4900 3950
+Connection ~ 4900 3950
+Text GLabel 1900 950  0    60   Input ~ 0
+ROW0
+Text GLabel 1900 1700 0    60   Input ~ 0
+ROW1
+Text GLabel 1900 2450 0    60   Input ~ 0
+ROW2
+Text GLabel 1900 3200 0    60   Input ~ 0
+ROW3
+Text GLabel 1900 3950 0    60   Input ~ 0
+ROW4
+Text GLabel 1900 4700 0    60   Input ~ 0
+ROW5
+Text GLabel 2800 6600 3    60   Input ~ 0
+COL7
+Text GLabel 3800 6600 3    60   Input ~ 0
+COL8
+Text GLabel 4800 6600 3    60   Input ~ 0
+COL9
+Text GLabel 5800 6600 3    60   Input ~ 0
+COL10
+Text GLabel 6800 6600 3    60   Input ~ 0
+COL11
+Text GLabel 7800 6600 3    60   Input ~ 0
+COL12
+Text GLabel 8800 6600 3    60   Input ~ 0
+COL13
+$Comp
+L mylib:1SS178 D56
+U 1 1 5BA35569
+P 3200 5900
+F 0 "D56" H 3200 6000 50  0000 C CNN
+F 1 "1SS178" H 3200 5800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 3200 5725 50  0001 C CNN
+F 3 "" H 3200 5900 50  0001 C CNN
+	1    3200 5900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW56
+U 1 1 5BA3556F
+P 3200 5650
+F 0 "SW56" H 3250 5750 50  0000 L CNN
+F 1 "SW_Push" H 3200 5590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 3200 5850 50  0001 C CNN
+F 3 "" H 3200 5850 50  0001 C CNN
+	1    3200 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L mylib:1SS178 D63
+U 1 1 5BA35575
+P 4200 5900
+F 0 "D63" H 4200 6000 50  0000 C CNN
+F 1 "1SS178" H 4200 5800 50  0000 C CNN
+F 2 "Diodes_THT:D_T-1_P5.08mm_Horizontal" H 4200 5725 50  0001 C CNN
+F 3 "" H 4200 5900 50  0001 C CNN
+	1    4200 5900
+	-1   0    0    -1  
+$EndComp
+$Comp
+L asceension-rescue:SW_Push SW63
+U 1 1 5BA3557B
+P 4200 5650
+F 0 "SW63" H 4250 5750 50  0000 L CNN
+F 1 "SW_Push" H 4200 5590 50  0000 C CNN
+F 2 "keyboard:CHERRY_PLATE_100H" H 4200 5850 50  0001 C CNN
+F 3 "" H 4200 5850 50  0001 C CNN
+	1    4200 5650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3400 5650 3450 5650
+Wire Wire Line
+	3450 5650 3450 5900
+Wire Wire Line
+	3450 5900 3350 5900
+Wire Wire Line
+	2800 5900 3050 5900
+Connection ~ 2800 5900
+Wire Wire Line
+	2900 5650 3000 5650
+Wire Wire Line
+	4400 5650 4450 5650
+Wire Wire Line
+	4450 5650 4450 5900
+Wire Wire Line
+	4450 5900 4350 5900
+Wire Wire Line
+	3800 5900 4050 5900
+Connection ~ 3800 5900
+Wire Wire Line
+	3900 5650 4000 5650
+Wire Wire Line
+	1900 5450 2900 5450
+Wire Wire Line
+	3900 5450 3900 5650
+Wire Wire Line
+	2900 5650 2900 5450
+Connection ~ 2900 5450
+Text GLabel 1900 5450 0    60   Input ~ 0
+ROW6
+Wire Wire Line
+	2800 1400 2800 2150
+Wire Wire Line
+	3800 1400 3800 2150
+Wire Wire Line
+	4800 1400 4800 2150
+Wire Wire Line
+	5800 1400 5800 2150
+Wire Wire Line
+	6800 1400 6800 2150
+Wire Wire Line
+	7800 1400 7800 2150
+Wire Wire Line
+	8800 1400 8800 2150
+Text Notes 3450 5800 0    60   Italic 0
+IME
+Text Notes 4450 5800 0    60   Italic 0
+Ctrl
+Text Notes 3450 5050 0    60   Italic 0
+Space
+Text Notes 4450 5050 0    60   Italic 0
+←
+Text Notes 5450 5050 0    60   Italic 0
+↓
+Text Notes 6450 5050 0    60   Italic 0
+↑
+Text Notes 7450 5050 0    60   Italic 0
+→
+Text Notes 4450 3550 0    60   Italic 0
+K
+Text Notes 5450 3550 0    60   Italic 0
+L
+Text Notes 6450 3550 0    60   Italic 0
+ ;
+Text Notes 7500 3550 0    60   Italic 0
+Apos
+Text Notes 3450 2800 0    60   Italic 0
+U
+Text Notes 4450 2800 0    60   Italic 0
+I
+Text Notes 5450 2800 0    60   Italic 0
+O
+Text Notes 6450 2800 0    60   Italic 0
+P
+Text Notes 7500 2800 0    60   Italic 0
+[
+Text Notes 8500 2800 0    60   Italic 0
+]
+Text Notes 9500 2800 0    60   Italic 0
+\
+Text Notes 3450 2050 0    60   Italic 0
+7
+Text Notes 4450 2050 0    60   Italic 0
+8
+Text Notes 5450 2050 0    60   Italic 0
+9
+Text Notes 6450 2050 0    60   Italic 0
+0
+Text Notes 7500 2050 0    60   Italic 0
+-
+Text Notes 8500 2050 0    60   Italic 0
+=
+Text Notes 9450 2100 0    60   Italic 0
+Back\n Space
+Wire Wire Line
+	9450 1900 9450 2150
+Text Notes 9450 1300 0    60   Italic 0
+Del
+Text Notes 8450 1300 0    60   Italic 0
+F12
+Text Notes 7450 1300 0    60   Italic 0
+F11
+Text Notes 6450 1300 0    60   Italic 0
+F10
+Text Notes 5450 1300 0    60   Italic 0
+F9
+Text Notes 4450 1300 0    60   Italic 0
+F8
+Text Notes 3450 1300 0    60   Italic 0
+F7
+Text Notes 3450 3550 0    60   Italic 0
+J
+Text Notes 3450 4300 0    60   Italic 0
+N
+Text Notes 4450 4300 0    60   Italic 0
+M
+Text Notes 5450 4300 0    60   Italic 0
+Comma
+Text Notes 6450 4300 0    60   Italic 0
+Dot
+Text Notes 7500 4300 0    60   Italic 0
+/
+Text Notes 8450 4300 0    60   Italic 0
+PgUp
+Text Notes 9450 4300 0    60   Italic 0
+PgDn
+Text Notes 8450 3550 0    60   Italic 0
+Enter
+Wire Wire Line
+	1900 4700 2900 4700
+Wire Wire Line
+	2800 2900 2800 3650
+Wire Wire Line
+	2800 3650 2800 4400
+Wire Wire Line
+	2800 4400 2800 5150
+Wire Wire Line
+	2800 5150 2800 5900
+Wire Wire Line
+	2800 2150 2800 2900
+Wire Wire Line
+	3800 2900 3800 3650
+Wire Wire Line
+	3800 3650 3800 4400
+Wire Wire Line
+	3800 4400 3800 5150
+Wire Wire Line
+	3800 5150 3800 5900
+Wire Wire Line
+	3800 2150 3800 2900
+Wire Wire Line
+	4800 2900 4800 3650
+Wire Wire Line
+	4800 3650 4800 4400
+Wire Wire Line
+	4800 4400 4800 5150
+Wire Wire Line
+	4800 5150 4800 6600
+Wire Wire Line
+	4800 2150 4800 2900
+Wire Wire Line
+	5800 2900 5800 3650
+Wire Wire Line
+	5800 3650 5800 4400
+Wire Wire Line
+	5800 4400 5800 5150
+Wire Wire Line
+	5800 5150 5800 6600
+Wire Wire Line
+	5800 2150 5800 2900
+Wire Wire Line
+	6800 2900 6800 3650
+Wire Wire Line
+	6800 3650 6800 4400
+Wire Wire Line
+	6800 4400 6800 5150
+Wire Wire Line
+	6800 5150 6800 6600
+Wire Wire Line
+	6800 2150 6800 2900
+Wire Wire Line
+	7800 2900 7800 3650
+Wire Wire Line
+	7800 3650 7800 4400
+Wire Wire Line
+	7800 4400 7800 6600
+Wire Wire Line
+	7800 2150 7800 2900
+Wire Wire Line
+	8800 2900 8800 4400
+Wire Wire Line
+	8800 4400 8800 6600
+Wire Wire Line
+	8800 2150 8800 2900
+Wire Wire Line
+	2900 950  3900 950 
+Wire Wire Line
+	2900 1700 3900 1700
+Wire Wire Line
+	2900 2450 3900 2450
+Wire Wire Line
+	2900 3200 3900 3200
+Wire Wire Line
+	3900 3200 4900 3200
+Wire Wire Line
+	3900 2450 4900 2450
+Wire Wire Line
+	3900 1700 4900 1700
+Wire Wire Line
+	3900 950  4900 950 
+Wire Wire Line
+	2900 3950 1900 3950
+Wire Wire Line
+	3900 3950 2900 3950
+Wire Wire Line
+	5900 3200 6900 3200
+Wire Wire Line
+	4900 3200 5900 3200
+Wire Wire Line
+	5900 3950 4900 3950
+Wire Wire Line
+	5900 4700 6900 4700
+Wire Wire Line
+	4900 4700 5900 4700
+Wire Wire Line
+	3900 4700 4900 4700
+Wire Wire Line
+	2900 4700 3900 4700
+Wire Wire Line
+	6900 3200 7900 3200
+Wire Wire Line
+	6900 2450 7900 2450
+Wire Wire Line
+	5900 2450 6900 2450
+Wire Wire Line
+	7900 2450 8900 2450
+Wire Wire Line
+	7900 3950 6900 3950
+Wire Wire Line
+	6900 3950 5900 3950
+Wire Wire Line
+	5900 1700 6900 1700
+Wire Wire Line
+	6900 1700 7900 1700
+Wire Wire Line
+	7900 1700 8900 1700
+Wire Wire Line
+	7900 950  8900 950 
+Wire Wire Line
+	6900 950  7900 950 
+Wire Wire Line
+	5900 950  6900 950 
+Wire Wire Line
+	4900 950  5900 950 
+Wire Wire Line
+	4900 1700 5900 1700
+Wire Wire Line
+	4900 2450 5900 2450
+Wire Wire Line
+	4900 3950 3900 3950
+Wire Wire Line
+	2800 5900 2800 6600
+Wire Wire Line
+	3800 5900 3800 6600
+Wire Wire Line
+	2900 5450 3900 5450
+$EndSCHEMATC
