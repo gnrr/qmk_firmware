@@ -1,9 +1,6 @@
-// #include <stdbool.h>
-#include <stdlib.h>     // abs
-#include "analog.h"      // adc_read
-#include "analogpad.h"
-
-#include "debug.h" // dprintf
+#include "asceension.h"
+#include <stdlib.h>         // abs
+#include "analog.h"         // adc_read
 
 #define ZERO_THRESH     30
 #define CALIBR_THRESH   50
@@ -229,8 +226,8 @@ void read_analogpad_scroll(analogpad_scroll_t* pad, uint8_t max)
     ad_x = adc_read(pad->adc_mux_x);
     ad_y = adc_read(pad->adc_mux_y);
 
-    *pjx = adjust_scroll(ad_x, &(pad->hist_x), &(pad->state_x)) * max;
-    *pjy = adjust_scroll(ad_y, &(pad->hist_y), &(pad->state_y)) * max;
+    *pjx = -adjust_scroll(ad_x, &(pad->hist_x), &(pad->state_x)) * max;
+    *pjy =  adjust_scroll(ad_y, &(pad->hist_y), &(pad->state_y)) * max;
     
 #if 0 // dbg
     // dprintf("x %4d\n", ad_x);

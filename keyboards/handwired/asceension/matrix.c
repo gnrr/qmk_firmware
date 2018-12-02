@@ -14,20 +14,12 @@ GNU General Public License for more details.
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-#include <stdint.h>
-#include <stdbool.h>
-#if defined(__AVR__)
-#include <avr/io.h>
-#endif
-#include "wait.h"
-#include "print.h"
-#include "debug.h"
-#include "util.h"
+#include "asceension.h"
 #include "matrix.h"
 #include "timer.h"
-#include "asceension.h"
+#include "wait.h"
 
-#include "debug.h"
+// #include "debug.h"
 
 /* Set 0 if debouncing isn't needed */
 
@@ -73,34 +65,6 @@ static bool read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
 static void unselect_rows(void);
 static void select_row(uint8_t row);
 
-__attribute__ ((weak))
-void matrix_init_quantum(void) {
-    matrix_init_kb();
-}
-
-__attribute__ ((weak))
-void matrix_scan_quantum(void) {
-    matrix_scan_kb();
-}
-
-__attribute__ ((weak))
-void matrix_init_kb(void) {
-    matrix_init_user();
-}
-
-__attribute__ ((weak))
-void matrix_scan_kb(void) {
-    matrix_scan_user();
-}
-
-__attribute__ ((weak))
-void matrix_init_user(void) {
-}
-
-__attribute__ ((weak))
-void matrix_scan_user(void) {
-}
-
 inline
 uint8_t matrix_rows(void) {
     return MATRIX_ROWS;
@@ -131,7 +95,7 @@ void matrix_init(void) {
         matrix_debouncing[i] = 0;
     }
 
-    matrix_init_quantum();
+    matrix_init_user();
 }
 
 uint8_t matrix_scan(void)
@@ -177,7 +141,7 @@ uint8_t matrix_scan(void)
     }
 #endif
 
-    matrix_scan_quantum();
+    matrix_scan_user();
     return 1;
 }
 

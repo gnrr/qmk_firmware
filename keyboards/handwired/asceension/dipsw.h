@@ -1,14 +1,17 @@
 #pragma once
 
-typedef enum {DSW_KEYMAP_MAC=0, DSW_KEYMAP_WIN} dsw_host_t;
-typedef enum {DSW_OPT_OFF=0, DSW_OPT_ON} dsw_opt_t;
+#include "asceension.h"
 
-typedef struct {
-    dsw_opt_t dsw1_opt;
-    dsw_opt_t dsw2_opt;
-    dsw_opt_t dsw3_opt;
-    dsw_opt_t dsw4_host;
+typedef union {
+    struct {
+        uint8_t sw1: 1;
+        uint8_t sw2: 1;
+        uint8_t sw3: 1;
+        uint8_t sw4: 1;
+        uint8_t dummy: 4;
+    } bit;
+    uint8_t all;
 } dsw_t;
 
-extern void read_dipsw(dsw_t* pdsw);
+extern void read_dipsw(void);
 
