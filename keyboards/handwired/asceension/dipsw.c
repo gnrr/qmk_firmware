@@ -1,23 +1,26 @@
-#include <avr/io.h> // PIND
-#include "action_layer.h"
-#include "dipsw.h"
+#include "asceension.h"
 
-void read_dipsw(dsw_t* pdsw)
+dsw_t DipSW;
+
+void read_dipsw(void)
 {
-    //        ON    OFF      action
-    // DSW1 
-    // DSW2 
-    // DSW3 
-    // DSW4 : Win   Mac     change keymap
+    //          PORT    ON(LO)  OFF(HI)     action
+    // DSW1     PD4     
+    // DSW2     PD6     
+    // DSW3     PD7     
+    // DSW4     PE6     Win     Mac         change default layer
 
     // lo-active
-    pdsw->dsw1_opt  = ((PIND & (1 << 4)) == 0)? DSW_OPT_ON    :DSW_OPT_OFF;    // DSW1 PD4: ON(lo)=ON,   OFF(hi)=OFF
-    pdsw->dsw2_opt  = ((PIND & (1 << 6)) == 0)? DSW_OPT_ON    :DSW_OPT_OFF;    // DSW2 PD6: ON(lo)=ON,   OFF(hi)=OFF
-    pdsw->dsw3_opt  = ((PIND & (1 << 7)) == 0)? DSW_OPT_ON    :DSW_OPT_OFF;    // DSW3 PD7: ON(lo)=ON,   OFF(hi)=OFF
-    pdsw->dsw4_host = ((PINE & (1 << 6)) == 0)? DSW_KEYMAP_WIN:DSW_KEYMAP_MAC; // DSW4 PE6: ON(lo)=Win,  OFF(hi)=Mac
+    DipSW.bit.sw1 = ((PIND & (1 << 4)) == 0)? 1 : 0;    // DSW1
+    DipSW.bit.sw2 = ((PIND & (1 << 6)) == 0)? 1 : 0;    // DSW2
+    DipSW.bit.sw3 = ((PIND & (1 << 7)) == 0)? 1 : 0;    // DSW3
+    DipSW.bit.sw4 = ((PINE & (1 << 6)) == 0)? 1 : 0;    // DSW4
 
+    // dprintf("%d\n", DipSW.bit.sw4);
+
+    // DSW4
     uint8_t default_layer;
-    default_layer = (1<<(pdsw->dsw4_host));
+    default_layer = (1<<(DipSW.bit.sw4));
     default_layer_set((uint32_t)default_layer);
 }
 

@@ -1,10 +1,6 @@
-#include "i2cmaster.h"
-#include "quantum/pointing_device.h"
-#include "analogpad.h"
-#include "dipsw.h"
+#include "report.h"         // report_mouse_t
+#include "host.h"           // host_mouse_send
 #include "asceension.h"
-
-#include "debug.h" // dprintf
 
 bool i2c_initialized = false;
 uint8_t mcp23018_status = 0x20;
@@ -15,14 +11,7 @@ uint8_t mcp23018_status = 0x20;
 #define ADC_MUX_PAD_RY 0x05             // PF5/ADC5
 #define ADC_MUX_PAD_RX 0x04             // PF4/ADC4
 
-// dipsw
-#define PIN_DIPSW_1 D4 // for _BV()
-#define PIN_DIPSW_2 D6
-#define PIN_DIPSW_3 D7
-#define PIN_DIPSW_4 E6
-
-dsw_t DipSw; // dip switch
-
+static report_mouse_t mouseReport = {};
 
 #define MAP(x, in_min, in_max, out_min, out_max) \
     ((x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min)
@@ -35,10 +24,18 @@ void pointing_device_init(void)
     //initialize device, if that needs to be done.
     debug_enable = true;
 
-    read_dipsw(&DipSw);
-    
     init_analogpad_pointer(&pad_r, ADC_MUX_PAD_RX, ADC_MUX_PAD_RY);
     init_analogpad_scroll(&pad_l, ADC_MUX_PAD_LX, ADC_MUX_PAD_LY);
+}
+
+void pointing_device_send(void){
+    //If you need to do other things, like debugging, this is the place to do it.
+    host_mouse_send(&mouseReport);
+	//send it and 0 it out except for buttons, so those stay until they are explicity over-ridden using update_pointing_device
+	mouseReport.x = 0;
+	mouseReport.y = 0;
+	mouseReport.v = 0;
+	mouseReport.h = 0;
 }
 
 void pointing_device_task(void) {
@@ -47,18 +44,19 @@ void pointing_device_task(void) {
     read_analogpad_pointer(&pad_r, 6);
     read_analogpad_scroll(&pad_l, 1);
 
+#if 0
     if(pad_l.x || pad_l.y)
         dprintf("h,v: %d, %d\n", pad_l.x, pad_l.y);
+#endif
 
-    currentReport = pointing_device_get_report();
+    currentReport = mouseReport;
 
     currentReport.x = pad_r.x;           // pointer -127 .. 127
     currentReport.y = pad_r.y;           // pointer -127 .. 127
     currentReport.h = pad_l.x;           // scroll  -127 .. 127
     currentReport.v = pad_l.y;           // scroll  -127 .. 127
  
-    pointing_device_set_report(currentReport);
-
+    mouseReport = currentReport;
     pointing_device_send();
 }
 

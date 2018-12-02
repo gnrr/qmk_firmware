@@ -175,8 +175,6 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KC_RCMD KC_RGUI
 #define KC_RWIN KC_RGUI
 
-
-
 /* USB HID Keyboard/Keypad Usage(0x07) */
 enum hid_keyboard_keypad_usage {
     KC_NO               = 0x00,

@@ -1,7 +1,6 @@
 #pragma once
 
-#include <stdint.h>
-#include <stdbool.h>
+#include "asceension.h"
 
 #define  N_HIST 100  // should be <= 65538 (= UINT32_MAX / UINT16_MAX)
 
