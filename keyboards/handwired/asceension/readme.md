@@ -1,11 +1,11 @@
 ASCEENSION
 ===
 
-![ASCEENSION](https://github.com/hidsh/qmk_firmware/tree/asceension/keyboards/handwired/asceension/docs/asceension001.jpg)
+![ASCEENSION](docs/asceension001.jpg)
 
 Keyboard Maintainer: [hidsh](https://github.com/hidsh)
-Hardware Supported: asceension
-Hardware Availability:  are available
+Hardware Supported: asceension001
+Hardware Availability:  schematic and gerber are available
 
 ## Features
 
@@ -26,8 +26,8 @@ See [build environment setup](https://docs.qmk.fm/build_environment_setup.html) 
 
 ## Hardware
 
-- [schematic](https://github.com/hidsh/qmk_firmware/tree/asceension/keyboards/handwired/asceension/docs/asceension002.pdf)
+- [schematic](docs/asceension002.pdf)
 
-- [gerber](https://github.com/hidsh/qmk_firmware/tree/asceension/keyboards/handwired/asceension/docs/gerber/) 
+- [gerber](docs/gerber/) 
 
-- [kicad data](https://github.com/hidsh/qmk_firmware/tree/asceension/keyboards/handwired/asceension/docs/kicad/)
+- [kicad data](docs/kicad/)
