@@ -3,13 +3,16 @@ ASCEENSION
 
 ![ASCEENSION](docs/asceension001.jpg)
 
-Keyboard Maintainer: [hidsh](https://github.com/hidsh)
-Hardware Supported: asceension001
-Hardware Availability:  schematic and gerber are available
+- Keyboard Maintainer: [hidsh](https://github.com/hidsh)
+
+- Hardware Supported: asceension001
+
+- Hardware Availability:  schematic and gerber are available
 
 ## Features
 
 - for Emacs, Vim, and EVIL users
+
 - x2 analog joypads as pointing device
  
 ## How to make
