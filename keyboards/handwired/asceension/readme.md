@@ -11,7 +11,7 @@ ASCEENSION
 
 ## Features
 
-- for Emacs, Vim, and EVIL users
+- suitable keymap for Emacs, Vim, and EVIL users
 
 - x2 analog joypads as pointing device
  
