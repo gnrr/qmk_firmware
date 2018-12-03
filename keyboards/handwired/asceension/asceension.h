@@ -31,6 +31,10 @@
 #define OLATA           0x14            /* output latch register */
 #define OLATB           0x15
 
+
+// keycode
+#define KC_LOPT         KC_LALT         /* Mac Left Option */
+#define KC_ROPT         KC_RALT         /* Mac Right Option */
 #define RESET           0x5C00          /* RESET keycode */
 
 extern uint8_t mcp23018_status;
