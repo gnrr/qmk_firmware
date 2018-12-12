@@ -100,7 +100,7 @@ void matrix_init(void) {
 
 uint8_t matrix_scan(void)
 {
-    // init MCP2301 8
+    // init MCP23018
     if (mcp23018_status) { 
         /* if there was an error */
         if (++mcp23018_reset_loop == 0) {
