@@ -16,11 +16,13 @@ void read_dipsw(void)
     DipSW.bit.sw3 = ((PIND & (1 << 7)) == 0)? 1 : 0;    // DSW3
     DipSW.bit.sw4 = ((PINE & (1 << 6)) == 0)? 1 : 0;    // DSW4
 
+    dprintf("read_dipsw()\n");
     // dprintf("%d\n", DipSW.bit.sw4);
 
     // DSW4
     uint8_t default_layer;
     default_layer = (1<<(DipSW.bit.sw4));
     default_layer_set((uint32_t)default_layer);
+    clear_keyboard();
 }
 

@@ -29,8 +29,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 void matrix_init_user(void) {
+    dprintf("matrix_init_user()\n");
 }
 
 void matrix_scan_user(void) {
-    read_dipsw();
+    static bool dipsw_not_yet = true;
+    
+    if(dipsw_not_yet) {
+        dipsw_not_yet = false;
+        read_dipsw();
+    }
 }
