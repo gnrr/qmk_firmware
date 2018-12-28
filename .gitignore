@@ -1,6 +1,7 @@
 GPATH
 GRTAGS
 GTAGS
+*.dws
 *.zip
 .dep
 *.o
