@@ -34,3 +34,14 @@ See [build environment setup](https://docs.qmk.fm/build_environment_setup.html) 
 - [gerber](docs/gerber/) 
 
 - [kicad data](docs/kicad/)
+
+## Note
+
+To catch up original qmk_firmware repos:
+
+```
+$ cd go/to/qmk_firmware
+$ git remote add upstream git@github.com:qmk/qmk_firmware.git
+$ git fetch upstream
+$ git rebase upstream/master
+```
