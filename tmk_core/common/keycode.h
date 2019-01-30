@@ -190,6 +190,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KC_BRIU KC_BRIGHTNESS_UP
 #define KC_BRID KC_BRIGHTNESS_DOWN
 
+<<<<<<< HEAD
 /* System Specific */
 #define KC_BRMU KC_PAUSE
 #define KC_BRMD KC_SCROLLLOCK
@@ -213,6 +214,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define KC_ACL2 KC_MS_ACCEL2
 
 /* Keyboard/Keypad Page (0x07) */
+=======
+/* USB HID Keyboard/Keypad Usage(0x07) */
+>>>>>>> fd95027898014465a79990d26335462aea0b29f6
 enum hid_keyboard_keypad_usage {
   KC_NO                   = 0x00,
   KC_ROLL_OVER,
