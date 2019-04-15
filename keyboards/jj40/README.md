@@ -12,7 +12,7 @@ Make example for this keyboard (after setting up your build environment):
 
     make jj40:default:program
 
-See [build environment setup](https://docs.qmk.fm/build_environment_setup.html) then the [make instructions](https://docs.qmk.fm/make_instructions.html) for more information.
+See [build environment setup](https://docs.qmk.fm/#/getting_started_build_tools) then the [make instructions](https://docs.qmk.fm/#/getting_started_make_guide) for more information.
 
 Note that this is a complete replacement for the firmware, so you won't be
 using Bootmapper Client to change any keyboard settings, since not all the
@@ -51,6 +51,13 @@ in the bootloader:
 $ make jj40
 $ bootloadHID -r jj40_default.hex
 ```
+
+For Windows 10:
+Windows sometimes doesn't recognize the jj40. The easiest way of flashing a new layout is probably using [HIDBootFlash](http://vusb.wikidot.com/project:hidbootflash).
+1. Go to Windows Device Manager and find the keyboard (plug it in while holding down `Backspace` (`Top Right Key`)). It can be found under Human Interface Devices or under Keyboards.
+2. Go to properties and the Details tab to find the hardware ID. You want the VID and the PID (code after the underscore). Plug them into HIDBootFlash and hit Find Device.
+3. Use `make jj40:<keymap-name>` to generate the .hex file in the qmk basis folder. Select the .hex file in HIDBootFlash and press Flash Device.
+
 
 ## Troubleshooting
 

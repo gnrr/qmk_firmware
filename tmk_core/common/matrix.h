@@ -31,6 +31,16 @@ typedef  uint32_t   matrix_row_t;
 #error "MATRIX_COLS: invalid value"
 #endif
 
+#if (MATRIX_ROWS <= 8)
+typedef  uint8_t    matrix_col_t;
+#elif (MATRIX_ROWS <= 16)
+typedef  uint16_t   matrix_col_t;
+#elif (MATRIX_ROWS <= 32)
+typedef  uint32_t   matrix_col_t;
+#else
+#error "MATRIX_ROWS: invalid value"
+#endif
+
 #define MATRIX_IS_ON(row, col)  (matrix_get_row(row) && (1<<col))
 
 
@@ -38,6 +48,36 @@ typedef  uint32_t   matrix_row_t;
 extern "C" {
 #endif
 
+typedef struct { 
+    uint8_t b0:  1;
+    uint8_t b1:  1;
+    uint8_t b2:  1;
+    uint8_t b3:  1;
+    uint8_t b4:  1;
+    uint8_t b5:  1;
+    uint8_t b6:  1;
+    uint8_t b7:  1;
+    uint8_t b8:  1;
+    uint8_t b9:  1;
+    uint8_t b10: 1;
+    uint8_t b11: 1;
+    uint8_t b12: 1;
+    uint8_t b13: 1;
+    uint8_t b14: 1;
+    uint8_t b15: 1;
+} bit16_t;
+
+typedef struct {
+    uint8_t lo;
+    uint8_t hi;
+} byte2_t;
+    
+typedef union {
+    uint16_t word;
+    byte2_t  byte;
+    bit16_t  bit;
+} cols_t;
+    
 /* number of matrix rows */
 uint8_t matrix_rows(void);
 /* number of matrix columns */

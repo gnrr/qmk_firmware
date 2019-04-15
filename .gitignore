@@ -1,6 +1,8 @@
 GPATH
 GRTAGS
 GTAGS
+*.dws
+*.zip
 .dep
 *.o
 *.bin
@@ -18,6 +20,7 @@ GTAGS
 *.swp
 tags
 *~
+*#
 build/
 .build/
 *.bak
@@ -72,4 +75,4 @@ secrets.tar
 id_rsa_*
 /.vs
 
-*.DS_Store.*
+._*

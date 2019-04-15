@@ -1,0 +1,33 @@
+#+TITLE: QMK Firmware memo
+
+* todo
+** sx60をベースに
+  
+* joyceee concept
+** keep pragmatic for various apps and/or environment - Includes F1-F12, Arrow keys, Page Up/Down
+** without mouse - Two analog joy pads like portable gaming device.
+** Alt key and Ctrl Key is placed near both thumb tips.
+
+
+* promethium.c 
+uint8_t battery_level(void) {
+    float voltage = analogRead(BATTERY_PIN) * 2 * 3.3 / 1024;
+    |
+    V
+* dichotemy.c
+currentReport = pointing_device_get_report();
+//shifting and transferring the info to the mouse report varaible
+//mouseReport.x = 127 max -127 min
+urrentReport.x = uart_data[0];
+
+* make
+$ cd ~/git-clone/qmk-firmware
+$ make dichotemy:default
+$ make dichotemy:default:clean
+
+hex file is placed in ~/git-clone/qmk-firmware 
+  
+* flash(caterina)
+$ make dichotemy:default:avrdude
+
+
