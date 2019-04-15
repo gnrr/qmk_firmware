@@ -71,3 +71,5 @@ util/Win_Check_Output.txt
 secrets.tar
 id_rsa_*
 /.vs
+
+*.DS_Store.*
