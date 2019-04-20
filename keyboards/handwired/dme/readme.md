@@ -19,7 +19,16 @@ The DME - dactyl-manuform-egured is a modified version of the Dactyl Manuform. I
 
 In the root directory of the repository, build the firmware with a command like:
 
-    make handwired/dme:default
+```
+make handwired/dme:default
+```
+
+and/or flashing firmware:
+
+```
+make handwired/dme:default:avrdude
+```
+
 
 For more information on the layout option and other ones, see the [`make` guide](https://docs.qmk.fm/#/getting_started_make_guide).
 
