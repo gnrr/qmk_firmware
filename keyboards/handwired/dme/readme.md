@@ -20,7 +20,7 @@ The DME - dactyl-manuform-egured is a modified version of the Dactyl Manuform. I
 In the root directory of the repository, build the firmware with a command like:
 
 ```
-make handwired/dme:default
+make handwired/dme:4x5
 ```
 
 and/or flashing firmware:
