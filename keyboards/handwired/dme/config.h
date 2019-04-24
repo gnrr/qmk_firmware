@@ -1,20 +1,35 @@
-#ifndef ERGODOX_ERGODONE_CONFIG_H
-#define ERGODOX_ERGODONE_CONFIG_H
+#ifndef CONFIG_H
+#define CONFIG_H
 
 #include "config_common.h"
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0xFEED  // You may want to use 0x47EC for "KTEC", which doesn't seem to be in official use as of October 2017.
-#define PRODUCT_ID      0xE60D  // For "EGOD"/"ErgoDone".
-// The official ErgoDone VID and PID are documented at http://pid.codes/1209/2328/.
+#define VENDOR_ID       0x1209
+#define PRODUCT_ID      0x5502
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    K.T.E.C.
-#define PRODUCT         ErgoDone
-#define DESCRIPTION     QMK keyboard firmware for ErgoDone
+#define MANUFACTURER    scum noodle society
+#define PRODUCT         dme
+#define DESCRIPTION     QMK keyboard firmware for dme
 
 /* key matrix size */
-#define MATRIX_ROWS 10
+// todo: Switch MATRIX_ROWS and MATRIX_COLS according to the keymap want to use
+#if 0
+// 4x5, 4x6
+#define MATRIX_ROWS (5 * 2)
 #define MATRIX_COLS (6 + 8)
+#endif
+
+#if 0
+// 5x6, 5x7
+#define MATRIX_ROWS (6 * 2)
+#define MATRIX_COLS (6 + 8)
+#endif
+
+#if 1
+// 6x6
+#define MATRIX_ROWS (7 * 2)
+#define MATRIX_COLS (6 + 8)
+#endif
 
 #define MOUSEKEY_INTERVAL       20
 #define MOUSEKEY_DELAY          0
@@ -79,4 +94,4 @@
 //#define NO_ACTION_FUNCTION
 //#define DEBUG_MATRIX_SCAN_RATE
 
-#endif
+#endif // CONFIG_H
