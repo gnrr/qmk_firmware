@@ -1,5 +1,6 @@
 #include "dme.h"
 
+#if 0
 extern inline void ergodox_board_led_on(void);
 extern inline void ergodox_right_led_1_on(void);
 extern inline void ergodox_right_led_2_on(void);
@@ -51,4 +52,24 @@ void ergodox_blink_all_leds(void)
     //ergodox_led_all_on();
     //_delay_ms(333);
     ergodox_led_all_off();
+}
+#endif
+
+void dbg_out_init(void)
+{
+    //         76543210
+    DDRD  |= 0b10011100;        // D7, D4, D3, D2 for dbg_out
+    PORTD &= 0b01100011;        // initialize to 0 (LO)
+}
+
+void dbg_out(uint8_t pin, uint8_t level)
+{
+    assert(pin == 7 || pin == 4 || pin == 3 || pin == 2);
+
+    if(level == 0) {
+        PORTD &= ~_BV(pin & 0xF);        // out: 0 (LO)
+    }
+    else {
+        PORTD |=  _BV(pin & 0xF);        // out: 1 (HI)
+    }
 }

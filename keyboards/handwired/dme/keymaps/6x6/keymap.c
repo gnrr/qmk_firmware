@@ -11,7 +11,7 @@
 
 #define _______ KC_TRNS
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS * 2][COLS_AVR + COLS_EXPANDER] = {
 
   [_BASE] = LAYOUT_6x6(
 

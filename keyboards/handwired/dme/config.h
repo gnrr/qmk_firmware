@@ -13,31 +13,42 @@
 
 /* key matrix size */
 // todo: Switch MATRIX_ROWS and MATRIX_COLS according to the keymap want to use
-#if 0
+#if 1
 // 4x5, 4x6
-#define MATRIX_ROWS (5 * 2)
-#define MATRIX_COLS (6 + 8)
+#define MATRIX_ROWS     (5 * 2)
+#define ROW_START_L     0
+#define ROW_START_R     5
+#define COLS_AVR        6
+#define COLS_EXPANDER   8
 #endif
 
 #if 0
 // 5x6, 5x7
-#define MATRIX_ROWS (6 * 2)
-#define MATRIX_COLS (6 + 8)
+#define MATRIX_ROWS     (6 * 2)
+#define ROW_START_L     0
+#define ROW_START_R     6
+#define COLS_AVR        6
+#define COLS_EXPANDER   8
 #endif
 
-#if 1
+#if 0
 // 6x6
-#define MATRIX_ROWS (7 * 2)
-#define MATRIX_COLS (6 + 8)
+#define MATRIX_ROWS     (7 * 2)
+#define ROW_START_L     0
+#define ROW_START_R     7
+#define COLS_AVR        6
+#define COLS_EXPANDER   8
 #endif
 
-#define MOUSEKEY_INTERVAL       20
-#define MOUSEKEY_DELAY          0
-#define MOUSEKEY_TIME_TO_MAX    60
-#define MOUSEKEY_MAX_SPEED      7
+#define MATRIX_COLS     (COLS_AVR + COLS_EXPANDER)
+
+#define MOUSEKEY_INTERVAL    20
+#define MOUSEKEY_DELAY       0
+#define MOUSEKEY_TIME_TO_MAX 60
+#define MOUSEKEY_MAX_SPEED   7
 #define MOUSEKEY_WHEEL_DELAY 0
 
-#define TAPPING_TOGGLE  1
+#define TAPPING_TOGGLE 1
 
 /* define if matrix has ghost */
 //#define MATRIX_HAS_GHOST

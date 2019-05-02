@@ -28,6 +28,9 @@
 #   define DEBOUNCE	5
 #endif
 
+
+// #define EXPANDER_ENABLE
+
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
 
@@ -36,7 +39,7 @@ static matrix_row_t matrix[MATRIX_ROWS];
 // already changed in the last DEBOUNCE scans.
 static uint8_t debounce_matrix[MATRIX_ROWS * MATRIX_COLS];
 
-static matrix_row_t read_cols(uint8_t row);
+static matrix_row_t read_cols(void);
 static void init_cols(void);
 static void unselect_rows(void);
 static void select_row(uint8_t row);
@@ -46,22 +49,29 @@ uint32_t matrix_timer;
 uint32_t matrix_scan_count;
 #endif
 
+#if 1
+// __attribute__ ((weak))
+void matrix_init_user(void) {
+    dbg_out_init();
+    dbg_hi(3);
+    
+    debug_enable=true;
+    print("matrix_init_user\n");
+}
+#endif
 
-__attribute__ ((weak))
-void matrix_init_user(void) {}
-
-__attribute__ ((weak))
-void matrix_scan_user(void) {}
-
-__attribute__ ((weak))
+#if 1
+// __attribute__ ((weak))
 void matrix_init_kb(void) {
   matrix_init_user();
 }
+#endif
 
-__attribute__ ((weak))
+#if 1
 void matrix_scan_kb(void) {
-  matrix_scan_user();
+
 }
+#endif
 
 inline
 uint8_t matrix_rows(void)
@@ -84,6 +94,9 @@ void matrix_init(void)
   unselect_rows();
   init_cols();
 
+  debug_matrix = false;
+  print("matrix_init\n");
+
   // initialize matrix state: all keys off
   for (uint8_t i=0; i < MATRIX_ROWS; i++) {
     matrix[i] = 0;
@@ -104,6 +117,8 @@ void matrix_init(void)
 void matrix_power_up(void) {
   unselect_rows();
   init_cols();
+
+  print("matrix_power_up\n");
 
   // initialize matrix state: all keys off
   for (uint8_t i=0; i < MATRIX_ROWS; i++) {
@@ -142,7 +157,18 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 uint8_t matrix_scan(void)
 {
-  expander_scan();
+    // debug_keyboard=true;
+    // debug_enable = true;
+    // print("DEBUG: enabled.\n");
+    // print(">> matrix_scan\n");
+    dbg_hi(2);
+
+#ifdef EXPANDER_ENABLE
+    expander_scan();
+#endif
+
+    // matrix_print();
+    // print(" 1 matrix_scan\n");
 
 #ifdef DEBUG_MATRIX_SCAN_RATE
   matrix_scan_count++;
@@ -159,19 +185,42 @@ uint8_t matrix_scan(void)
   }
 #endif
 
-  for (uint8_t i = 0; i < MATRIX_ROWS; i++) {
-    select_row(i);
-    wait_us(30);  // without this wait read unstable value.
-    matrix_row_t mask = debounce_mask(i);
-    matrix_row_t cols = (read_cols(i) & mask) | (matrix[i] & ~mask);
-    debounce_report(cols ^ matrix[i], i);
-    matrix[i] = cols;
+  for(uint8_t i=0; i<(MATRIX_ROWS / 2); i++) {
+      matrix_row_t mask, cols;
 
-    unselect_rows();
+      select_row(i);                            // left:  AVR
+
+#ifdef EXPANDER_ENABLE
+      expander_select_row(i);                   // right: Expander
+#endif
+      wait_us(30);  // without this wait read unstable value.
+
+      // left: AVR
+      mask = debounce_mask(i);
+      cols = (read_cols() & mask) | (matrix[i] & ~mask);
+      debounce_report(cols ^ matrix[i], i);
+      matrix[i] = cols;
+
+#ifdef EXPANDER_ENABLE
+      // right: Expander
+      uint8_t ir = i + ROW_START_R;
+      mask = debounce_mask(ir);
+      cols = (expander_read_cols() & mask) | (matrix[ir] & ~mask);
+      debounce_report(cols ^ matrix[ir], ir);
+      matrix[ir] = cols;
+#endif
+      
+      unselect_rows();                          // left:  AVR
+
+#ifdef EXPANDER_ENABLE
+      expander_unselect_rows();                 // right: Expander
+#endif
   }
 
   matrix_scan_quantum();
 
+  // print("<< matrix_scan\n");
+  dbg_lo(2);
   return 1;
 }
 
@@ -206,90 +255,83 @@ uint8_t matrix_key_count(void)
   return count;
 }
 
-/* Column pin configuration
- *
- * Pro Micro: 6    5    4    3    2    1    0
- *            PD3  PD2  PD4  PC6  PD7  PE6  PB4
- *
- * Expander:  13   12   11   10   9    8    7
- */
+// COLUMS: INPUT, PULL-UP, NEGATIVE-LOGIC
+//                        COL-L0  -L1  -L2  -L3  -L4  -L5  -L6 --> AVR
+const uint8_t COL_PINS_L[] = {C6,  E6,  B5,  B6,  B7,  D6,  C7};
+#define COUNT_COL_PINS_L    (sizeof(COL_PINS_L)/sizeof(COL_PINS_L[0]))
+
 static void  init_cols(void)
 {
-  // Pro Micro
-  DDRE  &= ~(1<<PE6);
-  PORTE |=  (1<<PE6);
-  DDRD  &= ~(1<<PD2 | 1<<PD3 | 1<<PD4 | 1<<PD7);
-  PORTD |=  (1<<PD2 | 1<<PD3 | 1<<PD4 | 1<<PD7);
-  DDRC  &= ~(1<<PC6);
-  PORTC |=  (1<<PC6);
-  DDRB  &= ~(1<<PB4);
-  PORTB |=  (1<<PB4);
+    // left: AVR
+    // DDRx
+    //   0      INPUT  <-- on reset
+    //   1      OUTPUT
 
-  // MCP23017
-  expander_init();
+    // PORTx    INPUT   OUTPUT
+    //   0        -       LO    <-- on reset
+    //   1      PULLUP    HI
+
+    assert(COUNT_COL_PINS_L <= 8);
+    
+    // all columns are set as input, pullup
+    for(uint8_t i = 0; i < COUNT_COL_PINS_L; i++) {
+        uint8_t pin = COL_PINS_L[i];
+        _SFR_IO8((pin >> 4) + 1) &= ~_BV(pin & 0xF); // DDRx  --> IN
+        _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // PORTx --> HI (for pullup)
+    }
+
+#ifdef EXPANDER_ENABLE
+    // right: Expander (MCP23017)
+    expander_init();
+#endif
 }
 
-static matrix_row_t read_cols(uint8_t row)
+static matrix_row_t read_cols(void)
 {
-  return expander_read_row() |
-    (PIND&(1<<PD3) ? 0 : (1<<6)) |
-    (PIND&(1<<PD2) ? 0 : (1<<5)) |
-    (PIND&(1<<PD4) ? 0 : (1<<4)) |
-    (PINC&(1<<PC6) ? 0 : (1<<3)) |
-    (PIND&(1<<PD7) ? 0 : (1<<2)) |
-    (PINE&(1<<PE6) ? 0 : (1<<1)) |
-    (PINB&(1<<PB4) ? 0 : (1<<0)) ;
+    uint8_t cols = 0;
+
+    // left: AVR
+    assert(COUNT_COL_PINS_L <= 8);
+
+    for(uint8_t i=0; i<COUNT_COL_PINS_L; i++) {
+        uint8_t pin = COL_PINS_L[i];
+        uint8_t val = _SFR_IO8(pin >> 4) & _BV(pin & 0xF);   // PINx (active-lo)
+        if(val) cols &= ~(1 << i);
+        else    cols |=  (1 << i);
+    }
+
+    return cols;
 }
 
-/* Row pin configuration
- *
- * Pro Micro: 0   1   2   3   4   5
- *            F4  F5  F6  F7  B1  B2
- *
- * Expander:  0   1   2   3   4   5
- */
+// ROWS: OUTPUT, ACTIVE-LOW
+//                               ROW-L0  -L1  -L2  -L3  -L4  -L5  -L6 --> AVR
+static const uint8_t ROW_PINS_L[] = {B1,  F0,  F1,  F4,  F5,  F6,  F7};
+#define COUNT_ROW_PINS_L    (sizeof(ROW_PINS_L)/sizeof(ROW_PINS_L[0]))
+
 static void unselect_rows(void)
 {
-  // Pro Micro
-  DDRF  &= ~(1<<PF4 | 1<<PF5 | 1<<PF6 | 1<<PF7);
-  PORTF &= ~(1<<PF4 | 1<<PF5 | 1<<PF6 | 1<<PF7);
-  DDRB  &= ~(1<<PB1 | 1<<PB2);
-  PORTB &= ~(1<<PB1 | 1<<PB2);
+    // left: AVR
+    // DDRx
+    //   0      INPUT  <-- on reset
+    //   1      OUTPUT
+    //
+    // PORTx    INPUT   OUTPUT
+    //   0        -       LO    <-- on reset
+    //   1      PULLUP    HI
 
-  // Expander
-  expander_unselect_rows();
+    // all rows are set as output, active-lo
+    for(uint8_t i = 0; i < COUNT_ROW_PINS_L; i++) {
+        uint8_t pin = ROW_PINS_L[i];
+        _SFR_IO8((pin >> 4) + 1) |=  _BV(pin & 0xF); // DDRx  --> OUT
+        _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // PORTx --> HI
+    }
 }
 
 static void select_row(uint8_t row)
 {
-  // Pro Micro
-  switch (row) {
-  case 0:
-    DDRF  |=  (1<<PF4);
-    PORTF &= ~(1<<PF4);
-    break;
-  case 1:
-    DDRF  |=  (1<<PF5);
-    PORTF &= ~(1<<PF5);
-    break;
-  case 2:
-    DDRF  |=  (1<<PF6);
-    PORTF &= ~(1<<PF6);
-    break;
-  case 3:
-    DDRF  |=  (1<<PF7);
-    PORTF &= ~(1<<PF7);
-    break;
-  case 4:
-    DDRB  |=  (1<<PB1);
-    PORTB &= ~(1<<PB1);
-    break;
-  case 5:
-    DDRB  |=  (1<<PB2);
-    PORTB &= ~(1<<PB2);
-    break;
-  }
-
-  expander_select_row(row);
+    // left: AVR
+    uint8_t pin = ROW_PINS_L[row];
+    _SFR_IO8((pin >> 4) + 1) |=  _BV(pin & 0xF); // DDRx  --> OUT
+    _SFR_IO8((pin >> 4) + 2) &= ~_BV(pin & 0xF); // PORTx --> LO
 }
 
