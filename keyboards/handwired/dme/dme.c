@@ -55,10 +55,17 @@ void ergodox_blink_all_leds(void)
 }
 #endif
 
+// thx to - http://graphics.stanford.edu/~seander/bithacks.html#ReverseByteWith32Bits
+inline
+uint8_t reverse_bits(uint8_t b)
+{
+    return (uint8_t)(((b * 0x0802LU & 0x22110LU) | (b * 0x8020LU & 0x88440LU)) * 0x10101LU >> 16); 
+}
+
 void dbg_out_init(void)
 {
     //         76543210
-    DDRD  |= 0b10011100;        // D7, D4, D3, D2 for dbg_out
+    DDRD  |= 0b10011100;        // PD7, PD4, PD3, PD2 for dbg_out
     PORTD &= 0b01100011;        // initialize to 0 (LO)
 }
 

@@ -29,7 +29,7 @@
 #endif
 
 
-// #define EXPANDER_ENABLE
+#define EXPANDER_ENABLE
 
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
@@ -52,11 +52,10 @@ uint32_t matrix_scan_count;
 #if 1
 // __attribute__ ((weak))
 void matrix_init_user(void) {
-    dbg_out_init();
-    dbg_hi(3);
+    // dbg_out_init();
+    // dbg_hi(3);
     
-    debug_enable=true;
-    print("matrix_init_user\n");
+    dprintf("matrix_init_user\n");
 }
 #endif
 
@@ -91,11 +90,23 @@ void matrix_init(void)
   MCUCR = (1<<JTD);
   MCUCR = (1<<JTD);
 
+  _delay_ms(1000);             // for print(), etc...
+
+  debug_matrix = true;         // for matrix_print()
+  // debug_keyboard = true;
+  // debug_enable = true;      // for dprintf()
+  dprintf(">> matrix_init\n");
+
+  // left:  AVR
   unselect_rows();
   init_cols();
 
-  debug_matrix = false;
-  print("matrix_init\n");
+#ifdef EXPANDER_ENABLE
+  // right: Expander
+  expander_init();
+  expander_unselect_rows();
+#endif
+
 
   // initialize matrix state: all keys off
   for (uint8_t i=0; i < MATRIX_ROWS; i++) {
@@ -111,24 +122,8 @@ void matrix_init(void)
 #endif
 
   matrix_init_quantum();
+  dprintf("<< matrix_init\n");
 
-}
-
-void matrix_power_up(void) {
-  unselect_rows();
-  init_cols();
-
-  print("matrix_power_up\n");
-
-  // initialize matrix state: all keys off
-  for (uint8_t i=0; i < MATRIX_ROWS; i++) {
-    matrix[i] = 0;
-  }
-
-#ifdef DEBUG_MATRIX_SCAN_RATE
-  matrix_timer = timer_read32();
-  matrix_scan_count = 0;
-#endif
 }
 
 // Returns a matrix_row_t whose bits are set if the corresponding key should be
@@ -157,18 +152,17 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 uint8_t matrix_scan(void)
 {
-    // debug_keyboard=true;
-    // debug_enable = true;
-    // print("DEBUG: enabled.\n");
-    // print(">> matrix_scan\n");
-    dbg_hi(2);
+    debug_matrix = true;         // for matrix_print()
+    // debug_keyboard = true;
+    // debug_enable = true;         // for dprintf()
+    dprintf(">> matrix_scan\n");
+    // dbg_hi(2);
 
 #ifdef EXPANDER_ENABLE
     expander_scan();
 #endif
 
-    // matrix_print();
-    // print(" 1 matrix_scan\n");
+    matrix_print();
 
 #ifdef DEBUG_MATRIX_SCAN_RATE
   matrix_scan_count++;
@@ -219,8 +213,8 @@ uint8_t matrix_scan(void)
 
   matrix_scan_quantum();
 
-  // print("<< matrix_scan\n");
-  dbg_lo(2);
+  dprintf("<< matrix_scan\n");
+  // dbg_lo(2);
   return 1;
 }
 
@@ -255,7 +249,7 @@ uint8_t matrix_key_count(void)
   return count;
 }
 
-// COLUMS: INPUT, PULL-UP, NEGATIVE-LOGIC
+// COLUMNS: INPUT, PULL-UP, NEGATIVE-LOGIC
 //                        COL-L0  -L1  -L2  -L3  -L4  -L5  -L6 --> AVR
 const uint8_t COL_PINS_L[] = {C6,  E6,  B5,  B6,  B7,  D6,  C7};
 #define COUNT_COL_PINS_L    (sizeof(COL_PINS_L)/sizeof(COL_PINS_L[0]))
@@ -266,7 +260,7 @@ static void  init_cols(void)
     // DDRx
     //   0      INPUT  <-- on reset
     //   1      OUTPUT
-
+    //
     // PORTx    INPUT   OUTPUT
     //   0        -       LO    <-- on reset
     //   1      PULLUP    HI
@@ -279,11 +273,6 @@ static void  init_cols(void)
         _SFR_IO8((pin >> 4) + 1) &= ~_BV(pin & 0xF); // DDRx  --> IN
         _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // PORTx --> HI (for pullup)
     }
-
-#ifdef EXPANDER_ENABLE
-    // right: Expander (MCP23017)
-    expander_init();
-#endif
 }
 
 static matrix_row_t read_cols(void)

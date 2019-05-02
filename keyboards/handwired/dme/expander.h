@@ -1,9 +1,7 @@
-#ifndef EXPANDER_H
-#define EXPANDER_H
+#pragma once
 
-#include <stdint.h>
-#include <assert.h>
 #include "matrix.h"
+#include "dme.h"
 
 #define MCP23017
 // device address
@@ -12,7 +10,8 @@
 #define MCP23017_A2 0
 
 #ifdef MCP23017
-#define EXPANDER_ADDR ((0x20|(MCP23017_A0<<0)|(MCP23017_A1<<1)|(MCP23017_A2<<2)) << 1)
+#define EXPANDER_ADDR (0x20|(MCP23017_A0<<0)|(MCP23017_A1<<1)|(MCP23017_A2<<2))
+
 enum EXPANDER_REG_BANK0 {
   EXPANDER_REG_IODIRA = 0,
   EXPANDER_REG_IODIRB,
@@ -47,4 +46,3 @@ matrix_row_t expander_read_cols(void);
 void expander_unselect_rows(void);
 void expander_select_row(uint8_t row);
 
-#endif
