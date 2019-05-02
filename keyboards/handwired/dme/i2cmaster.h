@@ -86,6 +86,7 @@
 #endif
 
 #include <avr/io.h>
+#include <stdbool.h>
 
 /** defines the data direction (reading from I2C device) in i2c_start(),i2c_rep_start() */
 #define I2C_READ    1
@@ -117,7 +118,7 @@ extern void i2c_stop(void);
  @retval   0   device accessible 
  @retval   1   failed to access device 
  */
-extern unsigned char i2c_start(unsigned char addr);
+extern bool i2c_start(unsigned char addr);
 
 
 /**
@@ -127,7 +128,7 @@ extern unsigned char i2c_start(unsigned char addr);
  @retval  0 device accessible
  @retval  1 failed to access device
  */
-extern unsigned char i2c_rep_start(unsigned char addr);
+extern bool i2c_rep_start(unsigned char addr);
 
 
 /**

@@ -42,11 +42,12 @@ void i2c_init(void)
 
 /*************************************************************************	
   Issues a start condition and sends address and transfer direction.
-  return 0 = device accessible, 1= failed to access device
+  return false = device accessible, true= failed to access device
 *************************************************************************/
-unsigned char i2c_start(unsigned char address)
+bool i2c_start(unsigned char address)
 {
-    uint8_t   twst;
+    bool    failed = true;
+    uint8_t twst;
 
 	// send START condition
 	TWCR = (1<<TWINT) | (1<<TWSTA) | (1<<TWEN);
@@ -56,7 +57,7 @@ unsigned char i2c_start(unsigned char address)
 
 	// check value of TWI Status Register. Mask prescaler bits.
 	twst = TW_STATUS & 0xF8;
-	if ( (twst != TW_START) && (twst != TW_REP_START)) return 1;
+	if ( (twst != TW_START) && (twst != TW_REP_START)) return failed;
 
 	// send device address
 	TWDR = address;
@@ -67,9 +68,10 @@ unsigned char i2c_start(unsigned char address)
 
 	// check value of TWI Status Register. Mask prescaler bits.
 	twst = TW_STATUS & 0xF8;
-	if ( (twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK) ) return 1;
+	if ( (twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK) ) return failed;
 
-	return 0;
+    failed = false;
+	return failed;
 
 }/* i2c_start */
 
@@ -131,7 +133,7 @@ void i2c_start_wait(unsigned char address)
  Return:  0 device accessible
           1 failed to access device
 *************************************************************************/
-unsigned char i2c_rep_start(unsigned char address)
+bool i2c_rep_start(unsigned char address)
 {
     return i2c_start( address );
 

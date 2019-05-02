@@ -9,7 +9,7 @@ The DME - dactyl-manuform-egured is a modified version of the Dactyl Manuform. I
 
 - Keyboard maintainer: hidsh
 - Hardware supported: 
-    - dme 001
+    - dme_001
 - Hardware availability:
     under constrution
 
@@ -26,7 +26,7 @@ make handwired/dme:4x5
 and/or flashing firmware:
 
 ```
-make handwired/dme:default:avrdude
+make handwired/dme:4x5:avrdude
 ```
 
 

@@ -20,7 +20,7 @@
 #define TAB_L  LCTL(LSFT(KC_TAB))
 #define TAB_RO LCTL(LSFT(KC_T))
 
-const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS * 2][COLS_AVR + COLS_EXPANDER] = {
 
 [_BASE] = LAYOUT_5x7(
   // left hand

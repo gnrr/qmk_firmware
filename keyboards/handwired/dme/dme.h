@@ -5,12 +5,15 @@
 #include <stdint.h>
 #include <stdbool.h>
 
+#include <assert.h>
+
+
 #define CPU_PRESCALE(n) (CLKPR = 0x80, CLKPR = (n))
 #define CPU_16MHz       0x00
 
+#if 1
 void init_ergodox(void);
 
-#if 1
 inline void ergodox_right_led_1_off(void) { DDRB &= ~(1<<PB5); PORTB &= ~(1<<PB5); }
 inline void ergodox_right_led_1_on(void) { DDRB |= (1<<PB5); PORTB |= (1<<PB5); }
 inline void ergodox_right_led_2_off(void) { DDRB &= ~(1<<PB6); PORTB &= ~(1<<PB6); }
@@ -167,6 +170,7 @@ inline void ergodox_led_all_set(uint8_t n)              {}
 		{ L41, L42, L43, L44, L45, L46, KC_NO }, \
 		{ L51, L52, L53, L54, L55, L56, KC_NO }, \
 		{ KC_NO, KC_NO, L63, L64, L65, L66, KC_NO }, \
+\
 		{ R11, R12, R13, R14, R15, R16, R17 }, \
 		{ R21, R22, R23, R24, R25, R26, R27 }, \
 		{ R31, R32, R33, R34, R35, R36, R37 }, \
@@ -204,8 +208,10 @@ inline void ergodox_led_all_set(uint8_t n)              {}
 		{ R60, R61, R62, R63, KC_NO, KC_NO }, \
    }
 
+void dbg_out_init(void);
+void dbg_out(uint8_t pin, uint8_t level);
 
-// #define LAYOUT LAYOUT_4x5
-
+#define dbg_hi(pin)     dbg_out(pin, 1)
+#define dbg_lo(pin)     dbg_out(pin, 0)
 
 #endif // DME_H

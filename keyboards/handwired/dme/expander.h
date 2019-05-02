@@ -2,9 +2,11 @@
 #define EXPANDER_H
 
 #include <stdint.h>
+#include <assert.h>
 #include "matrix.h"
 
 #define MCP23017
+// device address
 #define MCP23017_A0 0
 #define MCP23017_A1 0
 #define MCP23017_A2 0
@@ -39,9 +41,9 @@ enum EXPANDER_REG_BANK0 {
 
 void expander_init(void);
 void expander_scan(void);
-void expander_read_cols(void);
-uint8_t expander_get_col(uint8_t col);
-matrix_row_t expander_read_row(void);
+matrix_row_t expander_read_cols(void);
+// uint8_t expander_get_col(uint8_t col);
+// matrix_row_t expander_read_row(void);
 void expander_unselect_rows(void);
 void expander_select_row(uint8_t row);
 
