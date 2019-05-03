@@ -11,7 +11,7 @@
 
 #include <i2cmaster.h>
 
-// #include "debug.h"
+#include "debug.h"
 
 /* define CPU frequency in Hz here if not defined in Makefile */
 #ifndef F_CPU
@@ -53,16 +53,19 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
   bool      err = true;
   uint8_t   twst;
 
+  dprintf(">> i2c_start\n");
+  dprintf("device_addr:0x%X, rw_flag:%d\n", device_addr, rw_flag);
+
   /* send START condition */
   TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTA);
 
-  /* wait until transmission completed */
+  dprintf("waiting until transmission completed\n");
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */
   twst = TWSR & 0xF8;
   if((twst != TW_START) && (twst != TW_REP_START)) {
-      // dprintf("i2c err: start condition: status=0x%X", twst);
+      dprintf("i2c_start() err: start condition: status=0x%X", twst);
       return err;
   }
 
@@ -70,15 +73,17 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
   TWDR = (device_addr << 1) | rw_flag;         // bit7..1: device address, bit0: rw_flag
   TWCR = (1<<TWINT) | (1<<TWEN);
 
-  /* wail until transmission completed and ACK/NACK has been received */
+  dprintf("waiting until transmission completed and ACK/NACK has been received\n"); 
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */
   twst = TWSR & 0xF8;
   if((twst != TW_MT_SLA_ACK) && (twst != TW_MR_SLA_ACK)) {
-      // dprintf("i2c err: device address: status=0x%X", twst);
+      dprintf("i2c_start() err: start condition: status=0x%X", twst);
       return err;
   }
+
+  dprintf("<< i2c_start\n");
 
   err = false;
   return err;

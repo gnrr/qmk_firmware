@@ -51,7 +51,8 @@ uint32_t matrix_scan_count;
 
 #if 1
 // __attribute__ ((weak))
-void matrix_init_user(void) {
+void matrix_init_user(void)
+{
     // dbg_out_init();
     // dbg_hi(3);
     
@@ -61,15 +62,14 @@ void matrix_init_user(void) {
 
 #if 1
 // __attribute__ ((weak))
-void matrix_init_kb(void) {
+void matrix_init_kb(void)
+{
   matrix_init_user();
 }
 #endif
 
 #if 1
-void matrix_scan_kb(void) {
-
-}
+void matrix_scan_kb(void) {}
 #endif
 
 inline
@@ -92,10 +92,9 @@ void matrix_init(void)
 
   _delay_ms(1000);             // for print(), etc...
 
-  debug_matrix = true;         // for matrix_print()
-  // debug_keyboard = true;
-  // debug_enable = true;      // for dprintf()
+  debug_enable   = true;       // for dprintf()
   dprintf(">> matrix_init\n");
+  print("matrix_init\n");
 
   // left:  AVR
   unselect_rows();
@@ -152,11 +151,8 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 uint8_t matrix_scan(void)
 {
-    debug_matrix = true;         // for matrix_print()
-    // debug_keyboard = true;
-    // debug_enable = true;         // for dprintf()
+    // debug_enable   = true;           // for dprintf()
     dprintf(">> matrix_scan\n");
-    // dbg_hi(2);
 
 #ifdef EXPANDER_ENABLE
     expander_scan();

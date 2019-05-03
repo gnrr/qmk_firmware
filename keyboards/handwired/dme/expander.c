@@ -19,8 +19,11 @@ void expander_init(void)
 
 void expander_scan(void)
 {
-  dprintf("expander status: %d ... ", expander_status);
+  dprintf(">> expander_scan\n");
   bool expander_err = i2c_start(EXPANDER_ADDR, I2C_WRITE);
+
+  dprintf("expander_err: %d\n", expander_err);
+  dprintf("expander status: %d ... ", expander_status);
 
   if (expander_err == false) {
     i2c_stop();
@@ -32,13 +35,14 @@ void expander_scan(void)
     }
   }
   else {
+    dprintf("expander error occured\n");
     if (expander_status == 1) {
       dprintf("detached\n");
       expander_status = 0;
       clear_keyboard();
     }
   }
-  dprintf("%d\n", expander_status);
+  dprintf("<< expander_scan\n");
 }
 
 // COLUMNS: GPA, INPUT, PULL-UP, NEGATIVE-LOGIC
@@ -46,35 +50,49 @@ void expander_scan(void)
 // read all columns in current row
 matrix_row_t expander_read_cols(void)
 {
+    dprintf(">> expander_read_cols\n");
+
     uint8_t read_val;
     expander_read(EXPANDER_REG_GPIOA, &read_val);               // negative-logic (LO => 1)
 
+    // print("cols:"); pdec(read_val); print("\n");
+
+    dprintf("<< expander_read_cols\n");
     return read_val;
 }
 
 void expander_unselect_rows(void)
 {
+    dprintf(">> expander_unselect_rows\n");
+
     // all rows: HI
     expander_write(EXPANDER_REG_GPIOB,  0xFF);      // 0*: output LO,       1 : output HI
+
+    dprintf("<< expander_unselect_rows\n");
 }
 
 // ROWS: GPB, OUTPUT, ACTIVE-LOW
 void expander_select_row(uint8_t row)
 {
+    dprintf(">> expander_select_row\n");
+    // print("row:"); pdec(row); print("\n");
+
     assert(row < 8);                                            // GPB0..GPB7
     expander_write(EXPANDER_REG_GPIOB,  ~_BV(row & 0x0F));      // active-lo
+
+    dprintf("<< expander_select_row\n");
 }
 
 void expander_config(void)
 {
     dprintf(">> expander_config\n");
 
-    // GPAx: input, pullup
+    // GPAx --> COLS: input, pullup
     expander_write(EXPANDER_REG_IPOLA,  0xFF);      // 0*: read LO => 0,    1 : read LO => 1 (* reset value)
     expander_write(EXPANDER_REG_GPPUA,  0xFF);      // 0*: disable pullup,  1 : enable pullup
     expander_write(EXPANDER_REG_IODIRA, 0xFF);      // 0 : output,          1*: input
  
-    // GPBx: output, active-lo
+    // GPBx --> ROWS: output, active-lo
     expander_write(EXPANDER_REG_IPOLB,  0x00);      // 0*: read LO => 0,    1 : read LO => 1 (* reset value)
     expander_write(EXPANDER_REG_GPPUB,  0x00);      // 0*: disable pullup,  1 : enable pullup
     expander_write(EXPANDER_REG_IODIRB, 0x00);      // 0 : output,          1*: input
