@@ -8,10 +8,6 @@
 # That's pretty much all you need. To compile, always go make clean,
 # followed by make.
 #
-# For advanced users only:
-# make teensy = Download the hex file to the device, using teensy_loader_cli.
-#               (must have teensy_loader_cli installed).
-#
 #----------------------------------------------------------------------------
 
 # # project specific files
@@ -70,26 +66,33 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 # Build Options
 #   comment out to disable the options.
 #
-CUSTOM_MATRIX           = yes # Custom matrix file for the ErgoDone
-UNICODE_ENABLE          = yes # Unicode
+CUSTOM_MATRIX           = yes	# Custom matrix file for the ErgoDone
+UNICODE_ENABLE          = no	# Unicode
 BOOTMAGIC_ENABLE        = no	# Virtual DIP switch configuration(+1000)
-MOUSEKEY_ENABLE         = no	# Mouse keys(+4700)
+MOUSEKEY_ENABLE         = yes	# Mouse keys(+4700)
 EXTRAKEY_ENABLE         = yes	# Audio control and System control(+450)
 CONSOLE_ENABLE          = yes	# Console for debug, dprintf, etc... (+400)
-COMMAND_ENABLE          = no  # Commands for debug and configuration
-SLEEP_LED_ENABLE        = no  # Breathing sleep LED during USB suspend
+COMMAND_ENABLE          = no	# Commands for debug and configuration
+SLEEP_LED_ENABLE        = no	# Breathing sleep LED during USB suspend
 NKRO_ENABLE             = no	# USB Nkey Rollover - not yet supported in LUFA
-USB_6KRO_ENABLE         = no  # USB 6key Rollover
+USB_6KRO_ENABLE         = no	# USB 6key Rollover
 BACKLIGHT_ENABLE        = no	# Enable keyboard backlight functionality
 KEYMAP_IN_EEPROM_ENABLE = no 	# External keymap in eeprom
 KEYMAP_SECTION_ENABLE   = no	# Fixed address keymap for keymap editor
-SOFTPWM_LED_ENABLE      = no  # Enable SoftPWM to drive backlight
-FADING_LED_ENABLE       = no  # Enable fading backlight
-BREATHING_LED_ENABLE    = no  # Enable breathing backlight
+SOFTPWM_LED_ENABLE      = no	# Enable SoftPWM to drive backlight
+FADING_LED_ENABLE       = no	# Enable fading backlight
+BREATHING_LED_ENABLE    = no	# Enable breathing backlight
 LEDMAP_ENABLE           = no	# Enable LED mapping
-LEDMAP_IN_EEPROM_ENABLE = no  # Read LED mapping from eeprom
-SWAP_HANDS_ENABLE       = no  # Disable Onehand
-RGBLIGHT_ENABLE         = no
-MIDI_ENABLE             = no
+LEDMAP_IN_EEPROM_ENABLE = no	# Read LED mapping from eeprom
+SWAP_HANDS_ENABLE       = no	# Disable Onehand
+RGBLIGHT_ENABLE         = no	# 
+MIDI_ENABLE             = no	# 
+POINTING_DEVICE_ENABLE  = yes   # Enable pointing_device_task() for trackball and mouse
 
-# LAYOUTS = ergodox
+# LAYOUTS = default
+
+SRC += adns5050.cpp
+SRC += trackball.cpp
+SRC += deck1.cpp
+# SRC += deck1.c
+

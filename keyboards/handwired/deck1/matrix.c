@@ -76,7 +76,6 @@ void matrix_init(void)
 
     _delay_ms(1000);             // for print(), etc...
 
-    // debug_enable   = true;       // for dprintf()
     dprintf(">> %s\n", __func__);
 
     // right:  AVR
@@ -152,7 +151,6 @@ void matrix_print(void)
 
 uint8_t matrix_scan(void)
 {
-    // debug_enable   = true;           // for dprintf()
     dprintf(">> %s\n", __func__);
 
 #ifdef EXPANDER_ENABLE

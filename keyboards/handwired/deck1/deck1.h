@@ -10,64 +10,64 @@
 #define CPU_16MHz       0x00
 
 #if 0
-void init_ergodox(void);
+void init_deck(void);
 
-inline void ergodox_right_led_1_off(void) { DDRB &= ~(1<<PB5); PORTB &= ~(1<<PB5); }
-inline void ergodox_right_led_1_on(void) { DDRB |= (1<<PB5); PORTB |= (1<<PB5); }
-inline void ergodox_right_led_2_off(void) { DDRB &= ~(1<<PB6); PORTB &= ~(1<<PB6); }
-inline void ergodox_right_led_2_on(void) { DDRB |= (1<<PB6); PORTB |= (1<<PB6); }
-inline void ergodox_right_led_3_off(void) { DDRB &= ~(1<<PB3); PORTB &= ~(1<<PB3); }
-inline void ergodox_right_led_3_on(void) { DDRB |= (1<<PB3); PORTB |= (1<<PB3); }
-inline void ergodox_right_led_on(uint8_t l) {
+inline void deck_right_led_1_off(void) { DDRB &= ~(1<<PB5); PORTB &= ~(1<<PB5); }
+inline void deck_right_led_1_on(void) { DDRB |= (1<<PB5); PORTB |= (1<<PB5); }
+inline void deck_right_led_2_off(void) { DDRB &= ~(1<<PB6); PORTB &= ~(1<<PB6); }
+inline void deck_right_led_2_on(void) { DDRB |= (1<<PB6); PORTB |= (1<<PB6); }
+inline void deck_right_led_3_off(void) { DDRB &= ~(1<<PB3); PORTB &= ~(1<<PB3); }
+inline void deck_right_led_3_on(void) { DDRB |= (1<<PB3); PORTB |= (1<<PB3); }
+inline void deck_right_led_on(uint8_t l) {
     switch (l) {
          case 1:
-             ergodox_right_led_1_on();
+             deck_right_led_1_on();
              break;
          case 2:
-             ergodox_right_led_2_on();
+             deck_right_led_2_on();
              break;
          case 3:
-             ergodox_right_led_3_on();
+             deck_right_led_3_on();
              break;
          default:
              break;
         }
 }
 
-inline void ergodox_right_led_off(uint8_t l) {
+inline void deck_right_led_off(uint8_t l) {
     switch (l) {
          case 1:
-             ergodox_right_led_1_off();
+             deck_right_led_1_off();
              break;
          case 2:
-             ergodox_right_led_2_off();
+             deck_right_led_2_off();
              break;
          case 3:
-             ergodox_right_led_3_off();
+             deck_right_led_3_off();
              break;
          default:
              break;
         }
 }
-inline void ergodox_board_led_off(void) { DDRB &= ~(1<<PB0); PORTB |= (1<<PB0); }
-inline void ergodox_board_led_on(void) { DDRB |= (1<<PB0); PORTB &= ~(1<<PB0); }
-inline void ergodox_led_all_on(void) {
-    ergodox_right_led_1_on();
-    ergodox_right_led_2_on();
-    ergodox_right_led_3_on();
-    ergodox_board_led_on();
+inline void deck_board_led_off(void) { DDRB &= ~(1<<PB0); PORTB |= (1<<PB0); }
+inline void deck_board_led_on(void) { DDRB |= (1<<PB0); PORTB &= ~(1<<PB0); }
+inline void deck_led_all_on(void) {
+    deck_right_led_1_on();
+    deck_right_led_2_on();
+    deck_right_led_3_on();
+    deck_board_led_on();
 }
-inline void ergodox_led_all_off(void) {
-    ergodox_right_led_1_off();
-    ergodox_right_led_2_off();
-    ergodox_right_led_3_off();
-    ergodox_board_led_off();
+inline void deck_led_all_off(void) {
+    deck_right_led_1_off();
+    deck_right_led_2_off();
+    deck_right_led_3_off();
+    deck_board_led_off();
 }
-inline void ergodox_right_led_1_set(uint8_t n)          {}
-inline void ergodox_right_led_2_set(uint8_t n)          {}
-inline void ergodox_right_led_3_set(uint8_t n)          {}
-inline void ergodox_right_led_set(uint8_t l, uint8_t n) {}
-inline void ergodox_led_all_set(uint8_t n)              {}
+inline void deck_right_led_1_set(uint8_t n)          {}
+inline void deck_right_led_2_set(uint8_t n)          {}
+inline void deck_right_led_3_set(uint8_t n)          {}
+inline void deck_right_led_set(uint8_t l, uint8_t n) {}
+inline void deck_led_all_set(uint8_t n)              {}
 #endif
 
 #define LAYOUT( \
