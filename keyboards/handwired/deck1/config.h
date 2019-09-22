@@ -75,11 +75,15 @@
  *  These options are also useful to firmware size reduction.
  */
 
+/* enable user print (uprint) */
+#define USER_PRINT
+
 /* disable debug print */
 // #define NO_DEBUG
 
 /* disable print */
 // #define NO_PRINT
+
 
 /* disable action features */
 // #define NO_ACTION_LAYER

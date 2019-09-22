@@ -39,17 +39,19 @@ typedef enum {
 	REG_MOTION_BURST   = 0x63
 } reg_t;
 
+// todo bit-field
 typedef enum {
     PD_Normal     = 0,
     PD_Power_Down = 1
 } Mouse_Control_PD;
 
+// todo bit-field
 typedef enum {
     RES_500cpi  = 0,
     RES_1000cpi = 1
 } Mouse_Control_RES;
 
-typedef enum{
+typedef enum {
 	RES2_125cpi  = 0x01,
 	RES2_250cpi  = 0x02,
 	RES2_375cpi  = 0x03,
@@ -63,26 +65,29 @@ typedef enum{
 	RES2_1375cpi = 0x0B
 } Mouse_Control_RES2;
 
+typedef enum {
+    ADNS5050_ERR_INIT_SUCCESS = 0,
+    ADNS5050_ERR_INVALID_PRODUCT_ID2,
+    ADNS5050_ERR_INVALID_REVISION_ID,
+    ADNS5050_ERR_INVALID_INV_REV_ID,
+} Adns5050Err;
+
 class Adns5050
 {
-	private:
-		uint8_t _pin_reset;
-		uint8_t _pin_ncs;
-		uint8_t _pin_noe;				// SDIO output enable (provided by 74HC125)
-		int8_t  _last_op = -1;
+    uint8_t _pin_reset;
+    uint8_t _pin_cs;
+    uint8_t _pin_oe;			// SDIO output enable for half duplex communication
+                                // provided by 3-state buffer IC
+    int8_t  _last_op = -1;
 
-#ifdef ADNS_50x0_DEBUG
-		void _dbg_print(const char *s);
-		void _dbg_print(const char *fmt, const char ch);
-		void _dbg_print(const char *fmt, const char ch1, const char ch2);
-#endif
-
-	public:
+public:
                 Adns5050() {}
-		bool    init(const uint8_t pin_reset, const uint8_t pin_ncs, const uint8_t pin_noe, const uint8_t spi_opts);
-		uint8_t read(const reg_t address);
-		void    write(const reg_t address, const uint8_t value);
-        void    power_down_mode(bool mode);
+    Adns5050Err init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_t pin_oe, const uint8_t spi_opts);
+    uint8_t     read(reg_t address);
+    void        write(reg_t address, uint8_t value);
+    void        power_down_mode();
+    void        normal_mode();
+    void        reset();
 };
 
 #ifdef __cplusplus

@@ -59,11 +59,6 @@ void deck_blink_all_leds(void)
 }
 #endif
 
-
-#define PIN_RESET   F1
-#define PIN_NCS     C7
-#define PIN_NOE     F0
- 
 static report_mouse_t mouseReport = {};
 static Trackball tb;
 
@@ -71,20 +66,21 @@ static Trackball tb;
 extern "C"
 void pointing_device_init(void)
 {
-    dprintf(">> %s\n", __func__);
+    dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-
-    bool result = tb.init(PIN_RESET, PIN_NCS, PIN_NOE);
+    bool result = tb.init(PIN_RESET, PIN_CS, PIN_OE);
     if(!result) {
-        dprintf("  Trackball error: cannot initialize ball sensor\n");
+        print("  Trackball error: cannot initialize ball sensor\n");
+        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        return;                                     // abend
     }
 
-    dprintf("<< %s\n", __func__);
+    dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 void pointing_device_send(void)
 {
-    dprintf(">> %s\n", __func__);
+    dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     //If you need to do other things, like debugging, this is the place to do it.
     host_mouse_send(&mouseReport);
@@ -94,35 +90,28 @@ void pointing_device_send(void)
 	mouseReport.v = 0;
 	mouseReport.h = 0;
 
-    dprintf("<< %s\n", __func__);
+    dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 // Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
 void pointing_device_task(void)
 {
-    dprintf(">> %s\n", __func__);
+    dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-	report_mouse_t currentReport = {};
+	report_mouse_t currentReport = mouseReport;
 
     tb.update();
-    int8_t  x = tb.get_dx();
-    int8_t  y = tb.get_dy();
-    int16_t v = tb.get_scroll();
 
-    dprintf("x,y:%04d,%04d, v:%04d\n", x, y, v);
-
-    currentReport = mouseReport;
-
-    currentReport.x = x;           // pointer -127 .. 127
-    currentReport.y = y;           // pointer -127 .. 127
+    currentReport.x = tb.get_dx();;           // pointer -127 .. 127
+    currentReport.y = tb.get_dy();;           // pointer -127 .. 127
     currentReport.h = 0;
-    currentReport.v = v;           // scroll  -127 .. 127
+    currentReport.v = tb.get_scroll();        // scroll  -127 .. 127
  
     mouseReport = currentReport;
     pointing_device_send();
 
-    dprintf("<< %s\n", __func__);
+    dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 #if 0

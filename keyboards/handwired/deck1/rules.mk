@@ -94,5 +94,4 @@ POINTING_DEVICE_ENABLE  = yes   # Enable pointing_device_task() for trackball an
 SRC += adns5050.cpp
 SRC += trackball.cpp
 SRC += deck1.cpp
-# SRC += deck1.c
 
