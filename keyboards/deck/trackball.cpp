@@ -55,10 +55,10 @@ bool Trackball::update()
         _dx = zero_adjust(-y);
         _dy = zero_adjust(x);
 #else
-        // _dx = -y;
-        // _dy = x;
-        _dx = -(y / TRACKBALL_PRESCALE);
-        _dy =   x / TRACKBALL_PRESCALE;
+        // _dx = y;
+        // _dy = -x;
+        _dx =    y / TRACKBALL_PRESCALE;
+        _dy = -( x / TRACKBALL_PRESCALE);
 #endif
         uprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
     }
