@@ -1,6 +1,6 @@
 #include "action_layer.h"
 #include "config.h"
-#include "deck1.h"
+#include "deck.h"
 
 #define _BASE  0
 #define _RAISE 1

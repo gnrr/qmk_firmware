@@ -13,7 +13,6 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
     uint8_t spi_opts = SPI_SPEED_FCPU_DIV_8 | SPI_ORDER_MSB_FIRST | SPI_MODE_MASTER
                      | SPI_SCK_LEAD_FALLING | SPI_SAMPLE_TRAILING;
 
-
     _sensor_status = _ball_sensor.init(pin_reset, pin_cs, pin_oe, spi_opts);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
@@ -56,8 +55,10 @@ bool Trackball::update()
         _dx = zero_adjust(-y);
         _dy = zero_adjust(x);
 #else
-        _dx = -y;
-        _dy = x;
+        // _dx = -y;
+        // _dy = x;
+        _dx = -(y / TRACKBALL_PRESCALE);
+        _dy =   x / TRACKBALL_PRESCALE;
 #endif
         uprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
     }

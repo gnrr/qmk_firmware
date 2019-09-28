@@ -1,3 +1,5 @@
+// based on https://github.com/shb/arduino-adns-5050
+
 #include "print.h"
 #include "debug.h"
 #include "wait.h"

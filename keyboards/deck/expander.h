@@ -1,7 +1,7 @@
 #pragma once
 
 #include "matrix.h"
-#include "deck1.h"
+#include "deck.h"
 
 #define MCP23017
 // device address

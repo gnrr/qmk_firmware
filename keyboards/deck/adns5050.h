@@ -1,3 +1,5 @@
+// based on https://github.com/shb/arduino-adns-5050
+
 #pragma once
 
 #ifdef __cplusplus

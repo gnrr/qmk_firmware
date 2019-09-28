@@ -1,4 +1,5 @@
 #pragma once
+#include "config.h"
 #include "adns5050.h"
 
 #ifdef __cplusplus
@@ -7,7 +8,7 @@ extern "C" {
 
 #define PIN_RESET F1
 #define PIN_CS    C7
-#define PIN_OE    F0
+#define PIN_OE    F0        // provided by 3-state buffer IC
 
 class Trackball
 {

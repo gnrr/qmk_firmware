@@ -12,7 +12,7 @@
 #include  "timer.h"
 #endif
 
-#include "deck1.h"
+#include "deck.h"
 #include "expander.h"
 
 #define EXPANDER_ENABLE

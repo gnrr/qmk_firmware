@@ -1,11 +1,11 @@
 DME - dactyl-manuform-egured 
 ========
 
-![layout](docs/deck1_keymap.svg)
+![layout](docs/deck_keymap.svg)
 
-[schematic](docs/deck1_sch.pdf)
+[schematic](docs/deck_sch.pdf)
 
-DECK1 - A keyboard with trackball and scroll ring
+DECK - A keyboard with trackball and scroll ring
 
 - Keyboard maintainer: hidsh
 - Hardware supported: 
@@ -22,13 +22,13 @@ DECK1 - A keyboard with trackball and scroll ring
 In the root directory of the repository, build the firmware with a command like:
 
 ```
-make handwired/deck1:default
+make deck:default
 ```
 
 and/or flashing firmware:
 
 ```
-make handwired/deck1:default:avrdude
+make deck:default:avrdude
 ```
 
 
