@@ -86,7 +86,7 @@ public:
     uint8_t     read(reg_t address);
     void        write(reg_t address, uint8_t value);
     void        power_down_mode();
-    void        normal_mode();
+    void        wakeup();
     void        reset();
 };
 

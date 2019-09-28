@@ -23,7 +23,7 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
 
     uprint("  Trackball::init OK: connected\n");
 
-    _ball_sensor.power_down_mode();                   // power down mode
+    // _ball_sensor.power_down_mode();                   // power down mode
 
     // todo: initialize scroll sensor
 
@@ -41,9 +41,9 @@ bool Trackball::update()
         return false;                                            // abend
     }
 
-    _ball_sensor.normal_mode();                   // normal mode
+    // _ball_sensor.wakeup();                   // normal mode
   
-    bool moving_p = _ball_sensor.read(REG_MOTION);
+    uint8_t moving_p = _ball_sensor.read(REG_MOTION);
   
     if(moving_p) {
         int8_t x = _ball_sensor.read(REG_DELTA_X);
@@ -65,7 +65,7 @@ bool Trackball::update()
         _dx = 0;
         _dy = 0;
     }
-    _ball_sensor.power_down_mode();                   // power down mode
+    // _ball_sensor.power_down_mode();                   // power down mode
 
     // todo: read scroll sensor
 
