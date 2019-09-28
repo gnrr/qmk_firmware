@@ -12,8 +12,9 @@
 #define ____ KC_TRNS
 
 #define SFT_ESC  SFT_T(KC_ESC)
-#define CTL_BSPC CTL_T(KC_BSPC)
+#define CTL_SPC  CTL_T(KC_SPC)
 #define ALT_SPC  ALT_T(KC_SPC)
+#define WIN_SPC  WIN_T(KC_SPC)
 #define SFT_ENT  SFT_T(KC_ENT)
 
 #define KC_ML  KC_MS_LEFT
@@ -29,7 +30,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* default
-    C-L0   C-L1   C-L2   C-L3   C-L4   C-L5   C-L6   C-L7                  C-R7   C-R6   C-R5   C-R4   C-R3   C-R2   C-R1   C-R0   
+    C-L0   C-L1   C-L2   C-L3   C-L4   C-L5   C-L6   C-L7                  C-R0   C-R1   C-R2   C-R3   C-R4   C-R5   C-R6   C-R7   
   +-------------------------------------------------------+              +-------------------------------------------------------+ 
   |  esc |   `  |   1  |   2  |   3  |   4  |   5  |   6  |              |      |   7  |   8  |   9  |   0  |   -  |   =  |  bs  | R0
   +-------------------------------------------------------+              +-------------------------------------------------------+
@@ -46,9 +47,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_BASE] = LAYOUT(
     KC_ESC,  KC_GRAVE, KC_1,    KC_2,  KC_3,  KC_4,    KC_5,    KC_6,      xxx,     KC_7,   KC_8,     KC_9,    KC_0,    KC_MINUS, KC_EQUAL, KC_BSPC, \
     KC_PGUP, KC_TAB,   KC_Q,    KC_W,  KC_E,  KC_R,    KC_T,    xxx,       KC_Y,   KC_U,   KC_I,     KC_O,    KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS, \
-    KC_PGDN, KC_CAPS,  KC_A,    KC_S,  KC_D,  KC_F,    KC_G,    xxx,       KC_H,   KC_J,   KC_K,     KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   KC_MBR,  \
+    KC_PGDN, KC_F18,   KC_A,    KC_S,  KC_D,  KC_F,    KC_G,    xxx,       KC_H,   KC_J,   KC_K,     KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   KC_MBR,  \
     KC_MBL,  xxx,      KC_LSFT, KC_Z,  KC_X,  KC_C,    KC_V,    xxx,       KC_B,   KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH,  KC_UP,    KC_DEL,   \
-    xxx,     KC_LCTRL, xxx,     xxx,   xxx,   KC_LALT, KC_LWIN, xxx,       KC_SPC, KC_RCTRL, RAISE,  xxx,     xxx,      KC_LEFT,  KC_DOWN,  KC_RIGHT \
+    xxx,     KC_LCTRL, xxx,     xxx,   xxx,   KC_LALT, WIN_SPC, xxx,       SFT_ESC,CTL_SPC,RAISE,  xxx,     xxx,      KC_LEFT,  KC_DOWN,  KC_RIGHT \
 ),
 
 /* Raise
