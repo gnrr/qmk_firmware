@@ -6,6 +6,10 @@
 extern "C" {
 #endif
 
+#include "config.h"             // USER_PRINT
+#include "print.h"
+#include "debug.h"              // dprint
+
 #define ADNS_50x0_WRITE 0x80
 #define ADNS_50x0_READ  0x00
 

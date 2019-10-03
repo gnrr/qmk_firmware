@@ -1,8 +1,5 @@
 #include <stdlib.h>                // abs
-#include "print.h"
-#include "debug.h"              // dprint
 #include "LUFA/SPI.h"
-#include "adns5050.h"
 #include "trackball.h"
 
 bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_t pin_oe)
@@ -16,11 +13,11 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
     _sensor_status = _ball_sensor.init(pin_reset, pin_cs, pin_oe, spi_opts);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
-        uprintf("  Trackball::init error: can not connect to ball sensor! error code:%d\n", _sensor_status);
+        dprintf("  Trackball::init error: can not connect to ball sensor! error code:%d\n", _sensor_status);
         return false;                                       // abend
     }
 
-    uprint("  Trackball::init OK: connected\n");
+    dprint("  Trackball::init OK: connected\n");
 
     // _ball_sensor.power_down_mode();                   // power down mode
 
@@ -35,7 +32,7 @@ bool Trackball::update()
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
-        uprint("  Trackball::update error: can not connect to ball sensor\n");
+        dprint("  Trackball::update error: can not connect to ball sensor\n");
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return false;                                            // abend
     }
@@ -60,7 +57,7 @@ bool Trackball::update()
         // _dx =    y / TRACKBALL_PRESCALE;
         // _dy = -( x / TRACKBALL_PRESCALE);
 #endif
-        uprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
+        dprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
     }
     else {
         _dx = 0;

@@ -1,7 +1,5 @@
 // based on https://github.com/shb/arduino-adns-5050
 
-#include "print.h"
-#include "debug.h"
 #include "wait.h"
 #include "quantum/quantum.h"        // setPinOutput, writePinHigh
 #include "LUFA/SPI.h"
@@ -37,14 +35,14 @@ Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const 
 	uint8_t rd;
 	rd = read(REG_PRODUCT_ID2);
 	if (rd != ADNS_5050_PRODUCT_ID2) {
-	  	uprintf("  error: Invalid PRODUCT_ID2: %02X\n", rd);
+	  	dprintf("  error: Invalid PRODUCT_ID2: %02X\n", rd);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_PRODUCT_ID2;                   // abend
     }
 
 	rd = read(REG_REVISION_ID);
 	if (rd != ADNS_5050_REVISION_ID) {
-	  	uprintf("  error: Invalid REVISION_ID: %02X\n", rd);
+	  	dprintf("  error: Invalid REVISION_ID: %02X\n", rd);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_REVISION_ID;                   // abend
     }
@@ -52,11 +50,11 @@ Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const 
     rd = read(REG_INV_REV_ID);
     if ((uint8_t)~rd != ADNS_5050_REVISION_ID) {
     // if (rd != ~ADNS_5050_REVISION_ID) {
-        uprintf("  error: Invalid INV_REV_ID: %04X\n", rd);
+        dprintf("  error: Invalid INV_REV_ID: %04X\n", rd);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_INV_REV_ID;                   // abend
     }
-    uprint("Adns5050::init OK\n");
+    dprint("Adns5050::init OK\n");
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
     return ADNS5050_ERR_INIT_SUCCESS;
@@ -88,7 +86,7 @@ uint8_t Adns5050::read(reg_t addr)
       writePinHigh(_pin_cs);             // _pin_cs --> HI
       writePinHigh(_pin_oe);             // _pin_oe --> HI
 
-		uprintf("  Adns5050::read error: addr=%02X\n", addr);
+		dprintf("  Adns5050::read error: addr=%02X\n", addr);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
 		return 0xff;                    // abend
 	}
@@ -135,7 +133,7 @@ void Adns5050::write(reg_t addr, uint8_t value)
         writePinHigh(_pin_cs);             // _pin_cs --> HI
         writePinHigh(_pin_oe);             // _pin_oe --> HI
 
-		uprintf("  Adns5050::write error: addr=%02X, value=%02X\n", addr, value);
+		dprintf("  Adns5050::write error: addr=%02X, value=%02X\n", addr, value);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return;	
 	}
@@ -163,7 +161,7 @@ void Adns5050::power_down_mode()
     uint8_t wt = rd | 0b00000010;      // goto power down mode
     write(REG_MOUSE_CONTROL, wt);
 
-    uprint("  Adns5050::enter the power-down-mode\n");
+    dprint("  Adns5050::enter the power-down-mode\n");
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
@@ -172,7 +170,7 @@ void Adns5050::wakeup()
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     reset();
-    uprint("  Adns5050::wakeup from the power-down-mode\n");
+    dprint("  Adns5050::wakeup from the power-down-mode\n");
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }

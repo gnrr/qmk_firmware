@@ -18,12 +18,8 @@
 
 #define TRACKBALL_PRESCALE 2    // 1:thru, 2:half-speed, 4:quater-speed
 
-#define MOUSEKEY_INTERVAL    20
-#define MOUSEKEY_DELAY       0
-#define MOUSEKEY_TIME_TO_MAX 60
-#define MOUSEKEY_MAX_SPEED   7
-#define MOUSEKEY_WHEEL_DELAY 0
-#define TAPPING_TOGGLE 1
+#define ID_MS_BTN1 0
+#define ID_MS_BTN2 1
 
 // /* define if matrix has ghost */
 // #define MATRIX_HAS_GHOST
@@ -71,16 +67,15 @@
     #define FORCE_NKRO  // Depends on NKRO_ENABLE.
 #endif
 
+/* enable user print (uprint) */
+// #define USER_PRINT
+// #define DEBUG_MATRIX_SCAN_RATE
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.
  */
 
-/* enable user print (uprint) */
-#define USER_PRINT
-
-/* disable debug print */
-// #define NO_DEBUG
 
 /* disable print */
 // #define NO_PRINT
@@ -93,5 +88,4 @@
 // #define NO_ACTION_MACRO
 // #define NO_ACTION_FUNCTION
 
-// #define DEBUG_MATRIX_SCAN_RATE
 

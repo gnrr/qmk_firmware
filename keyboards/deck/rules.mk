@@ -68,13 +68,13 @@ OPT_DEFS += -DBOOTLOADER_SIZE=4096
 #
 CUSTOM_MATRIX           = yes	# Custom matrix file for the ErgoDone
 UNICODE_ENABLE          = no	# Unicode
-BOOTMAGIC_ENABLE        = no	# Virtual DIP switch configuration(+1000)
+BOOTMAGIC_ENABLE        = yes	# Virtual DIP switch configuration(+1000)
 MOUSEKEY_ENABLE         = yes	# Mouse keys(+4700)
 EXTRAKEY_ENABLE         = yes	# Audio control and System control(+450)
-CONSOLE_ENABLE          = yes	# Console for debug, dprintf, etc... (+400)
+CONSOLE_ENABLE          = no	# Console for debug, dprintf, etc... (+400)
 COMMAND_ENABLE          = no	# Commands for debug and configuration
 SLEEP_LED_ENABLE        = no	# Breathing sleep LED during USB suspend
-NKRO_ENABLE             = no	# USB Nkey Rollover - not yet supported in LUFA
+NKRO_ENABLE             = yes	# USB Nkey Rollover - not yet supported in LUFA
 USB_6KRO_ENABLE         = no	# USB 6key Rollover
 BACKLIGHT_ENABLE        = no	# Enable keyboard backlight functionality
 KEYMAP_IN_EEPROM_ENABLE = no 	# External keymap in eeprom
@@ -84,14 +84,11 @@ FADING_LED_ENABLE       = no	# Enable fading backlight
 BREATHING_LED_ENABLE    = no	# Enable breathing backlight
 LEDMAP_ENABLE           = no	# Enable LED mapping
 LEDMAP_IN_EEPROM_ENABLE = no	# Read LED mapping from eeprom
-SWAP_HANDS_ENABLE       = no	# Disable Onehand
 RGBLIGHT_ENABLE         = no	# 
-MIDI_ENABLE             = no	# 
 POINTING_DEVICE_ENABLE  = yes   # Enable pointing_device_task() for trackball and mouse
-
+# MOUSE_SHARED_EP         = no	# 
 # LAYOUTS = default
 
 SRC += adns5050.cpp
 SRC += trackball.cpp
 SRC += deck.cpp
-

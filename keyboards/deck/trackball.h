@@ -1,10 +1,12 @@
 #pragma once
-#include "config.h"
-#include "adns5050.h"
-
 #ifdef __cplusplus
 extern "C" {
 #endif
+
+#include "config.h"             // USER_PRINT
+#include "print.h"
+#include "debug.h"              // dprint
+#include "adns5050.h"
 
 #define PIN_RESET F1
 #define PIN_CS    C7

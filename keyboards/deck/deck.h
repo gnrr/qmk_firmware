@@ -1,9 +1,12 @@
 #pragma once
 
-#include "quantum.h"
 #include <stdint.h>
 #include <stdbool.h>
 #include <assert.h>
+#include "quantum.h"
+#include "config.h"             // USER_PRINT
+#include "print.h"
+#include "debug.h"              // dprint
 
 
 #define CPU_PRESCALE(n) (CLKPR = 0x80, CLKPR = (n))
@@ -91,9 +94,16 @@ inline void deck_led_all_set(uint8_t n)              {}
         { R40, R41, R42, R43, R44, R45, R46, R47 }  \
     }
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 void dbg_out_init(void);
-void dbg_out(uint8_t pin, uint8_t level);
+void dbg_out(pin_t pin, uint8_t level);
 
 #define dbg_hi(pin)     dbg_out(pin, 1)
 #define dbg_lo(pin)     dbg_out(pin, 0)
 
+#ifdef __cplusplus
+}
+#endif

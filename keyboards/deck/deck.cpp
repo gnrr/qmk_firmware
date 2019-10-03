@@ -1,8 +1,14 @@
+#include "config.h"         // USER_PRINT
+// #include "quantum/pointing_device.h"         // report_mouse_t
+// #include "quantum.h"        // IS_LAYER_ON
+#include "action_layer.h"   // keyrecord_t 
 #include "report.h"         // report_mouse_t
 #include "host.h"           // host_mouse_send
 #include "print.h"          // dprintf, print
 #include "debug.h"
+#include "quantum.h"        // pin_t
 #include "trackball.h"
+#include "deck.h"
 
 #if 0
 extern inline void deck_board_led_on(void);
@@ -59,13 +65,15 @@ void deck_blink_all_leds(void)
 }
 #endif
 
-static report_mouse_t mouseReport = {};
+// static report_mouse_t mouseReport = {};
 static Trackball tb;
+
 
 // Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
 void pointing_device_init(void)
 {
+    // debug_enable = true;
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     bool result = tb.init(PIN_RESET, PIN_CS, PIN_OE);
@@ -78,6 +86,7 @@ void pointing_device_init(void)
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
+#if 0
 void pointing_device_send(void)
 {
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
@@ -92,6 +101,11 @@ void pointing_device_send(void)
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
+#endif
+
+extern "C" report_mouse_t pointing_device_get_report(void);
+extern "C" void pointing_device_set_report(report_mouse_t newMouseReport);
+extern "C" void pointing_device_send();
 
 // Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
@@ -99,39 +113,95 @@ void pointing_device_task(void)
 {
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-	report_mouse_t currentReport = mouseReport;
+	report_mouse_t currentReport = pointing_device_get_report();
 
     tb.update();
 
-    currentReport.x = tb.get_dx();;           // pointer -127 .. 127
-    currentReport.y = tb.get_dy();;           // pointer -127 .. 127
-    currentReport.h = 0;
-    currentReport.v = tb.get_scroll();        // scroll  -127 .. 127
- 
-    mouseReport = currentReport;
+    currentReport.x = tb.get_dx();            // pointer x -127 .. 127
+    currentReport.y = tb.get_dy();            // pointer y -127 .. 127
+    currentReport.v = tb.get_scroll();        // scroll  v -127 .. 127
+    currentReport.h = 0;                      // scroll  h -127 .. 127 
+
+	pointing_device_set_report(currentReport);
     pointing_device_send();
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
-#if 0
+// const uint16_t PROGMEM fn_actions[] = {
+    // [0] = ACTION_FUNCTION(ID_MS_BTN1),
+    // [1] = ACTION_FUNCTION(ID_MS_BTN2),
+// };
+#if 1
+const uint16_t PROGMEM fn_actions[] = {
+  [0] = ACTION_FUNCTION(0),  // Calls action_function()
+  [1] = ACTION_FUNCTION(1),  // Calls action_function()
+};
+#endif
+
+extern "C"
+void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+#if 1
+    
+    // dbg_hi(D3);
+    // debug_enable = true;
+    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+
+	report_mouse_t currentReport = pointing_device_get_report();
+
+    switch (id) {
+        case 0:
+            if (record->event.pressed) {
+                // dbg_hi(D4);
+                currentReport.buttons |=  MOUSE_BTN1;
+            } else {
+                // dbg_lo(D4);
+                currentReport.buttons &= ~MOUSE_BTN1;
+            }
+            break;
+
+        case 1: 
+            if(record->event.pressed) {
+                // dbg_hi(D4);
+                currentReport.buttons |=  MOUSE_BTN2;
+            } else {
+                // dbg_lo(D4);
+                currentReport.buttons &= ~MOUSE_BTN2;
+            }
+            break;
+
+        default:
+            break;
+    }
+	pointing_device_set_report(currentReport);
+    pointing_device_send();
+
+    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dbg_lo(D3);
+#endif
+}
+
+pin_t dbg_out_pins[] = {D2, D3};           // PD2, PD3 for dbg_out
+#define DBG_OUT_PIN_SZ   sizeof(dbg_out_pins)/sizeof(dbg_out_pins[0])
 void dbg_out_init(void)
 {
-    //         76543210
-    DDRD  |= 0b10011100;        // PD7, PD4, PD3, PD2 for dbg_out
-    PORTD &= 0b01100011;        // initialize to 0 (LO)
+    for(uint8_t i=0; i<DBG_OUT_PIN_SZ; i++) {
+        pin_t pin = dbg_out_pins[i];
+        setPinOutput(pin);              // output
+        writePinLow(pin);               // --> LO
+    }
 }
 
-void dbg_out(uint8_t pin, uint8_t level)
+void dbg_out(pin_t pin, uint8_t level)
 {
-    assert(pin == 7 || pin == 4 || pin == 3 || pin == 2);
+    // assert(pin == D2 || pin == D3);
 
     if(level == 0) {
-        PORTD &= ~_BV(pin & 0xF);        // out: 0 (LO)
+        writePinLow(pin);               // --> LO
     }
     else {
-        PORTD |=  _BV(pin & 0xF);        // out: 1 (HI)
+        writePinHigh(pin);              // --> HI
     }
 }
-#endif
 

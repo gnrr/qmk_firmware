@@ -3,9 +3,11 @@
 #include <avr/io.h>
 #include "wait.h"
 #include "action_layer.h"
-#include "print.h"
-#include "debug.h"
 #include "util.h"
+#include "config.h"             // USER_PRINT, DEBUG_MATRIX_SCAN_RATE 
+#include "print.h"
+// #include "debug.h"
+#include "deck.h"               // dbg_lo, dbg_hi, dbg_out_init
 #include "matrix.h"
 
 #ifdef DEBUG_MATRIX_SCAN_RATE
@@ -16,6 +18,7 @@
 #include "expander.h"
 
 #define EXPANDER_ENABLE
+#define DEBUG_MATRIX_SCAN_RATE
 
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
@@ -36,7 +39,7 @@ void matrix_init_user(void)
 {
     dprintf(">> %s\n", __func__);
     // dbg_out_init();
-    // dbg_hi(3);
+    // dbg_hi(D2);
     
     dprintf("<< %s\n", __func__);
 }
@@ -74,8 +77,8 @@ void matrix_init(void)
     MCUCR = (1<<JTD);
     MCUCR = (1<<JTD);
 
-    _delay_ms(1000);             // for print(), etc...
-
+    // _delay_ms(1000);             // for print(), etc...
+    debug_enable = true;
     dprintf(">> %s\n", __func__);
 
     // right:  AVR
@@ -125,34 +128,38 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 void matrix_print(void)
 {
+#ifdef DEBUG_MATRIX_SCAN_RATE
 #ifdef EXPANDER_ENABLE
     const uint8_t ROW_START = ROW_START_EXPANDER;   // Expander + AVR
 #else
     const uint8_t ROW_START = ROW_START_AVR;        // AVR only
 #endif
+    // debug_enable = true;
     static uint32_t timer_old = 0;
     static uint32_t matrix_scan_count = 0;
     matrix_scan_count++;
 
     uint32_t timer_now = timer_read32();
     if (TIMER_DIFF_32(timer_now, timer_old)>1000) {
-        uprintf("matrix scan frequency: %d Hz\n", matrix_scan_count);
+        dprintf("matrix scan frequency: %d Hz\n", matrix_scan_count);
 
         // print matrix
         print("r/c 01234567\n");
         for (uint8_t row = ROW_START; row < MATRIX_ROWS; row++) {
-            uprintf("%02X: %08b\n", row, matrix_get_row(row));
+            dprintf("%02X: %08b\n", row, matrix_get_row(row));
         }
 
         timer_old = timer_now;
         matrix_scan_count = 0;
     }
+#endif // DEBUG_MATRIX_SCAN_RATE
 }
 
 uint8_t matrix_scan(void)
 {
     dprintf(">> %s\n", __func__);
 
+// #if 0
 #ifdef EXPANDER_ENABLE
     expander_attach();
 #endif
@@ -180,15 +187,16 @@ uint8_t matrix_scan(void)
 
         unselect_rows();
 
+// #if 0
 #ifdef EXPANDER_ENABLE
-        // Left: Expander
-        uint8_t ie = i + ROW_START_EXPANDER;
-        mask = debounce_mask(ie);
-        cols = (expander_read_cols() & mask) | (matrix[ie] & ~mask);
-        debounce_report(cols ^ matrix[ie], ie);
-        matrix[ie] = cols;
+    // Left: Expander
+    uint8_t ie = i + ROW_START_EXPANDER;
+    mask = debounce_mask(ie);
+    cols = (expander_read_cols() & mask) | (matrix[ie] & ~mask);
+    debounce_report(cols ^ matrix[ie], ie);
+    matrix[ie] = cols;
 
-        expander_unselect_rows();
+    expander_unselect_rows();
 #endif
     }
 
@@ -222,7 +230,8 @@ uint8_t matrix_key_count(void)
 
 // COLUMNS: INPUT, PULL-UP, NEGATIVE-LOGIC
 //                          COL-R0  -R1  -R2  -R3  -R4  -R5  -R6  -R7
-const uint8_t COL_PINS_AVR[] = {F4,  F5,  F6,  F7,  B4,  D7,  D4,  B6};
+//const uint8_t COL_PINS_AVR[] = {F4,  F5,  F6,  F7,  B4,  D7,  D7,  B6}; // D4 for dbg_out
+const uint8_t COL_PINS_AVR[] = {F4,  F5,  F6,  F7,  B4,  D7,  D4,  B6}; // D4 for dbg_out
 #define COUNT_COL_PINS_AVR  (sizeof(COL_PINS_AVR)/sizeof(COL_PINS_AVR[0]))
 
 static void  init_cols(void)
