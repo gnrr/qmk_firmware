@@ -54,8 +54,6 @@ bool Trackball::update()
 #else
         _dx = y;
         _dy = -x;
-        // _dx =    y / TRACKBALL_PRESCALE;
-        // _dy = -( x / TRACKBALL_PRESCALE);
 #endif
         dprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
     }
