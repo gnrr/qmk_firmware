@@ -128,24 +128,20 @@ void pointing_device_task(void)
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
-// const uint16_t PROGMEM fn_actions[] = {
-    // [0] = ACTION_FUNCTION(ID_MS_BTN1),
-    // [1] = ACTION_FUNCTION(ID_MS_BTN2),
-// };
 #if 1
 const uint16_t PROGMEM fn_actions[] = {
-  [0] = ACTION_FUNCTION(0),  // Calls action_function()
-  [1] = ACTION_FUNCTION(1),  // Calls action_function()
+    [0] = ACTION_FUNCTION(0),  // mouse_button_L
+    [1] = ACTION_FUNCTION(1),  // mouse_button_R
 };
 #endif
 
 extern "C"
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-#if 1
-    
-    // dbg_hi(D3);
-    // debug_enable = true;
+    // Just write mouse-buttons status into currentReport without sending mouse-report hered.
+    // The mouse-report is sent with x, y data by pointing_device_task afterwards.
+    // MOUSEKEY sends the mouse-report to host at the time so it cannot be used in this case. 
+    // Because using MOUSEKEY occurs mouse-report sending twice at a main-loop.   
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
 	report_mouse_t currentReport = pointing_device_get_report();
@@ -153,20 +149,16 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     switch (id) {
         case 0:
             if (record->event.pressed) {
-                // dbg_hi(D4);
                 currentReport.buttons |=  MOUSE_BTN1;
             } else {
-                // dbg_lo(D4);
                 currentReport.buttons &= ~MOUSE_BTN1;
             }
             break;
 
         case 1: 
             if(record->event.pressed) {
-                // dbg_hi(D4);
                 currentReport.buttons |=  MOUSE_BTN2;
             } else {
-                // dbg_lo(D4);
                 currentReport.buttons &= ~MOUSE_BTN2;
             }
             break;
@@ -178,8 +170,6 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     pointing_device_send();
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
-    // dbg_lo(D3);
-#endif
 }
 
 pin_t dbg_out_pins[] = {D2, D3};           // PD2, PD3 for dbg_out
