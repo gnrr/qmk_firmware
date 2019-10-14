@@ -74,11 +74,11 @@ uint8_t matrix_cols(void)
 void matrix_init(void)
 {
     // disable JTAG
-    MCUCR = (1<<JTD);
-    MCUCR = (1<<JTD);
+    // MCUCR = (1<<JTD);
+    // MCUCR = (1<<JTD);
 
     // _delay_ms(1000);             // for print(), etc...
-    debug_enable = true;
+    // debug_enable = true;
     dprintf(">> %s\n", __func__);
 
     // right:  AVR
@@ -144,7 +144,7 @@ void matrix_print(void)
         dprintf("matrix scan frequency: %d Hz\n", matrix_scan_count);
 
         // print matrix
-        print("r/c 01234567\n");
+        dprint("r/c 01234567\n");
         for (uint8_t row = ROW_START; row < MATRIX_ROWS; row++) {
             dprintf("%02X: %08b\n", row, matrix_get_row(row));
         }

@@ -1,13 +1,14 @@
-#include "config.h"         // USER_PRINT
+// #include "config.h"         // USER_PRINT
 // #include "quantum/pointing_device.h"         // report_mouse_t
 // #include "quantum.h"        // IS_LAYER_ON
 #include "action_layer.h"   // keyrecord_t 
 #include "report.h"         // report_mouse_t
-#include "host.h"           // host_mouse_send
+// #include "host.h"           // host_mouse_send
 #include "print.h"          // dprintf, print
 #include "debug.h"
 #include "quantum.h"        // pin_t
 #include "trackball.h"
+#include "scroll_sensor.h"
 #include "deck.h"
 
 #if 0
@@ -67,7 +68,7 @@ void deck_blink_all_leds(void)
 
 // static report_mouse_t mouseReport = {};
 static Trackball tb;
-
+static ScrollSensor scroll;
 
 // Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
@@ -76,7 +77,14 @@ void pointing_device_init(void)
     // debug_enable = true;
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-    bool result = tb.init(PIN_RESET, PIN_CS, PIN_OE);
+    bool result = scroll.init();
+    if(!result) {
+        print("  ScrollSensor error: cannot initialize scroll sensor\n");
+        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        return;                                     // abend
+    }
+
+    result = tb.init(PIN_RESET, PIN_CS, PIN_OE);                   // todo pin defines --> this .c
     if(!result) {
         print("  Trackball error: cannot initialize ball sensor\n");
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
@@ -111,16 +119,20 @@ extern "C" void pointing_device_send();
 extern "C"
 void pointing_device_task(void)
 {
+    // debug_enable = true;
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
 	report_mouse_t currentReport = pointing_device_get_report();
 
     tb.update();
+    uprintf("stat:%d\t", scroll.get_status());
+    char v = scroll.get();
+    uprintf("v:%d\n", v);
 
-    currentReport.x = tb.get_dx();            // pointer x -127 .. 127
-    currentReport.y = tb.get_dy();            // pointer y -127 .. 127
-    currentReport.v = tb.get_scroll();        // scroll  v -127 .. 127
-    currentReport.h = 0;                      // scroll  h -127 .. 127 
+    currentReport.x = tb.get_dx();              // pointer x -127 .. 127
+    currentReport.y = tb.get_dy();              // pointer y -127 .. 127
+    currentReport.v = v;                        // scroll  v -127 .. 127
+    currentReport.h = 0;                        // scroll  h -127 .. 127 
 
 	pointing_device_set_report(currentReport);
     pointing_device_send();
@@ -172,6 +184,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
+#if 0
 pin_t dbg_out_pins[] = {D2, D3};           // PD2, PD3 for dbg_out
 #define DBG_OUT_PIN_SZ   sizeof(dbg_out_pins)/sizeof(dbg_out_pins[0])
 void dbg_out_init(void)
@@ -194,4 +207,5 @@ void dbg_out(pin_t pin, uint8_t level)
         writePinHigh(pin);              // --> HI
     }
 }
+#endif
 

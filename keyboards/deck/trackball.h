@@ -3,7 +3,7 @@
 extern "C" {
 #endif
 
-#include "config.h"             // USER_PRINT
+// #include "config.h"             // USER_PRINT
 #include "print.h"
 #include "debug.h"              // dprint
 #include "adns5050.h"
@@ -18,7 +18,6 @@ class Trackball
     Adns5050Err _sensor_status;
     int8_t      _dx;
     int8_t      _dy;
-    int8_t     _scroll;
     int8_t      zero_adjust(int8_t val);
     int8_t      limit(int8_t n, int8_t min, int8_t max);
 
@@ -28,7 +27,6 @@ public:
     bool     update();
     int8_t   get_dx() const { return _dx; }
     int8_t   get_dy() const { return _dy; }
-    int8_t   get_scroll() const { return _scroll; }
 };
 
 #ifdef __cplusplus
