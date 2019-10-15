@@ -1,4 +1,4 @@
-DME - dactyl-manuform-egured 
+Deck
 ========
 
 ![layout](docs/deck_keymap.svg)
