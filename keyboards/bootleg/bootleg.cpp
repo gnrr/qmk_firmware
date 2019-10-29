@@ -9,33 +9,33 @@
 #include "quantum.h"        // pin_t
 #include "trackball.h"
 #include "scroll_sensor.h"
-#include "deck.h"
+#include "bootleg.h"
 
 #if 0
-extern inline void deck_board_led_on(void);
-extern inline void deck_right_led_1_on(void);
-extern inline void deck_right_led_2_on(void);
-extern inline void deck_right_led_3_on(void);
-extern inline void deck_right_led_on(uint8_t led);
+extern inline void bootleg_board_led_on(void);
+extern inline void bootleg_right_led_1_on(void);
+extern inline void bootleg_right_led_2_on(void);
+extern inline void bootleg_right_led_3_on(void);
+extern inline void bootleg_right_led_on(uint8_t led);
 
-extern inline void deck_board_led_off(void);
-extern inline void deck_right_led_1_off(void);
-extern inline void deck_right_led_2_off(void);
-extern inline void deck_right_led_3_off(void);
-extern inline void deck_right_led_off(uint8_t led);
+extern inline void bootleg_board_led_off(void);
+extern inline void bootleg_right_led_1_off(void);
+extern inline void bootleg_right_led_2_off(void);
+extern inline void bootleg_right_led_3_off(void);
+extern inline void bootleg_right_led_off(uint8_t led);
 
-extern inline void deck_led_all_off(void);
+extern inline void bootleg_led_all_off(void);
 
-void deck_led_init(void);
-void deck_blink_all_leds(void);
+void bootleg_led_init(void);
+void bootleg_blink_all_leds(void);
 
 void matrix_init_kb(void) {
-  deck_led_init();
-  deck_blink_all_leds();
+  bootleg_led_init();
+  bootleg_blink_all_leds();
   matrix_init_user();
 }
 
-void deck_led_init(void)
+void bootleg_led_init(void)
  {
      DDRB  |=  (1<<PB5 | 1<<PB6 | 1<<PB3);
      PORTB &= ~(1<<PB5 | 1<<PB6 | 1<<PB3);
@@ -45,24 +45,24 @@ void deck_led_init(void)
      PORTD |=  (1<<PB5);
 }
 
-void deck_blink_all_leds(void)
+void bootleg_blink_all_leds(void)
 {
-    deck_led_all_off();
-    deck_led_all_set(LED_BRIGHTNESS_HI);
-    deck_right_led_1_on();
+    bootleg_led_all_off();
+    bootleg_led_all_set(LED_BRIGHTNESS_HI);
+    bootleg_right_led_1_on();
     _delay_ms(50);
-    deck_right_led_2_on();
+    bootleg_right_led_2_on();
     _delay_ms(50);
-    deck_right_led_3_on();
+    bootleg_right_led_3_on();
     _delay_ms(50);
-    deck_right_led_1_off();
+    bootleg_right_led_1_off();
     _delay_ms(50);
-    deck_right_led_2_off();
+    bootleg_right_led_2_off();
     _delay_ms(50);
-    deck_right_led_3_off();
-    //deck_led_all_on();
+    bootleg_right_led_3_off();
+    //bootleg_led_all_on();
     //_delay_ms(333);
-    deck_led_all_off();
+    bootleg_led_all_off();
 }
 #endif
 

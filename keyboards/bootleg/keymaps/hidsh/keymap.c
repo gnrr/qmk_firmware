@@ -1,6 +1,6 @@
 #include "action_layer.h"
 #include "config.h"
-#include "deck.h"
+#include "bootleg.h"
 
 #define _MAC   0
 #define _WIN   1

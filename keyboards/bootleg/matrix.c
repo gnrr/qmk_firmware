@@ -7,14 +7,13 @@
 #include "config.h"             // USER_PRINT, DEBUG_MATRIX_SCAN_RATE 
 #include "print.h"
 // #include "debug.h"
-#include "deck.h"               // dbg_lo, dbg_hi, dbg_out_init
+#include "bootleg.h"               // dbg_lo, dbg_hi, dbg_out_init
 #include "matrix.h"
 
 #ifdef DEBUG_MATRIX_SCAN_RATE
 #include  "timer.h"
 #endif
 
-#include "deck.h"
 #include "expander.h"
 
 #define EXPANDER_ENABLE

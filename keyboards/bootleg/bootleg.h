@@ -13,64 +13,64 @@
 #define CPU_16MHz       0x00
 
 #if 0
-void init_deck(void);
+void init_bootleg(void);
 
-inline void deck_right_led_1_off(void) { DDRB &= ~(1<<PB5); PORTB &= ~(1<<PB5); }
-inline void deck_right_led_1_on(void) { DDRB |= (1<<PB5); PORTB |= (1<<PB5); }
-inline void deck_right_led_2_off(void) { DDRB &= ~(1<<PB6); PORTB &= ~(1<<PB6); }
-inline void deck_right_led_2_on(void) { DDRB |= (1<<PB6); PORTB |= (1<<PB6); }
-inline void deck_right_led_3_off(void) { DDRB &= ~(1<<PB3); PORTB &= ~(1<<PB3); }
-inline void deck_right_led_3_on(void) { DDRB |= (1<<PB3); PORTB |= (1<<PB3); }
-inline void deck_right_led_on(uint8_t l) {
+inline void bootleg_right_led_1_off(void) { DDRB &= ~(1<<PB5); PORTB &= ~(1<<PB5); }
+inline void bootleg_right_led_1_on(void) { DDRB |= (1<<PB5); PORTB |= (1<<PB5); }
+inline void bootleg_right_led_2_off(void) { DDRB &= ~(1<<PB6); PORTB &= ~(1<<PB6); }
+inline void bootleg_right_led_2_on(void) { DDRB |= (1<<PB6); PORTB |= (1<<PB6); }
+inline void bootleg_right_led_3_off(void) { DDRB &= ~(1<<PB3); PORTB &= ~(1<<PB3); }
+inline void bootleg_right_led_3_on(void) { DDRB |= (1<<PB3); PORTB |= (1<<PB3); }
+inline void bootleg_right_led_on(uint8_t l) {
     switch (l) {
          case 1:
-             deck_right_led_1_on();
+             bootleg_right_led_1_on();
              break;
          case 2:
-             deck_right_led_2_on();
+             bootleg_right_led_2_on();
              break;
          case 3:
-             deck_right_led_3_on();
+             bootleg_right_led_3_on();
              break;
          default:
              break;
         }
 }
 
-inline void deck_right_led_off(uint8_t l) {
+inline void bootleg_right_led_off(uint8_t l) {
     switch (l) {
          case 1:
-             deck_right_led_1_off();
+             bootleg_right_led_1_off();
              break;
          case 2:
-             deck_right_led_2_off();
+             bootleg_right_led_2_off();
              break;
          case 3:
-             deck_right_led_3_off();
+             bootleg_right_led_3_off();
              break;
          default:
              break;
         }
 }
-inline void deck_board_led_off(void) { DDRB &= ~(1<<PB0); PORTB |= (1<<PB0); }
-inline void deck_board_led_on(void) { DDRB |= (1<<PB0); PORTB &= ~(1<<PB0); }
-inline void deck_led_all_on(void) {
-    deck_right_led_1_on();
-    deck_right_led_2_on();
-    deck_right_led_3_on();
-    deck_board_led_on();
+inline void bootleg_board_led_off(void) { DDRB &= ~(1<<PB0); PORTB |= (1<<PB0); }
+inline void bootleg_board_led_on(void) { DDRB |= (1<<PB0); PORTB &= ~(1<<PB0); }
+inline void bootleg_led_all_on(void) {
+    bootleg_right_led_1_on();
+    bootleg_right_led_2_on();
+    bootleg_right_led_3_on();
+    bootleg_board_led_on();
 }
-inline void deck_led_all_off(void) {
-    deck_right_led_1_off();
-    deck_right_led_2_off();
-    deck_right_led_3_off();
-    deck_board_led_off();
+inline void bootleg_led_all_off(void) {
+    bootleg_right_led_1_off();
+    bootleg_right_led_2_off();
+    bootleg_right_led_3_off();
+    bootleg_board_led_off();
 }
-inline void deck_right_led_1_set(uint8_t n)          {}
-inline void deck_right_led_2_set(uint8_t n)          {}
-inline void deck_right_led_3_set(uint8_t n)          {}
-inline void deck_right_led_set(uint8_t l, uint8_t n) {}
-inline void deck_led_all_set(uint8_t n)              {}
+inline void bootleg_right_led_1_set(uint8_t n)          {}
+inline void bootleg_right_led_2_set(uint8_t n)          {}
+inline void bootleg_right_led_3_set(uint8_t n)          {}
+inline void bootleg_right_led_set(uint8_t l, uint8_t n) {}
+inline void bootleg_led_all_set(uint8_t n)              {}
 #endif
 
 #define LAYOUT( \

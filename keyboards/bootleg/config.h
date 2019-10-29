@@ -6,9 +6,9 @@
 #define VENDOR_ID       0x1209
 #define PRODUCT_ID      0x5502
 #define DEVICE_VER      0x0001
-#define MANUFACTURER    scum noodle society
-#define PRODUCT         DECK1
-#define DESCRIPTION     Keyboard with trackball and scroll-ring
+#define MANUFACTURER    skkk
+#define PRODUCT         Bootleg
+#define DESCRIPTION     Laptop-Keyboard with trackball and scroll-ring
 
 /* key matrix size */
 #define MATRIX_ROWS        (5 * 2)
