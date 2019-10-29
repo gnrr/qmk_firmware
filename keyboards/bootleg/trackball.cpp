@@ -13,7 +13,6 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
     uint8_t spi_opts = SPI_SPEED_FCPU_DIV_8 | SPI_ORDER_MSB_FIRST | SPI_MODE_MASTER
                      | SPI_SCK_LEAD_FALLING | SPI_SAMPLE_TRAILING;
 
-
     _sensor_status = _ball_sensor.init(pin_reset, pin_cs, pin_oe, spi_opts);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
@@ -23,7 +22,7 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
 
     uprint("  Trackball::init OK: connected\n");
 
-    _ball_sensor.power_down_mode();                   // power down mode
+    // _ball_sensor.power_down_mode();                   // power down mode
 
     // todo: initialize scroll sensor
 
@@ -35,15 +34,16 @@ bool Trackball::update()
 {
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
+    // ball sensor
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
         uprint("  Trackball::update error: can not connect to ball sensor\n");
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return false;                                            // abend
     }
 
-    _ball_sensor.normal_mode();                   // normal mode
+    // _ball_sensor.normal_mode();                   // normal mode
   
-    bool moving_p = _ball_sensor.read(REG_MOTION);
+    uint8_t moving_p = _ball_sensor.read(REG_MOTION);
   
     if(moving_p) {
         int8_t x = _ball_sensor.read(REG_DELTA_X);
@@ -52,22 +52,24 @@ bool Trackball::update()
         const int8_t min = -127;   // values must be in range of -127..127
         if(x < min) x = min;       // limited by specification of the USB report
         if(y < min) y = min;
-#if 0
-        _dx = zero_adjust(-y);
-        _dy = zero_adjust(x);
+#if 1
+        _x = zero_adjust(-y);
+        _y = zero_adjust(x);
 #else
-        _dx = -y;
-        _dy = x;
+        _x = 0;
+        _y = 0;
+        // _x = -y;
+        // _y = x;
 #endif
-        uprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
+        uprintf("  Trackball::update x: %4d   y: %4d\n", _x, _y);
     }
     else {
-        _dx = 0;
-        _dy = 0;
+        _x = 0;
+        _y = 0;
     }
-    _ball_sensor.power_down_mode();                   // power down mode
+    // _ball_sensor.power_down_mode();                   // power down mode
 
-    // todo: read scroll sensor
+    // scroll sensor
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
     return true;                                            // normal end

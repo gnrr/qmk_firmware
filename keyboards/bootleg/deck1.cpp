@@ -82,8 +82,8 @@ void pointing_device_send(void)
 {
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-    //If you need to do other things, like debugging, this is the place to do it.
     host_mouse_send(&mouseReport);
+
 	//send it and 0 it out except for buttons, so those stay until they are explicity over-ridden using update_pointing_device
 	mouseReport.x = 0;
 	mouseReport.y = 0;
@@ -103,15 +103,37 @@ void pointing_device_task(void)
 
     tb.update();
 
-    currentReport.x = tb.get_dx();;           // pointer -127 .. 127
-    currentReport.y = tb.get_dy();;           // pointer -127 .. 127
+    currentReport.x = tb.get_x();           // pointer x -127 .. 127
+    currentReport.y = tb.get_y();           // pointer y -127 .. 127
     currentReport.h = 0;
-    currentReport.v = tb.get_scroll();        // scroll  -127 .. 127
+    currentReport.v = tb.get_v();           // scroll v  -127 .. 127
  
     mouseReport = currentReport;
     pointing_device_send();
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
+}
+
+// Disable name mangling in C++ so that this function can be called from QMK's encoder_read() written in C.
+extern "C"
+void encoder_update_kb(uint8_t index, bool clockwise) {
+#if 0
+    if (index > 0) return;
+
+    const  int threshold = 10;
+    static int cnt = 0;
+    if (clockwise) {
+        if (++cnt > threshold) {
+            tb.set_v(1);
+            cnt = 0;
+        }
+    } else {
+        if (--cnt < -threshold) {
+            tb.set_v(-1);
+            cnt = 0;
+        }
+    }
+#endif
 }
 
 #if 0

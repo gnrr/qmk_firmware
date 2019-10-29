@@ -87,8 +87,8 @@ LEDMAP_IN_EEPROM_ENABLE = no	# Read LED mapping from eeprom
 SWAP_HANDS_ENABLE       = no	# Disable Onehand
 RGBLIGHT_ENABLE         = no	# 
 MIDI_ENABLE             = no	# 
-POINTING_DEVICE_ENABLE  = yes   # Enable pointing_device_task() for trackball and mouse
-
+POINTING_DEVICE_ENABLE  = yes	# Enable pointing_device_task() for trackball and mouse
+ENCODER_ENABLE          = yes	# Enable encoder_read() for scroll sensor
 # LAYOUTS = default
 
 SRC += adns5050.cpp

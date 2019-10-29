@@ -7,7 +7,7 @@
 #define PRODUCT_ID      0x5502
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    scum noodle society
-#define PRODUCT         DECK1
+#define PRODUCT         DECK
 #define DESCRIPTION     Keyboard with trackball and scroll-ring
 
 /* key matrix size */
@@ -16,11 +16,13 @@
 #define ROW_START_EXPANDER 0
 #define MATRIX_COLS        8
 
-#define MOUSEKEY_INTERVAL    20
-#define MOUSEKEY_DELAY       0
-#define MOUSEKEY_TIME_TO_MAX 60
-#define MOUSEKEY_MAX_SPEED   7
-#define MOUSEKEY_WHEEL_DELAY 0
+#define TRACKBALL_PRESCALE 2    // 1:thru, 2:half-speed, 4:quater-speed
+
+// #define MOUSEKEY_INTERVAL    20
+// #define MOUSEKEY_DELAY       0
+// #define MOUSEKEY_TIME_TO_MAX 60
+// #define MOUSEKEY_MAX_SPEED   7
+// #define MOUSEKEY_WHEEL_DELAY 0
 
 // #define TAPPING_TOGGLE 1
 
@@ -68,6 +70,12 @@
 /* NKRO */
 #ifndef FORCE_NKRO
     #define FORCE_NKRO  // Depends on NKRO_ENABLE.
+#endif
+
+#ifdef ENCODER_ENABLE
+    #define NUMBER_OF_ENCODERS 1
+    #define ENCODERS_PAD_A {D2}
+    #define ENCODERS_PAD_B {D3}
 #endif
 
 /*

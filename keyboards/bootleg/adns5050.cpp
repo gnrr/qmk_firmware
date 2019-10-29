@@ -160,22 +160,18 @@ void Adns5050::power_down_mode()
     // todo bit-field
     uint8_t wt = rd | 0b00000010;      // goto power down mode
     write(REG_MOUSE_CONTROL, wt);
-    writePinLow(_pin_reset);             // _pin_reset --> LO
 
-    uprint("  Adns5050::power-down-mode: ON\n");
+    uprint("  Adns5050::enter the power-down-mode\n");
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
-void Adns5050::normal_mode()
+void Adns5050::wakeup()
 {
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-    uint8_t rd = read(REG_MOUSE_CONTROL);
-    // todo bit-field
-    uint8_t wt = rd & ~0b0000001;   // goto normal mode
-    write(REG_MOUSE_CONTROL, wt);
+    reset();
+    uprint("  Adns5050::wakeup from the power-down-mode\n");
 
-    uprint("  Adns5050::power-down-mode: OFF\n");
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
@@ -186,6 +182,7 @@ void Adns5050::reset()
     writePinLow(_pin_reset);             // _pin_reset --> LO
     wait_us(2);                          // tRESET >= 250 ns
     writePinHigh(_pin_reset);            // _pin_reset --> HI
+    wait_ms(55);
 
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
