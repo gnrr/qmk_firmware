@@ -1,19 +1,19 @@
-Deck
+Bootleg
 ========
 
-![layout](docs/deck_keymap.svg)
+![layout](docs/bootleg_keymap.pdf)
 
-[schematic](docs/deck_sch.pdf)
+[schematic](docs/bootleg_sch.pdf)
 
-DECK - A keyboard with trackball and scroll ring
+Bootleg - A keyboard with trackball and scroll ring
 
 - Keyboard maintainer: hidsh
 - Hardware supported: 
-    - bastet001 PCB
-    - adafruit ItsyBitsy32u4 5V
-    - Kensington OrbitTrackball with Scroll Ring
+    - bootleg001 PCB
+    - atmega32u4-5V
+    - Kensington Orbit with Scroll Ring
 - Hardware availability:
-    - not yet
+    - DIY-Kit consists of PCBs and 3D-printed case
 
 # Building the firmware
 
@@ -22,13 +22,13 @@ DECK - A keyboard with trackball and scroll ring
 In the root directory of the repository, build the firmware with a command like:
 
 ```
-make deck:default
+make bootleg:default
 ```
 
 and/or flashing firmware:
 
 ```
-make deck:default:avrdude
+make bootleg:default:avrdude
 ```
 
 
