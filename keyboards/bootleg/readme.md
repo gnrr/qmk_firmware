@@ -1,9 +1,10 @@
 Bootleg
 ========
 
-![layout](docs/bootleg_keymap.pdf)
+![photo](docs/bootleg-photo.jpg)
+[layout](docs/bootleg-keymap.pdf)
 
-[schematic](docs/bootleg_sch.pdf)
+[schematic](docs/bootleg-sch.pdf)
 
 Bootleg - A keyboard with trackball and scroll ring
 
