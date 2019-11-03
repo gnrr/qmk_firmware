@@ -125,9 +125,9 @@ void pointing_device_task(void)
 	report_mouse_t currentReport = pointing_device_get_report();
 
     tb.update();
-    uprintf("stat:%d\t", scroll.get_status());
+    dprintf("stat:%d\t", scroll.get_status());
     char v = scroll.get();
-    uprintf("v:%d\n", v);
+    dprintf("v:%d\n", v);
 
     currentReport.x = tb.get_dx();              // pointer x -127 .. 127
     currentReport.y = tb.get_dy();              // pointer y -127 .. 127
@@ -150,9 +150,9 @@ const uint16_t PROGMEM fn_actions[] = {
 extern "C"
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-    // Just write mouse-buttons status into currentReport without sending mouse-report hered.
+    // Just write mouse-buttons status into currentReport without sending mouse-report.
     // The mouse-report is sent with x, y data by pointing_device_task afterwards.
-    // MOUSEKEY sends the mouse-report to host at the time so it cannot be used in this case. 
+    // MOUSEKEY sends the mouse-report to the host at the time so it cannot be used in this case. 
     // Because using MOUSEKEY occurs mouse-report sending twice at a main-loop.   
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 

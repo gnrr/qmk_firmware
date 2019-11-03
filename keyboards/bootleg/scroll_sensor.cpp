@@ -1,6 +1,6 @@
 #include <avr/interrupt.h>
 #include "print.h"          // dprintf, print
-#include "quantum.h"
+#include "quantum.h"        // readPin, setPinInput
 #include "scroll_sensor.h"
 
 static volatile int8_t cnt;
@@ -28,8 +28,8 @@ bool ScrollSensor::init()
     cli();                      // clear SREG:I(Global Interrupt Enable)
     uint8_t _eimsk = EIMSK;
     EIMSK = 0;
-    EICRA |=  _BV(ISC21);       // INT2 trigger: falling edge
-    EICRA &= ~_BV(ISC20);       // INT2 trigger: falling edge
+    EICRA |=  _BV(ISC21);       // INT2 trigger: rising edge
+    EICRA |=  _BV(ISC20);       // INT2 trigger: rising edge
     EIMSK =  _eimsk | _BV(INT2);        // INT2 enable
     sei();                      // set SREG:I(Global Interrupt Enable)
     cnt = 0;
@@ -39,8 +39,6 @@ bool ScrollSensor::init()
 
 int8_t ScrollSensor::get() const
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
-
     if(_status < SCROLL_STAT_INIT_SUCCESS) {
         dprintf("  ScrollSensor::get error: un-initialized scroll sensor. status:%d\n", _status);
         dprintf("<< %s\n", __PRETTY_FUNCTION__);
@@ -52,7 +50,6 @@ int8_t ScrollSensor::get() const
     cnt = 0;
     sei();
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
     return val;
 }
 

@@ -5,7 +5,6 @@ extern "C" {
 
 #define PIN_INT D2		// PD2/INT2
 #define PIN_DIR D3		// PD3
-#define MAX 3
 
 typedef enum {
     SCROLL_STAT_CONSTRUCT = 0,
