@@ -14,7 +14,7 @@ Bootleg - A keyboard with trackball and scroll ring
     - atmega32u4-5V
     - Kensington Orbit with Scroll Ring
 - Hardware availability:
-    - DIY-Kit consists of PCBs and 3D-printed case
+    - [In progress] DIY-Kit consists of PCBs and 3D-printed case
 
 # Building the firmware
 
