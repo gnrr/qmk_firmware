@@ -23,11 +23,13 @@ enum {LY_MAC = 0,
 #define A_SPC  ALT_T(KC_SPC)        // ALT      SPACE
 #define W_SPC  WIN_T(KC_SPC)        // WIN      SPACE
 
-#define KC_IME KC_F18               // Toggle input method (also needs setting of the ime)
-#define KC_MBL F(0)                 // MOUSE BUTTON L
-#define KC_MBR F(1)                 // MOUSE BUTTON R
-// #define KC_MBL ACTION_FUNCTION(ID_MS_BTN1)
-// #define KC_MBR ACTION_FUNCTION(ID_MS_BTN2)
+#define KC_IME KC_F18               // IME key to toggle input method (Needs the ime setting on each OS)
+
+#define ID_MS_BTN_L 0               // Mouse button
+#define ID_MS_BTN_R 1
+#define KC_MBL F(ID_MS_BTN_L)
+#define KC_MBR F(ID_MS_BTN_R)
+
 #define LOWER MO(LY_LOWER)          // LOWER Key
 #define RAISE MO(LY_RAISE)          // RAISE Key
 
@@ -43,9 +45,9 @@ enum user_macro {
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
     switch(id) {
-        case UM_EISUL: // Tap:英数,無変換       Hold:Lower
+        case UM_EISUL:              // Hold:Lower   Tap:EISU,MUHENKAN
             return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), LY_LOWER );
-        case UM_KANAR: // Tap:かな,変換         Hold:Raise
+        case UM_KANAR:              // Hold:Raise   Tap:KANA,HENKAN
             return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), LY_RAISE );
     };
     return MACRO_NONE;
@@ -124,6 +126,3 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     xxx,     xxx,      xxx,    xxx,    xxx,   ____,     xxx,    xxx,       xxx,    xxx,    ____,     xxx,     xxx,     xxx,      xxx,      xxx   \
     )
 };
-
-#undef xxx
-#undef ____
