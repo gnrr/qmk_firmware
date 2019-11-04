@@ -11,10 +11,10 @@ ISR(INT2_vect)
     bool dir = readPin(PIN_DIR);
 
     if(dir) {
-        if(cnt < 127) ++cnt;
+        if(cnt > -127) --cnt;
     }
     else {
-        if(cnt > -127) --cnt;
+        if(cnt < 127) ++cnt;
     }
     SREG = _sreg;
 }
