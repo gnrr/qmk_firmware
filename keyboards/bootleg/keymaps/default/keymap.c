@@ -26,17 +26,19 @@ enum {LY_MAC = 0,
 #define KC_IME KC_F18               // Toggle input method (also needs setting of the ime)
 #define KC_MBL F(0)                 // MOUSE BUTTON L
 #define KC_MBR F(1)                 // MOUSE BUTTON R
-// #define KC_MBR ACTION_FUNCTION(ID_MS_BTN1)
+// #define KC_MBL ACTION_FUNCTION(ID_MS_BTN1)
 // #define KC_MBR ACTION_FUNCTION(ID_MS_BTN2)
-// #define RAISE MO(LY_RAISE)          // RAISE Key
+#define LOWER MO(LY_LOWER)          // LOWER Key
+#define RAISE MO(LY_RAISE)          // RAISE Key
 
 // Switch IME with tapping Raise/Lower, thanks to http://leopardgecko.hatenablog.com/entry/2017/11/09/124103
 enum user_macro {
-    UM_EISUL,         // Tap:英数,無変換       Hold:Lower
-    UM_KANAR          // Tap:かな,変換         Hold:Raise
+    //                                  Hold      Tap
+    UM_EISUL,                       //  Lower     EISU,MUHENKAN(JP)
+    UM_KANAR                        //  Raise     KANA,HENKAN(JP)
 };
-#define LOWER MACROTAP(UM_EISUL)      // Keycode for Lower
-#define RAISE MACROTAP(UM_KANAR)      // Keycode for Raise
+#define LWR_EI MACROTAP(UM_EISUL)   // Lower/EISU
+#define RIS_KA MACROTAP(UM_KANAR)   // Raise/KANA
 
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
@@ -72,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_PGUP, KC_TAB,   KC_Q,    KC_W,  KC_E,  KC_R,    KC_T,    xxx,       KC_Y,   KC_U,   KC_I,     KC_O,    KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS, \
     KC_PGDN, KC_IME,   KC_A,    KC_S,  KC_D,  KC_F,    KC_G,    xxx,       KC_H,   KC_J,   KC_K,     KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   KC_MBR,  \
     KC_MBL,  xxx,      KC_LSFT, KC_Z,  KC_X,  KC_C,    KC_V,    xxx,       KC_B,   KC_N,   KC_M,     KC_COMM, KC_DOT,  KC_SLSH,  KC_UP,    KC_DEL,  \
-    xxx,     KC_LCTL,  xxx,     xxx,  KC_LALT,LOWER,   W_SPC,   xxx,       S_ESC,  C_SPC,  RAISE,    xxx,     xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT \
+    xxx,     KC_LCTL,  xxx,     xxx,  KC_LALT,LWR_EI,  W_SPC,   xxx,       S_ESC,  C_SPC,  RIS_KA,   xxx,     xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT \
     ),
 
 [LY_LINUX] = LAYOUT(
@@ -80,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ____,    ____,     ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
     ____,    KC_IME,   ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
     ____,    ____,     ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
-    ____,    ____,     ____,   ____,  KC_LWIN,____,     A_SPC,  ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____  \
+    ____,    ____,     ____,   ____,  KC_LWIN,LOWER,    C_SPC,  ____,      ____,   A_SPC,  RAISE,    ____,    ____,    ____,     ____,     ____  \
     ),
 
 [LY_WIN] = LAYOUT(
@@ -88,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ____,    ____,     ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
     ____,    KC_IME,   ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
     ____,    ____,     ____,   ____,   ____,  ____,     ____,   ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____, \
-    ____,    ____,     ____,   ____,  KC_LWIN,____,     A_SPC,  ____,      ____,   ____,   ____,     ____,    ____,    ____,     ____,     ____  \
+    ____,    ____,     ____,   ____,  KC_LWIN,LOWER,    C_SPC,  ____,      ____,   A_SPC,  RAISE,    ____,    ____,    ____,     ____,     ____  \
     ),
 
 /* Raise
