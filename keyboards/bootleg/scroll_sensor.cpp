@@ -53,7 +53,7 @@ int8_t ScrollSensor::get() const
     return val;
 }
 
-void ScrollSensor::clear()
+void ScrollSensor::clear() const
 {
     cli();
     cnt = 0;

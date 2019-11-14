@@ -32,8 +32,6 @@ static void init_cols(void);
 static void unselect_rows(void);
 static void select_row(uint8_t row);
 
-#if 1
-// __attribute__ ((weak))
 void matrix_init_user(void)
 {
     dprintf(">> %s\n", __func__);
@@ -42,21 +40,15 @@ void matrix_init_user(void)
     
     dprintf("<< %s\n", __func__);
 }
-#endif
 
-#if 1
-// __attribute__ ((weak))
 void matrix_init_kb(void)
 {
     dprintf(">> %s\n", __func__);
     matrix_init_user();
     dprintf("<< %s\n", __func__);
 }
-#endif
 
-#if 1
 void matrix_scan_kb(void) {}
-#endif
 
 inline
 uint8_t matrix_rows(void)
@@ -158,7 +150,6 @@ uint8_t matrix_scan(void)
 {
     dprintf(">> %s\n", __func__);
 
-// #if 0
 #ifdef EXPANDER_ENABLE
     expander_attach();
 #endif
@@ -186,16 +177,15 @@ uint8_t matrix_scan(void)
 
         unselect_rows();
 
-// #if 0
 #ifdef EXPANDER_ENABLE
-    // Left: Expander
-    uint8_t ie = i + ROW_START_EXPANDER;
-    mask = debounce_mask(ie);
-    cols = (expander_read_cols() & mask) | (matrix[ie] & ~mask);
-    debounce_report(cols ^ matrix[ie], ie);
-    matrix[ie] = cols;
+        // Left: Expander
+        uint8_t ie = i + ROW_START_EXPANDER;
+        mask = debounce_mask(ie);
+        cols = (expander_read_cols() & mask) | (matrix[ie] & ~mask);
+        debounce_report(cols ^ matrix[ie], ie);
+        matrix[ie] = cols;
 
-    expander_unselect_rows();
+        expander_unselect_rows();
 #endif
     }
 

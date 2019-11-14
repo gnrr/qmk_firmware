@@ -19,7 +19,7 @@ public:
             ScrollSensor() :_status(SCROLL_STAT_CONSTRUCT){}
     bool    init();
     int8_t  get() const;
-    void    clear();
+    void    clear() const;
     ScrollSensorStatus get_status() const {return _status;}
 };
 

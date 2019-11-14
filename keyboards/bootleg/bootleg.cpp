@@ -122,8 +122,6 @@ void pointing_device_task(void)
     // debug_enable = true;
     dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-	report_mouse_t currentReport = pointing_device_get_report();
-
     tb.update();
     int8_t x = tb.get_dx();
     int8_t y = tb.get_dy();
@@ -137,6 +135,8 @@ void pointing_device_task(void)
         scroll.clear();     // not accept scrolling while moving pointer
         s = 0;
     }
+
+	report_mouse_t currentReport = pointing_device_get_report();
 
     currentReport.x = x;                        // pointer x -127 .. 127
     currentReport.y = y;                        // pointer y -127 .. 127
