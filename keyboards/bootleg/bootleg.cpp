@@ -142,7 +142,7 @@ void pointing_device_task(void)
 
     currentReport.x = x;                                // pointer x -127 .. 127
     currentReport.y = y;                                // pointer y -127 .. 127
-    currentReport.v = (enable_horizontal_scroll)?  0:s; // scroll  v -127 .. 127
+    currentReport.v = (enable_horizontal_scroll)? 0:s;  // scroll  v -127 .. 127
     currentReport.h = (enable_horizontal_scroll)? s:0;  // scroll  h -127 .. 127
     enable_horizontal_scroll = false;
 
@@ -152,12 +152,10 @@ void pointing_device_task(void)
     dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
-#if 1
 const uint16_t PROGMEM fn_actions[] = {
     [0] = ACTION_FUNCTION(0),  // mouse_button_L
     [1] = ACTION_FUNCTION(1),  // mouse_button_R
 };
-#endif
 
 extern "C"
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
