@@ -70,7 +70,7 @@ void bootleg_blink_all_leds(void)
 static Trackball tb;
 static ScrollSensor scroll;
 
-// Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
+// Disable name mangling so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
 void pointing_device_init(void)
 {
@@ -115,7 +115,7 @@ extern "C" report_mouse_t pointing_device_get_report(void);
 extern "C" void pointing_device_set_report(report_mouse_t newMouseReport);
 extern "C" void pointing_device_send();
 
-// Disable name mangling in C++ so that this function can be called from QMK's keyboard_task() written in C.
+// Disable name mangling so that this function can be called from QMK's keyboard_task() written in C.
 extern "C"
 void pointing_device_task(void)
 {
@@ -125,13 +125,22 @@ void pointing_device_task(void)
 	report_mouse_t currentReport = pointing_device_get_report();
 
     tb.update();
-    dprintf("stat:%d\t", scroll.get_status());
-    char v = scroll.get();
-    dprintf("v:%d\n", v);
+    int8_t x = tb.get_dx();
+    int8_t y = tb.get_dy();
+    int8_t s;
+    if((x == 0) && (y == 0)) {
+        dprintf("stat:%d\t", scroll.get_status());
+        s = scroll.get();
+        dprintf("s:%d\n", s);
+    }
+    else {
+        scroll.clear();     // not accept scrolling while moving pointer
+        s = 0;
+    }
 
-    currentReport.x = tb.get_dx();              // pointer x -127 .. 127
-    currentReport.y = tb.get_dy();              // pointer y -127 .. 127
-    currentReport.v = v;                        // scroll  v -127 .. 127
+    currentReport.x = x;                        // pointer x -127 .. 127
+    currentReport.y = y;                        // pointer y -127 .. 127
+    currentReport.v = s;                        // scroll  v -127 .. 127
     currentReport.h = 0;                        // scroll  h -127 .. 127 
 
 	pointing_device_set_report(currentReport);

@@ -48,13 +48,9 @@ bool Trackball::update()
         const int8_t min = -127;   // values must be in range of -127..127
         if(x < min) x = min;       // limited by specification of the USB report
         if(y < min) y = min;
-#if 0
-        _dx = zero_adjust(-y);
-        _dy = zero_adjust(x);
-#else
         _dx = y;
         _dy = -x;
-#endif
+
         dprintf("  Trackball::update dx: %4d   dy: %4d\n", _dx, _dy);
     }
     else {
