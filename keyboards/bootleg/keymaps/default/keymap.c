@@ -33,11 +33,14 @@ enum {LY_MAC = 0,
 #define LOWER MO(LY_LOWER)          // LOWER Key
 #define RAISE MO(LY_RAISE)          // RAISE Key
 
+#define HSCRL KC_LSFT               // Enable horizontal scroll during ring-rotation holding this key
+
 // Switch IME with tapping Raise/Lower, thanks to http://leopardgecko.hatenablog.com/entry/2017/11/09/124103
 enum user_macro {
     //                                  Hold      Tap
     UM_EISUL,                       //  Lower     EISU,MUHENKAN(JP)
-    UM_KANAR                        //  Raise     KANA,HENKAN(JP)
+    UM_KANAR,                       //  Raise     KANA,HENKAN(JP)
+    UM_HSCRL                        //  Enable horizontal scroll
 };
 #define LWR_EI MACROTAP(UM_EISUL)   // Lower/EISU
 #define RIS_KA MACROTAP(UM_KANAR)   // Raise/KANA
@@ -49,6 +52,9 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), LY_LOWER );
         case UM_KANAR:              // Hold:Raise   Tap:KANA,HENKAN
             return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), LY_RAISE );
+        case UM_HSCRL:
+            enable_horizontal_scroll = true;
+            return MACRO_NONE;
     };
     return MACRO_NONE;
 }

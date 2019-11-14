@@ -98,6 +98,8 @@ inline void bootleg_led_all_set(uint8_t n)              {}
 extern "C" {
 #endif
 
+extern bool enable_horizontal_scroll;        // true: horizontal scroll, false: vertical scroll
+
 void dbg_out_init(void);
 void dbg_out(pin_t pin, uint8_t level);
 

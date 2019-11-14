@@ -66,6 +66,8 @@ void bootleg_blink_all_leds(void)
 }
 #endif
 
+bool enable_horizontal_scroll;           // true: horizontal scroll, false: vertical scroll
+
 // static report_mouse_t mouseReport = {};
 static Trackball tb;
 static ScrollSensor scroll;
@@ -138,10 +140,11 @@ void pointing_device_task(void)
 
 	report_mouse_t currentReport = pointing_device_get_report();
 
-    currentReport.x = x;                        // pointer x -127 .. 127
-    currentReport.y = y;                        // pointer y -127 .. 127
-    currentReport.v = s;                        // scroll  v -127 .. 127
-    currentReport.h = 0;                        // scroll  h -127 .. 127 
+    currentReport.x = x;                                // pointer x -127 .. 127
+    currentReport.y = y;                                // pointer y -127 .. 127
+    currentReport.v = (enable_horizontal_scroll)?  0:s; // scroll  v -127 .. 127
+    currentReport.h = (enable_horizontal_scroll)? s:0;  // scroll  h -127 .. 127
+    enable_horizontal_scroll = false;
 
 	pointing_device_set_report(currentReport);
     pointing_device_send();
