@@ -77,29 +77,29 @@ extern "C"
 void pointing_device_init(void)
 {
     // debug_enable = true;
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     bool result = scroll.init();
     if(!result) {
         print("  ScrollSensor error: cannot initialize scroll sensor\n");
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return;                                     // abend
     }
 
     result = tb.init(PIN_RESET, PIN_CS, PIN_OE);                   // todo pin defines --> this .c
     if(!result) {
         print("  Trackball error: cannot initialize ball sensor\n");
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return;                                     // abend
     }
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 #if 0
 void pointing_device_send(void)
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     //If you need to do other things, like debugging, this is the place to do it.
     host_mouse_send(&mouseReport);
@@ -109,7 +109,7 @@ void pointing_device_send(void)
 	mouseReport.v = 0;
 	mouseReport.h = 0;
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 #endif
 
@@ -122,7 +122,7 @@ extern "C"
 void pointing_device_task(void)
 {
     // debug_enable = true;
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     tb.update();
     int8_t x = tb.get_dx();
@@ -131,7 +131,7 @@ void pointing_device_task(void)
     if((x == 0) && (y == 0)) {
         // dprintf("stat:%d\t", scroll.get_status());
         s = scroll.get();
-        dprintf("s:%d\n", s);
+        // dprintf("s:%d\n", s);
     }
     else {
         scroll.clear();     // not accept scrolling while moving pointer
@@ -145,14 +145,14 @@ void pointing_device_task(void)
     currentReport.v = (enable_horizontal_scroll)? 0:s;  // scroll  v -127 .. 127
     currentReport.h = (enable_horizontal_scroll)? s:0;  // scroll  h -127 .. 127
     debug_enable = true;
-    dprintf("s:%2d, h:%2d, -h:%2d\n", s, currentReport.h, -currentReport.h);
+    // dprintf("s:%2d, h:%2d, -h:%2d\n", s, currentReport.h, -currentReport.h);
     debug_enable = false;
     enable_horizontal_scroll = false;
 
 	pointing_device_set_report(currentReport);
     pointing_device_send();
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 const uint16_t PROGMEM fn_actions[] = {
@@ -167,7 +167,8 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
     // The mouse-report is sent with x, y data by pointing_device_task afterwards.
     // MOUSEKEY sends the mouse-report to the host at the time so it cannot be used in this case. 
     // Because using MOUSEKEY occurs mouse-report sending twice at a main-loop.   
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
 	report_mouse_t currentReport = pointing_device_get_report();
 
@@ -194,7 +195,7 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 	pointing_device_set_report(currentReport);
     pointing_device_send();
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 #if 0

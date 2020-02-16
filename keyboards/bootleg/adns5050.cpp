@@ -7,15 +7,15 @@
 
 Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_t pin_oe, const uint8_t spi_opts)
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     _pin_reset = pin_reset;
     _pin_cs = pin_cs;
     _pin_oe = pin_oe;
     
-	dprintf("  Adns5050.RESET: %02X\n", _pin_reset);
-	dprintf("  Adns5050.CS: %02X\n", _pin_cs);
-	dprintf("  Adns5050.OE: %02X\n", _pin_oe);
+	// dprintf("  Adns5050.RESET: %02X\n", _pin_reset);
+	// dprintf("  Adns5050.CS: %02X\n", _pin_cs);
+	// dprintf("  Adns5050.OE: %02X\n", _pin_oe);
 
 	// Setup control pins
     setPinOutput(_pin_reset);
@@ -36,14 +36,14 @@ Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const 
 	rd = read(REG_PRODUCT_ID2);
 	if (rd != ADNS_5050_PRODUCT_ID2) {
 	  	dprintf("  error: Invalid PRODUCT_ID2: %02X\n", rd);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_PRODUCT_ID2;                   // abend
     }
 
 	rd = read(REG_REVISION_ID);
 	if (rd != ADNS_5050_REVISION_ID) {
 	  	dprintf("  error: Invalid REVISION_ID: %02X\n", rd);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_REVISION_ID;                   // abend
     }
 
@@ -51,18 +51,18 @@ Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const 
     if ((uint8_t)~rd != ADNS_5050_REVISION_ID) {
     // if (rd != ~ADNS_5050_REVISION_ID) {
         dprintf("  error: Invalid INV_REV_ID: %04X\n", rd);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_INV_REV_ID;                   // abend
     }
     dprint("Adns5050::init OK\n");
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
     return ADNS5050_ERR_INIT_SUCCESS;
 }
 
 uint8_t Adns5050::read(reg_t addr)
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 	switch (_last_op)
 	{
 		case ADNS_50x0_READ:
@@ -87,7 +87,7 @@ uint8_t Adns5050::read(reg_t addr)
       writePinHigh(_pin_oe);             // _pin_oe --> HI
 
 		dprintf("  Adns5050::read error: addr=%02X\n", addr);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 		return 0xff;                    // abend
 	}
 	
@@ -103,13 +103,13 @@ uint8_t Adns5050::read(reg_t addr)
     dprintf("  Adns5050::read OK: addr=%02X, data=%02X\n", addr, rd);
 
 	_last_op = ADNS_50x0_READ;
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 	return rd; 
 }
 
 void Adns5050::write(reg_t addr, uint8_t value)
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 	switch (_last_op)
 	{
 		case ADNS_50x0_READ:
@@ -134,7 +134,7 @@ void Adns5050::write(reg_t addr, uint8_t value)
         writePinHigh(_pin_oe);             // _pin_oe --> HI
 
 		dprintf("  Adns5050::write error: addr=%02X, value=%02X\n", addr, value);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
+        // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return;	
 	}
 
@@ -149,12 +149,12 @@ void Adns5050::write(reg_t addr, uint8_t value)
 	_last_op = ADNS_50x0_WRITE;
 
     dprintf("  Adns5050::write OK: addr=%02X, data=%02X\n", addr, value);
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 void Adns5050::power_down_mode()
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     uint8_t rd = read(REG_MOUSE_CONTROL);
     // todo bit-field
@@ -162,22 +162,22 @@ void Adns5050::power_down_mode()
     write(REG_MOUSE_CONTROL, wt);
 
     dprint("  Adns5050::enter the power-down-mode\n");
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 void Adns5050::wakeup()
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     reset();
     dprint("  Adns5050::wakeup from the power-down-mode\n");
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
 void Adns5050::reset()
 {
-    dprintf(">> %s\n", __PRETTY_FUNCTION__);
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     dprint("  Adns5050::reset ADNS-5050\n");
     writePinLow(_pin_reset);             // _pin_reset --> LO
@@ -185,5 +185,5 @@ void Adns5050::reset()
     writePinHigh(_pin_reset);            // _pin_reset --> HI
     wait_ms(55);                         // tWAKEUP >= 55 ms!
 
-    dprintf("<< %s\n", __PRETTY_FUNCTION__);
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }

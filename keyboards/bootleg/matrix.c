@@ -34,18 +34,18 @@ static void select_row(uint8_t row);
 
 void matrix_init_user(void)
 {
-    dprintf(">> %s\n", __func__);
+    // dprintf(">> %s\n", __func__);
     // dbg_out_init();
     // dbg_hi(D2);
     
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 
 void matrix_init_kb(void)
 {
-    dprintf(">> %s\n", __func__);
+    // dprintf(">> %s\n", __func__);
     matrix_init_user();
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 
 void matrix_scan_kb(void) {}
@@ -70,14 +70,14 @@ void matrix_init(void)
 
     // _delay_ms(1000);             // for print(), etc...
     // debug_enable = true;
-    dprintf(">> %s\n", __func__);
+    // dprintf(">> %s\n", __func__);
 
-    // right:  AVR
+    // left:  AVR
     unselect_rows();
     init_cols();
 
 #ifdef EXPANDER_ENABLE
-    // left: Expander
+    // right: Expander
     expander_init();
 #endif
 
@@ -90,7 +90,7 @@ void matrix_init(void)
     }
 
     matrix_init_quantum();
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 
 // Returns a matrix_row_t whose bits are set if the corresponding key should be
@@ -119,6 +119,8 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 void matrix_print(void)
 {
+#define DEBUG_MATRIX_SCAN_RATE
+
 #ifdef DEBUG_MATRIX_SCAN_RATE
 #ifdef EXPANDER_ENABLE
     const uint8_t ROW_START = ROW_START_EXPANDER;   // Expander + AVR
@@ -148,7 +150,7 @@ void matrix_print(void)
 
 uint8_t matrix_scan(void)
 {
-    dprintf(">> %s\n", __func__);
+   // dprintf(">> %s\n", __func__);
 
 #ifdef EXPANDER_ENABLE
     expander_attach();
@@ -161,14 +163,14 @@ uint8_t matrix_scan(void)
     for(uint8_t i=0; i<(MATRIX_ROWS / 2); i++) {
         matrix_row_t mask, cols;
 
-        select_row(i);                            // right:  AVR
+        select_row(i);                            // left:  AVR
 
 #ifdef EXPANDER_ENABLE
-        expander_select_row(i);                   // left: Expander
+        expander_select_row(i);                   // right: Expander
 #endif
         wait_us(30);  // without this wait read unstable value.
 
-        // Right: AVR
+        // left: AVR
         uint8_t ia = i + ROW_START_AVR;
         mask = debounce_mask(ia);
         cols = (read_cols() & mask) | (matrix[ia] & ~mask);
@@ -178,7 +180,7 @@ uint8_t matrix_scan(void)
         unselect_rows();
 
 #ifdef EXPANDER_ENABLE
-        // Left: Expander
+        // right: Expander
         uint8_t ie = i + ROW_START_EXPANDER;
         mask = debounce_mask(ie);
         cols = (expander_read_cols() & mask) | (matrix[ie] & ~mask);
@@ -191,7 +193,7 @@ uint8_t matrix_scan(void)
 
     matrix_scan_quantum();
 
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
     // dbg_lo(2);
     return 1;
 }
@@ -218,15 +220,14 @@ uint8_t matrix_key_count(void)
 }
 
 // COLUMNS: INPUT, PULL-UP, NEGATIVE-LOGIC
-//                          COL-R0  -R1  -R2  -R3  -R4  -R5  -R6  -R7
-//const uint8_t COL_PINS_AVR[] = {F4,  F5,  F6,  F7,  B4,  D7,  D7,  B6}; // D4 for dbg_out
-const uint8_t COL_PINS_AVR[] = {F4,  F5,  F6,  F7,  B4,  D7,  D4,  B6}; // D4 for dbg_out
+//                          COL-L0  -L1  -L2  -L3  -L4  -L5  -L6  -L7
+const uint8_t COL_PINS_AVR[] = {B6,  C6,  C7,  E2,  F7,  F6,  F5,  D5}; // D5: NC
 #define COUNT_COL_PINS_AVR  (sizeof(COL_PINS_AVR)/sizeof(COL_PINS_AVR[0]))
 
 static void  init_cols(void)
 {
-    dprintf(">> %s\n", __func__);
-    // Right: AVR
+    // dprintf(">> %s\n", __func__);
+    // left: AVR
     // DDRx
     //   0      INPUT  <-- on reset
     //   1      OUTPUT
@@ -243,15 +244,15 @@ static void  init_cols(void)
         _SFR_IO8((pin >> 4) + 1) &= ~_BV(pin & 0xF); // DDRx  --> IN
         _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // PORTx --> HI (for pullup)
     }
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 
 static matrix_row_t read_cols(void)
 {
-    dprintf(">> %s\n", __func__);
+    // dprintf(">> %s\n", __func__);
     uint8_t cols = 0;
 
-    // Right: AVR
+    // left: AVR
     assert(COUNT_COL_PINS_AVR <= 8);
 
     for(uint8_t i=0; i<COUNT_COL_PINS_AVR; i++) {
@@ -261,19 +262,19 @@ static matrix_row_t read_cols(void)
         else    cols |=  (1 << i);
     }
 
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
     return cols;
 }
 
 // ROWS: OUTPUT, ACTIVE-LOW
-//                                 ROW-R0  -R1  -R2  -R3  -R4
-static const uint8_t ROW_PINS_AVR[] = {B5,  B7,  E6,  D6,  C6};
+//                                 ROW-L0  -L1  -L2  -L3  -L4
+static const uint8_t ROW_PINS_AVR[] = {D4,  D6,  D7,  B4,  B5};
 #define COUNT_ROW_PINS_AVR  (sizeof(ROW_PINS_AVR)/sizeof(ROW_PINS_AVR[0]))
 
 static void unselect_rows(void)
 {
-    dprintf(">> %s\n", __func__);
-    // Right: AVR
+    // dprintf(">> %s\n", __func__);
+    // left: AVR
     // DDRx
     //   0      INPUT  <-- on reset
     //   1      OUTPUT
@@ -288,17 +289,17 @@ static void unselect_rows(void)
         _SFR_IO8((pin >> 4) + 1) |=  _BV(pin & 0xF); // DDRx  --> OUT
         _SFR_IO8((pin >> 4) + 2) |=  _BV(pin & 0xF); // PORTx --> HI
     }
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 
 static void select_row(uint8_t row)
 {
-    dprintf(">> %s\n", __func__);
-    // Right: AVR
+    // dprintf(">> %s\n", __func__);
+    // left: AVR
     uint8_t pin = ROW_PINS_AVR[row];
     _SFR_IO8((pin >> 4) + 1) |=  _BV(pin & 0xF); // DDRx  --> OUT
     _SFR_IO8((pin >> 4) + 2) &= ~_BV(pin & 0xF); // PORTx --> LO
 
-    dprintf("<< %s\n", __func__);
+    // dprintf("<< %s\n", __func__);
 }
 

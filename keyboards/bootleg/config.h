@@ -7,13 +7,13 @@
 #define PRODUCT_ID      0x5502
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    skkk
-#define PRODUCT         Bootleg
-#define DESCRIPTION     Laptop-Keyboard with trackball and scroll-ring
+#define PRODUCT         BOOTLEG
+#define DESCRIPTION     Lapto-Keyboard with trackball/scroll-ring
 
 /* key matrix size */
 #define MATRIX_ROWS        (5 * 2)
-#define ROW_START_AVR      5
-#define ROW_START_EXPANDER 0
+#define ROW_START_AVR      0
+#define ROW_START_EXPANDER 5
 #define MATRIX_COLS        8
 
 #define TRACKBALL_PRESCALE 2    // 1:thru, 2:half-speed, 4:quater-speed
@@ -98,3 +98,6 @@
 #define BOOTMAGIC_KEY_DEFAULT_LAYER_5             KC_NO         // KC_5         Make layer 5 the default layer
 #define BOOTMAGIC_KEY_DEFAULT_LAYER_6             KC_NO         // KC_6         Make layer 6 the default layer
 #define BOOTMAGIC_KEY_DEFAULT_LAYER_7             KC_NO         // KC_7         Make layer 7 the default layer
+
+#undef CATERINA_BOOTLOADER
+

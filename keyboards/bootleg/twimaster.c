@@ -53,7 +53,7 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
   bool      err = true;
   uint8_t   twst;
 
-  dprintf(">> i2c_start\n");
+  // dprintf(">> i2c_start\n");
   dprintf("device_addr:0x%X, rw_flag:%d\n", device_addr, rw_flag);
 
   /* send START condition */
@@ -83,7 +83,7 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
       return err;
   }
 
-  dprintf("<< i2c_start\n");
+  // dprintf("<< i2c_start\n");
 
   err = false;
   return err;

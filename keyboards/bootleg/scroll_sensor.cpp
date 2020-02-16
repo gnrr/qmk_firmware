@@ -25,13 +25,14 @@ bool ScrollSensor::init()
 
     setPinInput(PIN_INT);
     setPinInput(PIN_DIR);
-    cli();                      // clear SREG:I(Global Interrupt Enable)
+
+    cli();                              // clear SREG:I(Disable Global Interrupt)
     uint8_t _eimsk = EIMSK;
     EIMSK = 0;
-    EICRA |=  _BV(ISC21);       // INT2 trigger: rising edge
-    EICRA |=  _BV(ISC20);       // INT2 trigger: rising edge
+    EICRA |=  _BV(ISC21) | _BV(ISC20);  // INT2 trigger: rising edge
     EIMSK =  _eimsk | _BV(INT2);        // INT2 enable
-    sei();                      // set SREG:I(Global Interrupt Enable)
+    sei();                              // set SREG:I(Enable Global Interrupt)
+
     cnt = 0;
     _status = SCROLL_STAT_INIT_SUCCESS;
     return true;
@@ -41,7 +42,6 @@ int8_t ScrollSensor::get() const
 {
     if(_status < SCROLL_STAT_INIT_SUCCESS) {
         dprintf("  ScrollSensor::get error: un-initialized scroll sensor. status:%d\n", _status);
-        dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return 0;                                            // abend
     }
 
