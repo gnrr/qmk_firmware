@@ -5,22 +5,27 @@ extern "C" {
 
 #define PIN_INT D2		// PD2/INT2
 #define PIN_DIR E6		// PE6
-
-typedef enum {
-    SCROLL_STAT_CONSTRUCT = 0,
-    SCROLL_STAT_INIT_ENTER,
-    SCROLL_STAT_INIT_SUCCESS
-} ScrollSensorStatus;
+#define INVERT true
 
 class ScrollSensor
 {
-    ScrollSensorStatus _status;
 public:
-    ScrollSensor() :_status(SCROLL_STAT_CONSTRUCT) {}
-    bool    init();
-    int8_t  get() const;
-    void    clear() const;
-    ScrollSensorStatus get_status() const {return _status;}
+    enum Status {
+        eSTAT_CONSTRUCT = 0,
+        eSTAT_INIT_ENTER,
+        eSTAT_INIT_SUCCESS
+    };
+
+private:
+    Status status_;
+
+public:
+    ScrollSensor();
+    bool init();
+    int8_t get() const;
+    Status get_status() const {return status_;};
+    void init() const;
+    void clear() const;
 };
 
 #ifdef __cplusplus

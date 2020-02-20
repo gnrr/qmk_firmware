@@ -11,64 +11,8 @@
 #include "scroll_sensor.h"
 #include "bootleg.h"
 
-#if 0
-extern inline void bootleg_board_led_on(void);
-extern inline void bootleg_right_led_1_on(void);
-extern inline void bootleg_right_led_2_on(void);
-extern inline void bootleg_right_led_3_on(void);
-extern inline void bootleg_right_led_on(uint8_t led);
-
-extern inline void bootleg_board_led_off(void);
-extern inline void bootleg_right_led_1_off(void);
-extern inline void bootleg_right_led_2_off(void);
-extern inline void bootleg_right_led_3_off(void);
-extern inline void bootleg_right_led_off(uint8_t led);
-
-extern inline void bootleg_led_all_off(void);
-
-void bootleg_led_init(void);
-void bootleg_blink_all_leds(void);
-
-void matrix_init_kb(void) {
-  bootleg_led_init();
-  bootleg_blink_all_leds();
-  matrix_init_user();
-}
-
-void bootleg_led_init(void)
- {
-     DDRB  |=  (1<<PB5 | 1<<PB6 | 1<<PB3);
-     PORTB &= ~(1<<PB5 | 1<<PB6 | 1<<PB3);
-     DDRB  |=  (1<<PB0);
-     PORTB |=  (1<<PB0);
-     DDRD  |=  (1<<PB5);
-     PORTD |=  (1<<PB5);
-}
-
-void bootleg_blink_all_leds(void)
-{
-    bootleg_led_all_off();
-    bootleg_led_all_set(LED_BRIGHTNESS_HI);
-    bootleg_right_led_1_on();
-    _delay_ms(50);
-    bootleg_right_led_2_on();
-    _delay_ms(50);
-    bootleg_right_led_3_on();
-    _delay_ms(50);
-    bootleg_right_led_1_off();
-    _delay_ms(50);
-    bootleg_right_led_2_off();
-    _delay_ms(50);
-    bootleg_right_led_3_off();
-    //bootleg_led_all_on();
-    //_delay_ms(333);
-    bootleg_led_all_off();
-}
-#endif
-
 bool enable_horizontal_scroll;           // true: horizontal scroll, false: vertical scroll
 
-// static report_mouse_t mouseReport = {};
 static Trackball tb;
 static ScrollSensor scroll;
 
@@ -95,23 +39,6 @@ void pointing_device_init(void)
 
     // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
-
-#if 0
-void pointing_device_send(void)
-{
-    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
-
-    //If you need to do other things, like debugging, this is the place to do it.
-    host_mouse_send(&mouseReport);
-	//send it and 0 it out except for buttons, so those stay until they are explicity over-ridden using update_pointing_device
-	mouseReport.x = 0;
-	mouseReport.y = 0;
-	mouseReport.v = 0;
-	mouseReport.h = 0;
-
-    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
-}
-#endif
 
 extern "C" report_mouse_t pointing_device_get_report(void);
 extern "C" void pointing_device_set_report(report_mouse_t newMouseReport);
@@ -156,8 +83,9 @@ void pointing_device_task(void)
 }
 
 const uint16_t PROGMEM fn_actions[] = {
-    [0] = ACTION_FUNCTION(0),  // mouse_button_L
-    [1] = ACTION_FUNCTION(1),  // mouse_button_R
+    [0] = ACTION_FUNCTION(0),  // mouse button left
+    [1] = ACTION_FUNCTION(1),  // mouse button right
+    [2] = ACTION_FUNCTION(2),  // mouse button center
 };
 
 extern "C"
@@ -181,11 +109,19 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
             }
             break;
 
-        case 1: 
+        case 1:
             if(record->event.pressed) {
                 currentReport.buttons |=  MOUSE_BTN2;
             } else {
                 currentReport.buttons &= ~MOUSE_BTN2;
+            }
+            break;
+
+        case 2:
+            if(record->event.pressed) {
+                currentReport.buttons |=  MOUSE_BTN3;
+            } else {
+                currentReport.buttons &= ~MOUSE_BTN3;
             }
             break;
 
@@ -199,11 +135,12 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 }
 
 #if 0
-pin_t dbg_out_pins[] = {D2, D3};           // PD2, PD3 for dbg_out
-#define DBG_OUT_PIN_SZ   sizeof(dbg_out_pins)/sizeof(dbg_out_pins[0])
+pin_t dbg_out_pins[] = {D2, D3};
+#define DBG_OUT_PINS_SZ   sizeof(dbg_out_pins)/sizeof(dbg_out_pins[0])
+
 void dbg_out_init(void)
 {
-    for(uint8_t i=0; i<DBG_OUT_PIN_SZ; i++) {
+    for(uint8_t i=0; i<DBG_OUT_PINS_SZ; i++) {
         pin_t pin = dbg_out_pins[i];
         setPinOutput(pin);              // output
         writePinLow(pin);               // --> LO

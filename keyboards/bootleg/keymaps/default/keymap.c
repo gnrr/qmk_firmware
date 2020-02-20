@@ -21,7 +21,9 @@ enum {LY_MAC   = 0,
 #define A_SPC  ALT_T(KC_SPC)        // ALT      SPACE
 #define W_SPC  WIN_T(KC_SPC)        // WIN      SPACE
 
-#define KC_IME KC_INS               // IME key to toggle input-method (Also needs to configure the ime setting on each host)
+#define KC_IMEM KC_F18               // Mac:   IME key to toggle input-method (Also needs to configure the ime setting on each host)
+#define KC_IMEL KC_INS               // Linux: IME key to toggle input-method (Also needs to configure the ime setting on each host)
+#define KC_IMEW KC_F18               // Win:   IME key to toggle input-method (Also needs to configure the ime setting on each host)
 
 #define ID_MS_BTN_L 0               // Mouse button
 #define ID_MS_BTN_R 1
@@ -90,15 +92,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_MAC] = LAYOUT(
   KC_GRV,   KC_1,    KC_2,    KC_3,  KC_4,    KC_5,   KC_6,   xxx,    xxx,    KC_7,   KC_8,    KC_9,    KC_0,    KC_MINUS, KC_EQUAL, KC_BSPC, \
   KC_TAB,   KC_Q,    KC_W,    KC_E,  KC_R,    KC_T,   xxx,    xxx,    KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS, \
-  KC_IME,   KC_A,    KC_S,    KC_D,  KC_F,    KC_G,   xxx,    xxx,    KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   xxx,     \
+  KC_IMEM,  KC_A,    KC_S,    KC_D,  KC_F,    KC_G,   xxx,    xxx,    KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   xxx,     \
   xxx,      KC_LSFT, KC_Z,    KC_X,  KC_C,    KC_V,   KC_B,   xxx,    KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_UP,    KC_DEL,  \
-  KC_ESC,   KC_LALT, LOWER, KC_LWIN, KC_SPC,  KC_MSM, KC_MSL, xxx,    KC_MSR, KC_SPC, KC_RCTL, RAISE,   xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT\
+/*KC_ESC,   KC_LALT, LOWER, KC_LWIN, KC_SPC,  KC_MSM, KC_MSL, xxx,    KC_MSR, KC_SPC, KC_RCTL, RAISE,   xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT\    Mac */
+  KC_ESC,   KC_LWIN, LOWER, KC_LALT, KC_SPC,  KC_MSM, KC_MSL, xxx,    KC_MSR, KC_SPC, KC_RCTL, RAISE,   xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT\
   ),
 
 [LY_LINUX] = LAYOUT(
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
-  ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
+  KC_IMEL, ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    KC_LWIN,  ____,  KC_LALT, ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____    \
   ),
@@ -106,7 +109,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [LY_WIN] = LAYOUT(
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
-  ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
+  KC_IMEW, ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    KC_LWIN,  ____,  KC_LALT, ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____    \
   ),
