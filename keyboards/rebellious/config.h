@@ -1,3 +1,22 @@
+/*
+    config.h - configuration of a keyboard Rebellious
+    Copyright (C) hidsh
+
+    This program is free software; you can redistribute it and/or
+    modify it under the terms of the GNU General Public License
+    as published by the Free Software Foundation; either version 2
+    of the License, or (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
+*/
+
 #pragma once
 
 #include "config_common.h"
@@ -7,8 +26,8 @@
 #define PRODUCT_ID      0x5502
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    skkk
-#define PRODUCT         BOOTLEG
-#define DESCRIPTION     Lapto-Keyboard with trackball/scroll-ring
+#define PRODUCT         rebellius
+#define DESCRIPTION     Laptop-Keyboard with trackball and scroll ring
 
 /* key matrix size */
 #define MATRIX_ROWS        (5 * 2)
@@ -74,7 +93,7 @@
 
 // BootMagic keys                                                  QMK Default  Description
 // -----------------------------------------------------------------------------------------------------------------
-#define BOOTMAGIC_KEY_SALT                        KC_TAB        // KC_SPACE     The Bootmagic key
+#define BOOTMAGIC_KEY_SALT                        KC_SPACE      // KC_SPACE     The Bootmagic key
 #define BOOTMAGIC_KEY_SKIP                        KC_NO         // KC_ESC       Ignore Bootmagic configuration in EEPROM
 #define BOOTMAGIC_KEY_EEPROM_CLEAR                KC_BSPACE     // KC_BSPACE    Clear the EEPROM configuration
 #define BOOTMAGIC_KEY_BOOTLOADER                  KC_B          // KC_B         Enter the bootloader
