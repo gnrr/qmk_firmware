@@ -93,4 +93,4 @@ POINTING_DEVICE_ENABLE	= yes	# Enable pointing_device_task() for trackball and m
 SRC += adns5050.cpp
 SRC += trackball.cpp
 SRC += scroll_sensor.cpp
-SRC += bootleg.cpp
+SRC += rebellious.cpp

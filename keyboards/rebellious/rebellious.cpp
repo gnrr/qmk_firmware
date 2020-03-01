@@ -28,7 +28,7 @@
 #include "quantum.h"        // pin_t
 #include "trackball.h"
 #include "scroll_sensor.h"
-#include "bootleg.h"
+#include "rebellious.h"
 
 bool enable_horizontal_scroll;           // true: horizontal scroll, false: vertical scroll
 

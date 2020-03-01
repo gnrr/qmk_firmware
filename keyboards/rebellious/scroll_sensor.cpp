@@ -20,7 +20,7 @@
 #include <avr/interrupt.h>
 #include "print.h"          // dprintf, print
 #include "quantum.h"        // readPin, setPinInput
-#include "bootleg.h"        // dbg_out
+#include "rebellious.h"     // dbg_out
 #include "scroll_sensor.h"
 
 static int8_t cnt = 0;

@@ -1,6 +1,6 @@
 #include "action_layer.h"
 #include "config.h"
-#include "bootleg.h"
+#include "rebellious.h"
 
 // Layers
 enum {LY_MAC   = 0,
