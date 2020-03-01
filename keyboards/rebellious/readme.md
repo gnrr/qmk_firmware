@@ -1,16 +1,16 @@
-Bootleg
+rebellious
 ========
 
-![photo](docs/bootleg-photo.jpg)
-[layout](docs/bootleg-keymap.pdf)
+![photo](docs/rebellious-photo.jpg)
+[layout](docs/rebellious-keymap.pdf)
 
-[schematic](docs/bootleg-sch.pdf)
+[schematic](docs/rebellious-sch.pdf)
 
-Bootleg - A keyboard with trackball and scroll ring
+rebellious - A keyboard with trackball and scroll ring
 
 - Keyboard maintainer: hidsh
 - Hardware supported: 
-    - bootleg001 PCB
+    - rebellious003 PCB
     - atmega32u4-5V
     - Kensington Orbit with Scroll Ring
 - Hardware availability:
@@ -23,13 +23,13 @@ Bootleg - A keyboard with trackball and scroll ring
 In the root directory of the repository, build the firmware with a command like:
 
 ```
-make bootleg:default
+make rebellious:default
 ```
 
 and/or flashing firmware:
 
 ```
-make bootleg:default:avrdude
+make rebellious:default:avrdude
 ```
 
 

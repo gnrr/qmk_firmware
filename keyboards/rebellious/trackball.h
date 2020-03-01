@@ -9,8 +9,8 @@ extern "C" {
 #include "adns5050.h"
 
 #define PIN_RESET F1
-#define PIN_CS    C7
-#define PIN_OE    F0        // provided by 3-state buffer IC
+#define PIN_CS    F0
+#define PIN_OE    F4        // provided by 3-state buffer IC
 
 class Trackball
 {
