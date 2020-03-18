@@ -1,5 +1,5 @@
 /*
-    rebellious.h - main part of a keyboard Rebellious
+    ino.h - main part of a keyboard Ino
     Copyright (C) hidsh
 
     This program is free software; you can redistribute it and/or

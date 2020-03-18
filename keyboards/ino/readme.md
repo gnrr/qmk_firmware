@@ -1,20 +1,19 @@
-rebellious
+Ino
 ========
 
-![photo](docs/rebellious-photo.jpg)
-[layout](docs/rebellious-keymap.pdf)
+![photo](docs/ino-photo.jpg)
+[layout](docs/ino-keymap.pdf)
 
-[schematic](docs/rebellious-sch.pdf)
+[schematic](docs/ino-sch.pdf)
 
-rebellious - A keyboard with trackball and scroll ring
+Ino - A keyboard with trackball and scroll ring
 
 - Keyboard maintainer: hidsh
 - Hardware supported: 
-    - rebellious003 PCB
-    - atmega32u4-5V
+    - SKC03 PCB
     - Kensington Orbit with Scroll Ring
 - Hardware availability:
-    - [In progress] DIY-Kit consists of PCBs and 3D-printed case
+    - DIY-Kit consists of PCBs and 3D-printed case
 
 # Building the firmware
 
@@ -23,13 +22,13 @@ rebellious - A keyboard with trackball and scroll ring
 In the root directory of the repository, build the firmware with a command like:
 
 ```
-make rebellious:default
+make ino:default
 ```
 
 and/or flashing firmware:
 
 ```
-make rebellious:default:avrdude
+make ino:default:avrdude
 ```
 
 

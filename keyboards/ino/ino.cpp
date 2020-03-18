@@ -1,5 +1,5 @@
 /*
-    rebellious.cpp - main part of a keyboard Rebellious
+    ino.cpp - main part of a keyboard Ino
     Copyright (C) hidsh
 
     This program is free software; you can redistribute it and/or
@@ -28,7 +28,7 @@
 #include "quantum.h"        // pin_t
 #include "trackball.h"
 #include "scroll_sensor.h"
-#include "rebellious.h"
+#include "ino.h"
 
 bool enable_horizontal_scroll;           // true: horizontal scroll, false: vertical scroll
 

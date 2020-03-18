@@ -7,7 +7,7 @@
 #include "config.h"             // USER_PRINT, DEBUG_MATRIX_SCAN_RATE 
 #include "print.h"
 // #include "debug.h"
-#include "rebellious.h"               // dbg_lo, dbg_hi, dbg_out_init
+#include "ino.h"               // dbg_lo, dbg_hi, dbg_out_init
 #include "matrix.h"
 
 #ifdef DEBUG_MATRIX_SCAN_RATE

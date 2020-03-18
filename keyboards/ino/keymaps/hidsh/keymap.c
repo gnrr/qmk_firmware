@@ -1,6 +1,6 @@
 #include "action_layer.h"
 #include "config.h"
-#include "rebellious.h"
+#include "ino.h"
 
 // Layers
 enum {LY_MAC   = 0,
