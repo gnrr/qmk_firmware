@@ -3,9 +3,8 @@
 extern "C" {
 #endif
 
-// #include "config.h"             // USER_PRINT
 #include "print.h"
-#include "debug.h"              // dprint
+#include "debug.h"          // dprint
 #include "adns5050.h"
 
 #define PIN_RESET F1

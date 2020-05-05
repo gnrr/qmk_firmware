@@ -23,11 +23,11 @@
 
 /* USB Device descriptor parameter */
 #define VENDOR_ID       0x1209
-#define PRODUCT_ID      0x5502
-#define DEVICE_VER      0x0001
-#define MANUFACTURER    skkk
+#define PRODUCT_ID      0x5505
+#define DEVICE_VER      0x0003
+#define MANUFACTURER    zzz-kbd
 #define PRODUCT         ino
-#define DESCRIPTION     Laptop-Keyboard with trackball and scroll ring
+#define DESCRIPTION     Laptop-keyboard w/ trackball w/ scroll-ring
 
 /* key matrix size */
 #define MATRIX_ROWS        (5 * 2)
@@ -35,7 +35,9 @@
 #define ROW_START_EXPANDER 5
 #define MATRIX_COLS        8
 
-#define TRACKBALL_PRESCALE 2    // 1:thru, 2:half-speed, 4:quater-speed
+/* trackball */
+#define TRACKBALL_RESOLUTION    RES2_500CPI     // slow:125 <--> 1350:fast
+#define SCROLL_INVERT           false           // scroll direction
 
 // #define TAPPING_TERM    200
 // #define IGNORE_MOD_TAP_INTERRUPT // this makes it possible to do rolling combos (zx) with keys that convert to other keys on hold (z becomes ctrl when you hold it, and when this option isn't enabled, z rapidly followed by x actually sends Ctrl-x. That's bad.)
@@ -91,32 +93,34 @@
 // #define NO_ACTION_MACRO
 // #define NO_ACTION_FUNCTION
 
-// BootMagic keys                                                  QMK Default  Description
+// BootMagic keys                                                  Description
 // -----------------------------------------------------------------------------------------------------------------
-#define BOOTMAGIC_KEY_SALT                        KC_SPACE      // KC_SPACE     The Bootmagic key
-#define BOOTMAGIC_KEY_SKIP                        KC_NO         // KC_ESC       Ignore Bootmagic configuration in EEPROM
-#define BOOTMAGIC_KEY_EEPROM_CLEAR                KC_BSPACE     // KC_BSPACE    Clear the EEPROM configuration
-#define BOOTMAGIC_KEY_BOOTLOADER                  KC_B          // KC_B         Enter the bootloader
-#define BOOTMAGIC_KEY_DEBUG_ENABLE                KC_D          // KC_D         Toggle debugging over serial
-#define BOOTMAGIC_KEY_DEBUG_MATRIX                KC_X          // KC_X         Toggle matrix debugging
-#define BOOTMAGIC_KEY_DEBUG_KEYBOARD              KC_K          // KC_K         Toggle keyboard debugging
-#define BOOTMAGIC_KEY_DEBUG_MOUSE                 KC_M          // KC_M         Toggle mouse debugging
-#define BOOTMAGIC_KEY_SWAP_CONTROL_CAPSLOCK       KC_NO         // KC_LCTRL     Swap Left Control and Caps Lock
-#define BOOTMAGIC_KEY_CAPSLOCK_TO_CONTROL         KC_NO         // kC_CAPSLOCK  Toggle treating Caps Lock as Left Control
-#define BOOTMAGIC_KEY_SWAP_LALT_LGUI              KC_NO         // KC_LALT      Toggle swapping Left Alt and Left GUI (for macOS)
-#define BOOTMAGIC_KEY_SWAP_RALT_RGUI              KC_NO         // KC_RALT      Toggle swapping Right Alt and Right GUI (for macOS)
-#define BOOTMAGIC_KEY_NO_GUI                      KC_NO         // KC_LGUI      Toggle the GUI keys (useful when gaming)
-#define BOOTMAGIC_KEY_SWAP_GRAVE_ESC              KC_NO         // KC_GRAVE     Toggle swapping <code>&#96;</code> and Escape
-#define BOOTMAGIC_KEY_SWAP_BACKSLASH_BACKSPACE    KC_NO         // KC_BSLASH    Toggle swapping `\` and Backspace
+/*
+#define BOOTMAGIC_KEY_SALT                        KC_SPACE      // The Bootmagic key
+#define BOOTMAGIC_KEY_SKIP                        KC_ESC        // Ignore Bootmagic configuration in EEPROM
+#define BOOTMAGIC_KEY_EEPROM_CLEAR                KC_BSPACE     // Clear the EEPROM configuration
+#define BOOTMAGIC_KEY_BOOTLOADER                  KC_B          // Enter the bootloader
+#define BOOTMAGIC_KEY_DEBUG_ENABLE                KC_D          // Toggle debugging over serial
+#define BOOTMAGIC_KEY_DEBUG_MATRIX                KC_X          // Toggle matrix debugging
+#define BOOTMAGIC_KEY_DEBUG_KEYBOARD              KC_K          // Toggle keyboard debugging
+#define BOOTMAGIC_KEY_DEBUG_MOUSE                 KC_M          // Toggle mouse debugging
+#define BOOTMAGIC_KEY_SWAP_CONTROL_CAPSLOCK       KC_LCTRL      // Swap Left Control and Caps Lock
+#define BOOTMAGIC_KEY_CAPSLOCK_TO_CONTROL         KC_CAPSLOCK   // Toggle treating Caps Lock as Left Control
+#define BOOTMAGIC_KEY_SWAP_LALT_LGUI              KC_LALT       // Toggle swapping Left Alt and Left GUI (for macOS)
+#define BOOTMAGIC_KEY_SWAP_RALT_RGUI              KC_RALT       // Toggle swapping Right Alt and Right GUI (for macOS)
+#define BOOTMAGIC_KEY_NO_GUI                      KC_LGUI       // Toggle the GUI keys (useful when gaming)
+#define BOOTMAGIC_KEY_SWAP_GRAVE_ESC              KC_GRAVE      // Toggle swapping <code>&#96;</code> and Escape
+#define BOOTMAGIC_KEY_SWAP_BACKSLASH_BACKSPACE    KC_BSLASH     // Toggle swapping `\` and Backspace
 #define BOOTMAGIC_HOST_NKRO                       KC_N          // KC_N         Toggle N-Key Rollover (NKRO)
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_0             KC_GRV        // KC_0         Make layer 0(Mac) the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_1             KC_1          // KC_1         Make layer 1(Linux) the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_2             KC_2          // KC_2         Make layer 2(Windows) the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_3             KC_NO         // KC_3         Make layer 3 the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_4             KC_NO         // KC_4         Make layer 4 the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_5             KC_NO         // KC_5         Make layer 5 the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_6             KC_NO         // KC_6         Make layer 6 the default layer
-#define BOOTMAGIC_KEY_DEFAULT_LAYER_7             KC_NO         // KC_7         Make layer 7 the default layer
+*/
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_0             KC_0          // Make layer 0(Mac) the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_1             KC_1          // Make layer 1(Linux) the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_2             KC_2          // Make layer 2(Windows) the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_3             KC_NO         // Make layer 3 the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_4             KC_NO         // Make layer 4 the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_5             KC_NO         // Make layer 5 the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_6             KC_NO         // Make layer 6 the default layer
+#define BOOTMAGIC_KEY_DEFAULT_LAYER_7             KC_NO         // Make layer 7 the default layer
 
 #undef CATERINA_BOOTLOADER
 

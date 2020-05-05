@@ -73,6 +73,9 @@ Adns5050Err Adns5050::init(const uint8_t pin_reset, const uint8_t pin_cs, const 
         // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return ADNS5050_ERR_INVALID_INV_REV_ID;                   // abend
     }
+
+    set_resolution(TRACKBALL_RESOLUTION);
+
     dprint("Adns5050::init OK\n");
 
     // dprintf("<< %s\n", __PRETTY_FUNCTION__);
@@ -171,14 +174,38 @@ void Adns5050::write(reg_t addr, uint8_t value)
     // dprintf("<< %s\n", __PRETTY_FUNCTION__);
 }
 
+void Adns5050::set_resolution(Mouse_Control_RES2 cpi)
+{
+    // dprintf(">> %s\n", __PRETTY_FUNCTION__);
+
+    const reg_t REG = REG_MOUSE_CONTROL2;
+    const uint8_t MASK_MC2_EN = 0b00010000;
+    uint8_t rd;
+    uint8_t wt;
+    
+    rd = read(REG);
+    wt = MASK_MC2_EN | cpi;     // set resolution
+    write(REG, wt);
+
+    rd = read(REG);
+    wt = rd | MASK_MC2_EN;      // enable to set resolution
+    write(REG, wt);
+
+    dprint("  Adns5050::set resolution\n");
+    // dprintf("<< %s\n", __PRETTY_FUNCTION__);
+}
+
 void Adns5050::power_down_mode()
 {
     // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
-    uint8_t rd = read(REG_MOUSE_CONTROL);
+    const reg_t REG = REG_MOUSE_CONTROL;
+    const uint8_t MASK_MC_PD = 0b00000010;
+
+    uint8_t rd = read(REG);
     // todo bit-field
-    uint8_t wt = rd | 0b00000010;      // goto power down mode
-    write(REG_MOUSE_CONTROL, wt);
+    uint8_t wt = rd | MASK_MC_PD;       // goto power down mode
+    write(REG, wt);
 
     dprint("  Adns5050::enter the power-down-mode\n");
     // dprintf("<< %s\n", __PRETTY_FUNCTION__);

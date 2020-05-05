@@ -66,35 +66,35 @@ typedef enum {
 
 // todo bit-field
 typedef enum {
-    PD_Normal     = 0,
-    PD_Power_Down = 1
+    PD_NORMAL     = 0,
+    PD_POWER_DOWN
 } Mouse_Control_PD;
 
 // todo bit-field
 typedef enum {
-    RES_500cpi  = 0,
-    RES_1000cpi = 1
+    RES_500CPI  = 0,
+    RES_1000CPI
 } Mouse_Control_RES;
 
 typedef enum {
-	RES2_125cpi  = 0x01,
-	RES2_250cpi  = 0x02,
-	RES2_375cpi  = 0x03,
-	RES2_500cpi  = 0x04,
-	RES2_625cpi  = 0x05,
-	RES2_750cpi  = 0x06,
-	RES2_850cpi  = 0x07,
-	RES2_1000cpi = 0x08,
-	RES2_1125cpi = 0x09,
-	RES2_1250cpi = 0x0A,
-	RES2_1375cpi = 0x0B
+	RES2_125CPI = 1,
+	RES2_250CPI,
+	RES2_375CPI,
+	RES2_500CPI,
+	RES2_625CPI,
+	RES2_750CPI,
+	RES2_850CPI,
+	RES2_1000CPI,
+	RES2_1125CPI,
+	RES2_1250CPI,
+	RES2_1375CPI
 } Mouse_Control_RES2;
 
 typedef enum {
     ADNS5050_ERR_INIT_SUCCESS = 0,
     ADNS5050_ERR_INVALID_PRODUCT_ID2,
     ADNS5050_ERR_INVALID_REVISION_ID,
-    ADNS5050_ERR_INVALID_INV_REV_ID,
+    ADNS5050_ERR_INVALID_INV_REV_ID
 } Adns5050Err;
 
 class Adns5050
@@ -110,6 +110,7 @@ public:
     Adns5050Err init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_t pin_oe, const uint8_t spi_opts);
     uint8_t     read(reg_t address);
     void        write(reg_t address, uint8_t value);
+    void        set_resolution(Mouse_Control_RES2 cpi);
     void        power_down_mode();
     void        wakeup();
     void        reset();

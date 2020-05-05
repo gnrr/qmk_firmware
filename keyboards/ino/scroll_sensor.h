@@ -19,9 +19,8 @@
 
 #pragma once
 
-#define PIN_INT D2		// PD2/INT2
-#define PIN_DIR E6		// PE6
-#define INVERT true
+#define PIN_INT D2          // PD2/INT2
+#define PIN_DIR E6          // PE6
 
 class ScrollSensor
 {

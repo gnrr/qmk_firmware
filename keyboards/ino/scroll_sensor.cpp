@@ -32,7 +32,7 @@ ISR(INT2_vect)
     bool dir = readPin(PIN_DIR);
 //    dbg_out(D5, 0);
 
-    if(dir ^ INVERT) {
+    if(dir ^ SCROLL_INVERT) {
         if(cnt > -127) --cnt;
     }
     else {
