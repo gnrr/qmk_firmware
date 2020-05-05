@@ -3,6 +3,7 @@
 extern "C" {
 #endif
 
+#include <math.h>
 #include "print.h"
 #include "debug.h"          // dprint
 #include "adns5050.h"
@@ -17,8 +18,11 @@ class Trackball
     Adns5050Err _sensor_status;
     int8_t      _dx;
     int8_t      _dy;
+    double      deg2rad(double deg) {return M_PI * deg / 180.0;}
     int8_t      zero_adjust(int8_t val);
+    void        azimuth_adjust(int8_t point[], const int8_t x, const int8_t y);
     int8_t      limit(int8_t n, int8_t min, int8_t max);
+
 
 public:
              Trackball() {}

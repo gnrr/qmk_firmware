@@ -37,6 +37,7 @@
 
 /* trackball */
 #define TRACKBALL_RESOLUTION    RES2_500CPI     // slow:125 <--> 1350:fast
+#define TRACKBALL_AZIMUTH_ADJ   0               // deg (+:ccw  -:cw)
 #define SCROLL_INVERT           false           // scroll direction
 
 // #define TAPPING_TERM    200

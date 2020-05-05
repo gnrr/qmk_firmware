@@ -1,5 +1,6 @@
-#include <stdlib.h>                // abs
+#include <stdlib.h>              // abs
 #include "LUFA/SPI.h"
+#include "config.h"
 #include "trackball.h"
 
 bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_t pin_oe)
@@ -42,6 +43,15 @@ bool Trackball::update()
         const int8_t min = -127;   // values must be in range of -127..127
         if(x < min) x = min;       // limited by specification of the USB report
         if(y < min) y = min;
+
+#if TRACKBALL_AZIMUTH_ADJ != 0
+        {
+            int8_t adj[2];
+            azimuth_adjust(adj, x, y);
+            x = adj[0];
+            y = adj[1];
+        }
+#endif
         _dx = y;
         _dy = -x;
 
@@ -63,4 +73,19 @@ int8_t Trackball::zero_adjust(const int8_t val)
     if(abs(val) < THRESHOLD) return 0;
     if(val > 0) return val - THRESHOLD;      
     return val + THRESHOLD;
+}
+
+void Trackball::azimuth_adjust(int8_t point[], const int8_t x, const int8_t y)
+{
+    const float theta = atan2(y, x);
+    const float r = sqrt(x*x + y*y);
+
+    float theta2 = theta + deg2rad(TRACKBALL_AZIMUTH_ADJ);
+    if(theta2 > 2*M_PI) theta2 -= 2*M_PI;
+
+    const float x2 = r * cos(theta2);
+    const float y2 = r * sin(theta2);
+
+    point[0] = static_cast<int8_t>(x2);
+    point[1] = static_cast<int8_t>(y2);
 }
