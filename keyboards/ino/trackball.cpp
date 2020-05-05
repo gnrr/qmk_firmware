@@ -46,6 +46,9 @@ bool Trackball::update()
 
 #if TRACKBALL_AZIMUTH_ADJ != 0
         {
+            static_assert(TRACKBALL_AZIMUTH_ADJ >= -45 && TRACKBALL_AZIMUTH_ADJ <= 45,
+                          "'TRACKBALL_AZIMUTH_ADJ' must be set range of -45 to 45");
+
             int8_t adj[2];
             azimuth_adjust(adj, x, y);
             x = adj[0];
