@@ -1,4 +1,4 @@
-Ino
+ino
 ========
 
 ![photo](docs/ino-photo.jpg)
