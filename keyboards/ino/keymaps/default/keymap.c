@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   -------+------+------+------+------+------+------+------+          +------+------+------+------+------+------+------+------+ 
   |      |shift |   z  |   x  |   c  |   v  |   b  |      |          |   b  |   n  |   m  |   ,  |   .  |   /  |  up  |  del | R3
   -------+------+------+------+------+------+------+------+          +------+------+------+------+------+------+------+------+ 
-  |  esc | ctrl |  win |  alt | space| MS-M | MS-L |      |          | MB-R | space|  alt | RAISE| ctrl | left | down | right| R4
+  |  esc |  win | LOWER|  alt | space| MS-M | MS-L |      |          | MB-R | space|  alt | RAISE|  --- | left | down | right| R4
   -------+------+------+------+------+------+------+------+          +------+------+------+------+------+------+------+------+ 
  */
 
@@ -47,7 +47,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_TAB,   KC_Q,    KC_W,    KC_E,  KC_R,    KC_T,   xxx,   xxx,    KC_Y,   KC_U,   KC_I,    KC_O,    KC_P,    KC_LBRC,  KC_RBRC,  KC_BSLS, \
   KC_CAPS,  KC_A,    KC_S,    KC_D,  KC_F,    KC_G,   xxx,   xxx,    KC_H,   KC_J,   KC_K,    KC_L,    KC_SCLN, KC_QUOT,  KC_ENT,   xxx,     \
   xxx,     KC_LSFT,  KC_Z,    KC_X,  KC_C,    KC_V,   KC_B,  xxx,    KC_B,   KC_N,   KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_UP,    KC_DEL,  \
-  KC_ESC,  KC_LCTL, KC_LALT, KC_LWIN,KC_SPC, KC_MSM, KC_MSL, xxx,    KC_MSR, KC_SPC, KC_RWIN, RAISE,   KC_RCTL, KC_LEFT,  KC_DOWN,  KC_RIGHT \
+  KC_ESC,  KC_LWIN, LOWER, KC_LALT, KC_SPC, KC_MSM, KC_MSL,  xxx,    KC_MSR, KC_SPC, KC_RWIN, RAISE,   xxx,     KC_LEFT,  KC_DOWN,  KC_RIGHT \
   ),
 
 [LY_LINUX] = LAYOUT(
@@ -55,7 +55,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
-  ____,    ____,   KC_LWIN, KC_LALT, ____,    ____,   ____,   ____,   ____,   ____,   KC_RCTL, ____,    ____,    ____,     ____,     ____     \
+  ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,  KC_RCTL,  ____,    ____,    ____,     ____,     ____     \
   ),
 
 [LY_WIN] = LAYOUT(
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
   ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,   ____,    ____,    ____,    ____,     ____,     ____,    \
-  ____,    ____,   KC_LWIN, KC_LALT, ____,    ____,   ____,   ____,   ____,   ____,   KC_RCTL, ____,    ____,    ____,     ____,     ____     \
+  ____,    ____,     ____,    ____,  ____,    ____,   ____,   ____,   ____,   ____,  KC_RCTL,  ____,    ____,    ____,     ____,     ____     \
   ),
 
 /* Raise
@@ -89,11 +89,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    ____,     xxx,     xxx,      KC_PGDN,  xxx      \
   ),
 
+/* Lower
+     C-L0   C-L1   C-L2   C-L3   C-L4   C-L5   C-L6   C-L7             C-R0   C-R1   C-R2   C-R3   C-R4   C-R5   C-R6   C-R7   
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+   |      |      |      |      |      |      |      |      |         |      |      |      |      |      |      |      |      | R0
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+   |      |      |      |      |      |      |      |      |         |      |      |      |      |      |      |      |      | R1
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+   |      |      |      |      |      |      |      |      |         |      |      |      |      |      |      |      |      | R2
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+   |      |      |      |      |      |      |      |      |         |      |      |      |      |      |      |      |      | R3
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+   |      |      |      |      |      |      |      |      |         |      |      |      |      |      |      |      |      | R4
+   +-------------------------------------------------------+         +-------------------------------------------------------+
+ */
+
 [LY_LOWER] = LAYOUT(
   xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,     xxx,     xxx,     xxx,      xxx,      xxx,     \
   xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,     xxx,     xxx,     xxx,      xxx,      xxx,     \
   xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,     xxx,     xxx,     xxx,      xxx,      xxx,     \
   xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,     xxx,     xxx,     xxx,      xxx,      xxx,     \
-  xxx,     xxx,      xxx,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    ____,     xxx,     xxx,      xxx,      xxx      \
+  xxx,     xxx,     ____,     xxx,   xxx,    xxx,    xxx,    xxx,    xxx,    xxx,    xxx,     xxx,     xxx,     xxx,      xxx,      xxx      \
   )
 };
