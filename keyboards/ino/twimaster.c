@@ -54,12 +54,12 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
   uint8_t   twst;
 
   // dprintf(">> i2c_start\n");
-  dprintf("device_addr:0x%X, rw_flag:%d\n", device_addr, rw_flag);
+  // dprintf("device_addr:0x%X, rw_flag:%d\n", device_addr, rw_flag);
 
   /* send START condition */
   TWCR = (1<<TWINT) | (1<<TWEN) | (1<<TWSTA);
 
-  dprintf("waiting until transmission completed\n");
+  // dprintf("waiting until transmission completed\n");
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */
@@ -73,7 +73,7 @@ bool i2c_start(uint8_t device_addr, uint8_t rw_flag)
   TWDR = (device_addr << 1) | rw_flag;         // bit7..1: device address, bit0: rw_flag
   TWCR = (1<<TWINT) | (1<<TWEN);
 
-  dprintf("waiting until transmission completed and ACK/NACK has been received\n"); 
+  // dprintf("waiting until transmission completed and ACK/NACK has been received\n"); 
   while(!(TWCR & (1<<TWINT)));
 
   /* check value of TWI Status Register. Mask prescaler bits. */

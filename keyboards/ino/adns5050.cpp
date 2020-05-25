@@ -122,7 +122,7 @@ uint8_t Adns5050::read(reg_t addr)
 	rd = SPI_ReceiveByte();
 
     writePinHigh(_pin_cs);             // _pin_cs --> HI
-    dprintf("  Adns5050::read OK: addr=%02X, data=%02X\n", addr, rd);
+    // dprintf("  Adns5050::read OK: addr=%02X, data=%02X\n", addr, rd);
 
 	_last_op = ADNS_50x0_READ;
     // dprintf("<< %s\n", __PRETTY_FUNCTION__);

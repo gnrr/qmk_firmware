@@ -90,9 +90,9 @@ void pointing_device_task(void)
     currentReport.y = y;                                // pointer y -127 .. 127
     currentReport.v = (enable_horizontal_scroll)? 0:s;  // scroll  v -127 .. 127
     currentReport.h = (enable_horizontal_scroll)? s:0;  // scroll  h -127 .. 127
-    debug_enable = true;
+    // debug_enable = true;
     // dprintf("s:%2d, h:%2d, -h:%2d\n", s, currentReport.h, -currentReport.h);
-    debug_enable = false;
+    // debug_enable = false;
     enable_horizontal_scroll = false;
 
 	pointing_device_set_report(currentReport);

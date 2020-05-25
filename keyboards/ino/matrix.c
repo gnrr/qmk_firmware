@@ -17,7 +17,6 @@
 #include "expander.h"
 
 #define EXPANDER_ENABLE
-#define DEBUG_MATRIX_SCAN_RATE
 
 /* matrix state(1:on, 0:off) */
 static matrix_row_t matrix[MATRIX_ROWS];
@@ -119,15 +118,8 @@ void debounce_report(matrix_row_t change, uint8_t row) {
 
 void matrix_print(void)
 {
-#define DEBUG_MATRIX_SCAN_RATE
-
 #ifdef DEBUG_MATRIX_SCAN_RATE
-#ifdef EXPANDER_ENABLE
-    const uint8_t ROW_START = ROW_START_EXPANDER;   // Expander + AVR
-#else
-    const uint8_t ROW_START = ROW_START_AVR;        // AVR only
-#endif
-    // debug_enable = true;
+    debug_enable = true;
     static uint32_t timer_old = 0;
     static uint32_t matrix_scan_count = 0;
     matrix_scan_count++;
@@ -138,7 +130,7 @@ void matrix_print(void)
 
         // print matrix
         dprint("r/c 01234567\n");
-        for (uint8_t row = ROW_START; row < MATRIX_ROWS; row++) {
+        for (uint8_t row = ROW_START_AVR; row < MATRIX_ROWS; row++) {
             dprintf("%02X: %08b\n", row, matrix_get_row(row));
         }
 

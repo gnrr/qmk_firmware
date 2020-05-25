@@ -35,7 +35,7 @@
 #define ROW_START_EXPANDER 5
 #define MATRIX_COLS        8
 
-/* trackball */
+/* trackball and scroll-ring */
 #define TRACKBALL_RESOLUTION    RES2_500CPI     // slow:125 <--> 1350:fast
 #define TRACKBALL_AZIMUTH_ADJ   0               // deg (+:ccw  -:cw)
 #define SCROLL_INVERT           false           // scroll direction
@@ -76,7 +76,7 @@
  * And so, there is no sense to have DEBOUNCE higher than 2.
  */
 
-#define USB_MAX_POWER_CONSUMPTION 500
+#define USB_MAX_POWER_CONSUMPTION 200
 
 /* enable user print (uprint) */
 // #define USER_PRINT
