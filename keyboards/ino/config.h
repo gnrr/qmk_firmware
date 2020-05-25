@@ -76,7 +76,7 @@
  * And so, there is no sense to have DEBOUNCE higher than 2.
  */
 
-#define USB_MAX_POWER_CONSUMPTION 200
+#define USB_MAX_POWER_CONSUMPTION 500
 
 /* enable user print (uprint) */
 // #define USER_PRINT
