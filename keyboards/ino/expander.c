@@ -20,7 +20,6 @@ void expander_attach(void)
 {
    // dprintf(">> %s\n", __func__);
 
-
     bool result = i2c_start(EXPANDER_ADDR, I2C_WRITE);
 
     if (result) {
@@ -40,7 +39,7 @@ void expander_attach(void)
         dprintf("  attached\n");
     }
 
-    // GPAx --> ROWS: output, active-lo
+    // GPAx --> ROWS: output, active-lo (*: default value)
     expander_write(EXPANDER_REG_IPOLA,  0x00);      // 0*: read LO => 0,    1 : read LO => 1 (* reset value)
     expander_write(EXPANDER_REG_GPPUA,  0x00);      // 0*: disable pullup,  1 : enable pullup
     expander_write(EXPANDER_REG_IODIRA, 0x00);      // 0 : output,          1*: input

@@ -74,6 +74,7 @@ void pointing_device_task(void)
     int8_t x = tb.get_dx();
     int8_t y = tb.get_dy();
     int8_t s;
+
     if((x == 0) && (y == 0)) {
         // dprintf("stat:%d\t", scroll.get_status());
         s = scroll.get();

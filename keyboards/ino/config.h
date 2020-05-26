@@ -36,8 +36,8 @@
 #define MATRIX_COLS        8
 
 /* trackball and scroll-ring */
-#define TRACKBALL_RESOLUTION    RES2_500CPI     // slow:125 <--> 1350:fast
-#define TRACKBALL_AZIMUTH_ADJ   0               // deg (+:ccw  -:cw)
+#define TRACKBALL_RESOLUTION    RES2_500CPI     // counts/inch (slow:125 <--> 1350:fast)
+#define TRACKBALL_AZIMUTH_ADJ   0               // degree      (cw:-45 <--> 45:ccw)
 #define SCROLL_INVERT           false           // scroll direction
 
 // #define TAPPING_TERM    200

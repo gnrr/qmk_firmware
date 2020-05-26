@@ -25,6 +25,44 @@ enum {LY_MAC   = 0,
 
 #define HSCRL KC_LSFT               // Enable horizontal scroll during ring-rotation holding this key
 
+// Switch IME with tapping Raise/Lower, thanks to http://leopardgecko.hatenablog.com/entry/2017/11/09/124103
+enum user_macro {
+    //                                  Hold      Tap
+    UM_L_EIS,                       //  Lower     EISU,MUHENKAN(JP)
+    UM_R_KAN,                       //  Raise     KANA,HENKAN(JP)
+    UM_L_SPC,                       //  Lower     Space
+    UM_R_SPC,                       //  Raise     Space
+    UM_HSCRL                        //  Enable horizontal scroll
+};
+#define L_EISU MACROTAP(UM_L_EIS)   // Lower/EISU
+#define R_KANA MACROTAP(UM_R_KAN)   // Raise/KANA
+#define L_SPC  MACROTAP(UM_L_SPC)   // Lower/Space
+#define R_SPC  MACROTAP(UM_R_SPC)   // Raise/Space
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch(id) {
+#if 0
+        case UM_L_EIS:              // Hold:Lower   Tap:EISU,MUHENKAN
+            return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), LY_LOWER );
+        case UM_R_KAN:              // Hold:Raise   Tap:KANA,HENKAN
+            return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), LY_RAISE );
+
+        case UM_L_SPC:              // Hold:Lower   Tap:Space
+            return MACRO_TAP_HOLD_LAYER( record, MACRO(T(MHEN), T(LANG2), END), LY_LOWER );
+        case UM_R_SPC:              // Hold:Raise   Tap:Space
+            return MACRO_TAP_HOLD_LAYER( record, MACRO(T(HENK), T(LANG1), END), LY_RAISE );
+#endif
+
+        case UM_HSCRL:
+            enable_horizontal_scroll = true;
+            return MACRO_NONE;
+        default:
+            return MACRO_NONE;
+    };
+    return MACRO_NONE;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* 

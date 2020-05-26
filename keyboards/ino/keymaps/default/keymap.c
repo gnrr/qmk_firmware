@@ -25,6 +25,22 @@ enum {LY_MAC   = 0,
 
 #define HSCRL KC_LSFT               // Enable horizontal scroll during ring-rotation holding this key
 
+enum user_macro {
+    UM_HSCRL                        //  Enable horizontal scroll
+};
+
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
+{
+    switch(id) {
+        case UM_HSCRL:
+            enable_horizontal_scroll = true;
+            return MACRO_NONE;
+        default:
+            return MACRO_NONE;
+    };
+    return MACRO_NONE;
+}
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* 

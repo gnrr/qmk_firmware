@@ -14,7 +14,7 @@ bool Trackball::init(const uint8_t pin_reset, const uint8_t pin_cs, const uint8_
     _sensor_status = _ball_sensor.init(pin_reset, pin_cs, pin_oe, spi_opts);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
-        dprintf("  Trackball::init error: can not connect to ball sensor! error code:%d\n", _sensor_status);
+        dprintf("  Trackball::init error: can not connect to trackball sensor! error code: %d\n", _sensor_status);
         return false;                                       // abend
     }
 
@@ -29,7 +29,7 @@ bool Trackball::update()
     // dprintf(">> %s\n", __PRETTY_FUNCTION__);
 
     if(_sensor_status != ADNS5050_ERR_INIT_SUCCESS) {
-        dprint("  Trackball::update error: can not connect to ball sensor\n");
+        dprint("  Trackball::update error: can not connect to trackball sensor\n");
         // dprintf("<< %s\n", __PRETTY_FUNCTION__);
         return false;                                            // abend
     }
@@ -74,7 +74,7 @@ int8_t Trackball::zero_adjust(const int8_t val)
     const int8_t THRESHOLD = 1;
 
     if(abs(val) < THRESHOLD) return 0;
-    if(val > 0) return val - THRESHOLD;      
+    if(val > 0) return val - THRESHOLD;
     return val + THRESHOLD;
 }
 
