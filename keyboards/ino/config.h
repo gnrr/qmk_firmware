@@ -64,7 +64,7 @@
 #define DISABLE_SPACE_CADET_ROLLOVER
 
 /* Set 0 if debouncing isn't needed */
-#define DEBOUNCE    5
+#define DEBOUNCE    2
 /*
  * This constant define not debouncing time in msecs, but amount of matrix
  * scan loops which should be made to get stable debounced results.
