@@ -82,6 +82,9 @@
 // #define USER_PRINT
 // #define DEBUG_MATRIX_SCAN_RATE
 
+/* watchdog timer */
+#define WDT_ENABLE
+
 /*
  * Feature disable options
  *  These options are also useful to firmware size reduction.

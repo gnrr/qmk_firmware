@@ -1,6 +1,9 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include <avr/io.h>
+#ifdef WDT_ENABLE
+  #include <avr/wdt.h>
+#endif
 #include "wait.h"
 #include "action_layer.h"
 #include "util.h"
@@ -11,7 +14,7 @@
 #include "matrix.h"
 
 #ifdef DEBUG_MATRIX_SCAN_RATE
-#include  "timer.h"
+  #include  "timer.h"
 #endif
 
 #include "expander.h"
@@ -90,6 +93,11 @@ void matrix_init(void)
 
     matrix_init_quantum();
     // dprintf("<< %s\n", __func__);
+
+#ifdef WDT_ENABLE
+    wdt_reset();
+    wdt_enable(WDTO_500MS);
+#endif
 }
 
 // Returns a matrix_row_t whose bits are set if the corresponding key should be
@@ -143,6 +151,10 @@ void matrix_print(void)
 uint8_t matrix_scan(void)
 {
    // dprintf(">> %s\n", __func__);
+
+#ifdef WDT_ENABLE
+    wdt_reset();
+#endif
 
 #ifdef EXPANDER_ENABLE
     expander_attach();
