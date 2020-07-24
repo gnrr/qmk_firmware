@@ -24,7 +24,7 @@ make ino:default
 and/or flashing firmware:
 
 ```
-make ino:default:dfu
+make ino:default:avrdude
 ```
 
 
